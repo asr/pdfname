@@ -1,0 +1,44 @@
+Release procedure:
+
+* Finish the CHANGELOG.
+
+* Remove `-Werror` from pdfname.cabal (this is required for uploading
+  the package to Hackage.
+
+* Run the test-suite:
+
+    make install-bin
+    make test
+
+* Ensure that cabal haddock works with the latest version supported of
+  GHC:
+
+    make haddock
+
+* Build source distributions:
+
+    cabal configure
+    cabal check
+    cabal sdist
+
+* Tag the release (do not forget to record the changes above first):
+
+    git tag -a v$VERSION -m "pdfname $VERSION release"
+
+* Upload the Cabal package:
+
+    cabal upload dist/pdfname-$VERSION.tar.gz
+
+* Push all changes
+
+    git push --follow-tags
+
+* Restore `-Werror` in pdfname.cabal.
+
+* Bump $VERSION in pdfname.cabal and test/succeed.test
+
+* Add a new header to CHANGELOG.
+
+* Push all changes
+
+    git push --follow-tags
