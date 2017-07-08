@@ -7,6 +7,7 @@ Description
 Name a PDF file using information (author, year of creation and title)
 from the `pdfinfo` program.
 
+
 Prerequisites
 --------------
 
@@ -16,6 +17,7 @@ Prerequisites
 
 * [pdfinfo](http://linuxcommand.org/man_pages/pdfinfo1.html) Unix
   program
+
 
 Installation
 ------------
@@ -32,7 +34,8 @@ Usage
 
 Just run `pdfname` on your PDF file.
 
-How is the file name chosen?
+
+How is the FileName Chosen?
 ---------------------------
 
 Given the author, year of creation and title information extracted
