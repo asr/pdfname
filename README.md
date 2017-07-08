@@ -66,3 +66,14 @@ Now, running `pdfname` on that file will create the new file
 ```
 /tmp/martin-lof-2010.introduction-to-the-lambda-calculus.pdf
 ```
+
+Bug Reporting
+-------------
+
+Use the [bug tracker](https://github.com/asr/pdfname/issues) for
+reporting bugs.
+
+If your bug includes a PDF file it is not necessary to disclose nor to
+attach the file. All that it is necessary is the *minimal* PDF
+metadata required for triggering the bug. There are various GUI,
+online and command-line tools for modifying the PDF metadata.
