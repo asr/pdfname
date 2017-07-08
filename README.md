@@ -1,4 +1,4 @@
-pdfname
+pdfname [![Hackage version](https://img.shields.io/hackage/v/pdfname.svg?label=Hackage)](http://hackage.haskell.org/package/pdfname)
 =======
 
 Description
