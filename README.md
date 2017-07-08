@@ -24,7 +24,7 @@ The program can installed with the following commands:
 
 ```bash
 $ cabal update
-$ cabal install
+$ cabal install pdfname
 ```
 
 Usage
