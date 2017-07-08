@@ -2,7 +2,7 @@ name:          pdfname
 version:       0.1.1
 license:       MIT
 license-file:  LICENSE
-author:        Andrés Sicard-Ramírez
+author:        Andrés Sicard-Ramírez with contributions by Juan Pedro Villa-Isaza.
 maintainer:    Andrés Sicard-Ramírez <asr@eafit.edu.co>
 copyright:     Andrés Sicard-Ramírez 2017
 homepage:      https://github.com/asr/pdfname#readme
