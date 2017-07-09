@@ -12,8 +12,9 @@ build-type:    Simple
 cabal-version: >= 1.10
 synopsis:      Name a PDF file using information from the pdfinfo command
 description:
-  pdfname names a PDF file using the author, year of creation and
-  title information extracted from the pdfinfo program.
+  The @pdfname@ command-line program names a PDF file using the
+  author, year of creation and title information extracted from the
+  @pdfinfo@ program.
 tested-with:   GHC == 8.0.2
 
 extra-source-files: CHANGELOG.md
