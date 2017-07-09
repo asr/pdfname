@@ -4,9 +4,9 @@ pdfname [![Hackage version](https://img.shields.io/hackage/v/pdfname.svg?label=H
 Description
 -----------
 
-Name a PDF file using information (author, year of creation and title)
-from the `pdfinfo` program.
-
+The `pdfname` command-line program names a PDF file using the author,
+year of creation and title information extracted from the `pdfinfo`
+program.
 
 Prerequisites
 --------------
@@ -17,7 +17,6 @@ Prerequisites
 
 * [pdfinfo](http://linuxcommand.org/man_pages/pdfinfo1.html) Unix
   program
-
 
 Installation
 ------------
