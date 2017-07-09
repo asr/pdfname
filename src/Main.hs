@@ -4,11 +4,9 @@
 module Main where
 
 import qualified Data.Text as T
-import qualified Data.Text.IO as T
 
 import Options.Applicative ( execParser )
 
-import System.Exit     ( exitFailure )
 import System.FilePath ( (</>) )
 
 import System.IO
@@ -61,6 +59,5 @@ main = do
         else createFile file newFile
 
     Left  err → do
-      T.hPutStr stderr "pdfInfo exception: "
       hPrint stderr err
-      exitFailure
+      die "PDF file or its metadata information is damaged."
