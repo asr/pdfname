@@ -1,8 +1,8 @@
 Changelog for pdfname
 =====================
 
-0.1.2 (in development)
-----------------------
+0.1.2 (released 2017-07-09)
+---------------------------
 
 [#1](https://github.com/asr/pdfname/issues/1), improved error message.
 
