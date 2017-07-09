@@ -223,9 +223,10 @@ chSubst =  chHexSubst ++ chNNSubst ++ chDecSubst ++ chUnicodeSubst
 
 authorSubst ∷ [(Text, Text)]
 authorSubst =
-  [ (", ",   ",")
-  , (" and", ",")
+  [ (", ",      ",")
+  , (" and",    ",")
   , ("Ã¡",      "a")  -- U+00C3 and U+00A1 (LATIN SMALL LETTER A WITH GRAVE)
+  , ("Ã©",      "e")  -- U+00C3 and U+00A9 (LATIN SMALL LETTER E WITH ACUTE)
   , ("Ã\x00AD", "i")  -- U+00C3 and U+00AD (LATIN SMALL LETTER I GRAVE)
   ]
 
