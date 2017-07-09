@@ -77,3 +77,18 @@ If your bug includes a PDF file it is not necessary to disclose nor to
 attach the file. All that it is necessary is the *minimal* PDF
 metadata required for triggering the bug. There are various GUI,
 online and command-line tools for modifying the PDF metadata.
+
+Known Errors
+------------
+
+If a PDF file or its metadata information is damaged `pdfname` (via
+the [`pdfinfo`](http://hackage.haskell.org/package/pdfinfo) library)
+generates an error. Known errors are
+
+* `ProcessError fd:5: hGetContents: invalid argument (invalid byte sequence)`
+
+* `ProcessFailure "Error: PDF file is damaged - attempting to
+  reconstruct xref table...\nError: Couldn't find trailer
+  dictionary\nError: Couldn't read xref table\n`
+
+If you get a different error message, please report it.
