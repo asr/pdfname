@@ -225,11 +225,8 @@ authorSubst ∷ [(Text, Text)]
 authorSubst =
   [ (", ",   ",")
   , (" and", ",")
-  -- See Issue #1.
-  , ("Ã\x00AD", "i")  -- U+00C3 and U+00AD
-  -- See Issue #1.
-  , ("Ã¡",      "a")  -- U+00C3 and U+00A1
-  , ("Mcbride", "McBride")
+  , ("Ã¡",      "a")  -- U+00C3 and U+00A1 (LATIN SMALL LETTER A WITH GRAVE)
+  , ("Ã\x00AD", "i")  -- U+00C3 and U+00AD (LATIN SMALL LETTER I GRAVE)
   ]
 
 ------------------------------------------------------------------------------
@@ -258,7 +255,6 @@ titleSubst =
   , ("<TEX>$\\gamma$</TEX>",                              "gamma")
   , ("<TEX>$\\epsilon$</TEX>",                            "epsilon")
   , ("<TEX>$\\eta$</TEX>",                                "eta")
-  -- See Issue #2.
   , ("<TEX>$\\lambda$</TEX>",                             "lambda")
   , ("<TEX>$\\pi$</TEX>",                                 "pi")
   , ("<TEX>$\\omega$</TEX>",                              "omega")
@@ -267,6 +263,7 @@ titleSubst =
   , ("<TEX>{\\sc QuickSpec}</TEX>:",                      "QuickSpec")
   , ("<TEX>{\\sc QuodLibet}</TEX>!",                      "QuodLibet")
   , ("<TEX>{\\sc Vampire}</TEX>",                         "Vampire")
-  , ("Å›", "s")  -- U+00C5 and U+203A
-  , ("Ã¶", "")   -- U+00C3 and U+00B6
+  -- We erase `Ã¶` because it follows an `o` in the examples we know.
+  , ("Ã¶", "")   -- U+00C3 and U+00B6 (LATIN SMALL LETTER O WITH DIAERESIS)
+  , ("Å›", "s")  -- U+00C5 and U+203A (LATIN CAPITAL LETTER S WITH ACUTE)
   ]
