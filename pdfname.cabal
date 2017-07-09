@@ -20,6 +20,10 @@ tested-with:   GHC == 8.0.2
 extra-source-files: CHANGELOG.md
                     README.md
 
+source-repository head
+  type:     git
+  location: https://github.com/asr/pdfname
+
 executable pdfname
   main-is:        Main.hs
   hs-source-dirs: src
