@@ -17,9 +17,19 @@ succeed :
 	          test/succeed.test
 	@echo "$@ succeeded!"
 
+# Tested with shelltestrunner 1.3.5.
+.PHONY : fail
+fail :
+	shelltest --color \
+	          --execdir \
+	          --precise \
+	          test/fail.test
+	@echo "$@ succeeded!"
+
 .PHONY : test
 test :
 	make succeed
+	make fail
 	@echo "$@ succeeded!"
 
 ##############################################################################

@@ -4,7 +4,6 @@ module Utilities
  ( (+++)
  , die
  , ifM
- , isPDF
  , progNameVersion
  , replace
  , unless_
@@ -20,19 +19,13 @@ import qualified Data.Text.IO as T
 
 import Data.Version ( showVersion )
 
-import Control.Monad ( replicateM, unless, void )
+import Control.Monad ( unless, void )
 
 import Paths_pdfname ( version )
 
 import System.Environment ( getProgName )
 import System.Exit        ( exitFailure )
-
-import System.IO
-  ( IOMode(ReadMode)
-  , hGetChar
-  , stderr
-  , withBinaryFile
-  )
+import System.IO          ( stderr )
 
 ------------------------------------------------------------------------------
 -- Utilities from the Agda library
@@ -76,10 +69,3 @@ upperFirst xs =
 -- TODO (2017-07-06): To use `getProgName`.
 progNameVersion ∷ String
 progNameVersion = "pdfname" ++ " version " ++ showVersion version
-
-isPDF ∷ FilePath → IO Bool
-isPDF f =
-  ifM ((==) "%PDF" <$> withBinaryFile f ReadMode (replicateM 4 . hGetChar))
-      (return True)
-      (return False)
-

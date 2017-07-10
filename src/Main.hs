@@ -3,8 +3,6 @@
 
 module Main where
 
-import qualified Data.Text as T
-
 import Options.Applicative ( execParser )
 
 import System.FilePath ( (</>) )
@@ -32,12 +30,7 @@ import Options
   , outputDir
   )
 
-import Utilities
-  ( (+++)
-  , die
-  , isPDF
-  , unlessM
-  )
+import Utilities ( die )
 
 ------------------------------------------------------------------------------
 
@@ -47,8 +40,6 @@ main = do
 
   let file ∷ FilePath
       file = optInputFile opts
-
-  unlessM (isPDF file) $ die $ T.pack file +++ " is not a PDF file"
 
   info ← pdfInfo file
   case info of
@@ -60,4 +51,4 @@ main = do
 
     Left  err → do
       hPrint stderr err
-      die "PDF file or its metadata information is damaged."
+      die "PDF file or its metadata information is damaged"

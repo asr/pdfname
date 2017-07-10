@@ -1,0 +1,17 @@
+# Issue #3: non-PDF file
+../dist/build/pdfname/pdfname --dry-run fail/issue-3-non-pdf-file.txt
+<<<
+>>>
+>>>2
+ProcessFailure "Error: May not be a PDF file (continuing anyway)\nError: PDF file is damaged - attempting to reconstruct xref table...\nError: Couldn't find trailer dictionary\nError: Couldn't read xref table\n"
+pdfname: PDF file or its metadata information is damaged
+>>>= 1
+
+# Issue #3: empty PDF file
+../dist/build/pdfname/pdfname --dry-run fail/issue-3-empty-pdf-file.pdf
+<<<
+>>>
+>>>2
+ProcessFailure "Error: May not be a PDF file (continuing anyway)\nError: PDF file is damaged - attempting to reconstruct xref table...\nError: Couldn't find trailer dictionary\nError: Couldn't read xref table\n"
+pdfname: PDF file or its metadata information is damaged
+>>>= 1
