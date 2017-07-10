@@ -5,7 +5,7 @@ Changelog for pdfname
 -----
 
 [#3](https://github.com/asr/pdfname/issues/3), an empty PDF file
-generates an error message instead of a exception.
+generates an error message instead of an exception.
 
 
 0.1.2
