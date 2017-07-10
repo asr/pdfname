@@ -58,5 +58,5 @@ main = do
       case pdfinfoErr of
         ProcessFailure err → T.hPutStr stderr err
         ProcessError err   → hPrint stderr err
-        _                  → T.hPutStr stderr ("TODO: Missing error message")
+        _                  → T.hPutStr stderr "TODO: Missing error message"
       die "PDF file or its metadata information is damaged"
