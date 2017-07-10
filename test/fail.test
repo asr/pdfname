@@ -3,7 +3,10 @@
 <<<
 >>>
 >>>2
-ProcessFailure "Error: May not be a PDF file (continuing anyway)\nError: PDF file is damaged - attempting to reconstruct xref table...\nError: Couldn't find trailer dictionary\nError: Couldn't read xref table\n"
+Error: May not be a PDF file (continuing anyway)
+Error: PDF file is damaged - attempting to reconstruct xref table...
+Error: Couldn't find trailer dictionary
+Error: Couldn't read xref table
 pdfname: PDF file or its metadata information is damaged
 >>>= 1
 
@@ -12,6 +15,9 @@ pdfname: PDF file or its metadata information is damaged
 <<<
 >>>
 >>>2
-ProcessFailure "Error: May not be a PDF file (continuing anyway)\nError: PDF file is damaged - attempting to reconstruct xref table...\nError: Couldn't find trailer dictionary\nError: Couldn't read xref table\n"
+Error: May not be a PDF file (continuing anyway)
+Error: PDF file is damaged - attempting to reconstruct xref table...
+Error: Couldn't find trailer dictionary
+Error: Couldn't read xref table
 pdfname: PDF file or its metadata information is damaged
 >>>= 1

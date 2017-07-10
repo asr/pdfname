@@ -82,12 +82,17 @@ Known Errors
 
 If a PDF file or its metadata information is damaged `pdfname` (via
 the [`pdfinfo`](http://hackage.haskell.org/package/pdfinfo) library)
-generates an error. Known errors are
+generates an error. Known errors are the followings:
 
-* `ProcessError fd:5: hGetContents: invalid argument (invalid byte sequence)`
+```
+ProcessError fd:5: hGetContents: invalid argument (invalid byte sequence)
+```
 
-* `ProcessFailure "Error: PDF file is damaged - attempting to
-  reconstruct xref table...\nError: Couldn't find trailer
-  dictionary\nError: Couldn't read xref table\n`
+```
+Error: May not be a PDF file (continuing anyway)
+Error: PDF file is damaged - attempting to reconstruct xref table...
+Error: Couldn't find trailer dictionary
+Error: Couldn't read xref table
+```
 
 If you get a different error message, please report it.

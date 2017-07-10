@@ -3,6 +3,8 @@
 
 module Main where
 
+import qualified Data.Text.IO as T
+
 import Options.Applicative ( execParser )
 
 import System.FilePath ( (</>) )
@@ -12,7 +14,10 @@ import System.IO
   , stderr
   )
 
-import Text.PDF.Info ( pdfInfo )
+import Text.PDF.Info
+  ( pdfInfo
+  , PDFInfoError(ProcessError, ProcessFailure)
+  )
 
 ------------------------------------------------------------------------------
 -- Local imports
@@ -49,6 +54,9 @@ main = do
         then putStrLn $ "The full path name will be " ++ outputDir </> newFile
         else createFile file newFile
 
-    Left  err → do
-      hPrint stderr err
+    Left pdfinfoErr → do
+      case pdfinfoErr of
+        ProcessFailure err → T.hPutStr stderr err
+        ProcessError err   → hPrint stderr err
+        _                  → T.hPutStr stderr ("TODO: Missing error message")
       die "PDF file or its metadata information is damaged"
