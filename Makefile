@@ -9,12 +9,17 @@ install-bin :
 # Test suite
 
 # Tested with shelltestrunner 1.3.5.
-.PHONY : test
-test :
+.PHONY : succeed
+succeed :
 	shelltest --color \
 	          --execdir \
 	          --precise \
 	          test/succeed.test
+	@echo "$@ succeeded!"
+
+.PHONY : test
+test :
+	make succeed
 	@echo "$@ succeeded!"
 
 ##############################################################################
