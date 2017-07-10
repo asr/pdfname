@@ -85,7 +85,7 @@ the [`pdfinfo`](http://hackage.haskell.org/package/pdfinfo) library)
 generates an error. Known errors are the followings:
 
 ```
-ProcessError fd:5: hGetContents: invalid argument (invalid byte sequence)
+fd:5: hGetContents: invalid argument (invalid byte sequence)
 ```
 
 ```
