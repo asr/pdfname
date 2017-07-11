@@ -1,4 +1,4 @@
-# Hexadecimal `&#x015B;` in title
+# Tile: Hexadecimal `&#x015B;`
 pdflatex --output-directory=/tmp/ succeed/title/hex-015B.tex >/dev/null 2>&1 && ../dist/build/pdfname/pdfname --dry-run /tmp/hex-015B.pdf
 <<<
 >>>
@@ -6,7 +6,7 @@ The full path name will be /tmp/author-2017.jaskowski.pdf
 >>>2
 >>>= 0
 
-# Unicode `U+0028` and `U+0029` in title
+# Title: Unicode `U+0028` and `U+0029`
 pdflatex --output-directory=/tmp/ succeed/title/unicode-0028-0029.tex >/dev/null 2>&1 && ../dist/build/pdfname/pdfname --dry-run /tmp/unicode-0028-0029.pdf
 <<<
 >>>
@@ -14,7 +14,7 @@ The full path name will be /tmp/author-2017.the-codatatypes-in-the-title.pdf
 >>>2
 >>>= 0
 
-# Space after comma in title
+# Title: Space after comma
 pdflatex --output-directory=/tmp/ succeed/title/space-after-comma.tex >/dev/null 2>&1 && ../dist/build/pdfname/pdfname --dry-run /tmp/space-after-comma.pdf
 <<<
 >>>
@@ -22,7 +22,7 @@ The full path name will be /tmp/author-2017.title-part-ii.pdf
 >>>2
 >>>= 0
 
-# Hexadecimal `&#x00FC;` and `&#x201D;` and `&#x201E;` in title
+# Title: Hexadecimal `&#x00FC;` and `&#x201D;` and `&#x201E;`
 pdflatex --output-directory=/tmp/ succeed/title/hex-00FC-201D-201E.tex >/dev/null 2>&1 && ../dist/build/pdfname/pdfname --dry-run /tmp/hex-00FC-201D-201E.pdf
 <<<
 >>>
@@ -30,7 +30,7 @@ The full path name will be /tmp/author-2017.begrundung-des-tertium-non-datur.pdf
 >>>2
 >>>= 0
 
-# Emphasis italic 0 in title
+# Title: Emphasis italic 0
 pdflatex --output-directory=/tmp/ succeed/title/emphasis-italic-0.tex >/dev/null 2>&1 && ../dist/build/pdfname/pdfname --dry-run /tmp/emphasis-italic-0.pdf
 <<<
 >>>
@@ -38,7 +38,7 @@ The full path name will be /tmp/author-2017.some-title-0.pdf
 >>>2
 >>>= 0
 
-# Subscript 3 in title
+# Title: Subscript 3
 pdflatex --output-directory=/tmp/ succeed/title/subscript-3.tex >/dev/null 2>&1 && ../dist/build/pdfname/pdfname --dry-run /tmp/subscript-3.pdf
 <<<
 >>>
@@ -46,7 +46,7 @@ The full path name will be /tmp/author-2017.j-3.pdf
 >>>2
 >>>= 0
 
-# Unicode `Å›` (`U+00C5` and `U+203A`) in title
+# Title: Unicode `Å›` (`U+00C5` and `U+203A`)
 xelatex --output-directory=/tmp/ succeed/title/unicode-00C5-203A.tex >/dev/null 2>&1 && ../dist/build/pdfname/pdfname --dry-run /tmp/unicode-00C5-203A.pdf
 <<<
 >>>
@@ -54,7 +54,7 @@ The full path name will be /tmp/author-2017.lesniewski.pdf
 >>>2
 >>>= 0
 
-# Unicode `Ã¶` (`U+00C3` and `U+00B6`) in title
+# Title: Unicode `Ã¶` (`U+00C3` and `U+00B6`)
 xelatex --output-directory=/tmp/ succeed/title/unicode-00C3-00B6.tex >/dev/null 2>&1 && ../dist/build/pdfname/pdfname --dry-run /tmp/unicode-00C3-00B6.pdf
 <<<
 >>>
@@ -62,7 +62,7 @@ The full path name will be /tmp/author-2017.godel.pdf
 >>>2
 >>>= 0
 
-# Subscript hexadecimal `&#x03C9;` in title
+# Title: Subscript hexadecimal `&#x03C9;`
 pdflatex --output-directory=/tmp/ succeed/title/subscript-hex-03C9.tex >/dev/null 2>&1 && ../dist/build/pdfname/pdfname --dry-run /tmp/subscript-hex-03C9.pdf
 <<<
 >>>
@@ -70,7 +70,7 @@ The full path name will be /tmp/author-2017.c-omega-cc.pdf
 >>>2
 >>>= 0
 
-#  Unicode `Ã\x00AD` (`U+00C3` and `U+00AD`) and Unicode `Ã¡` (U+00C3 and U+00A1) in title
+#  Title: Unicode `Ã\x00AD` (`U+00C3` and `U+00AD`) and Unicode `Ã¡` (U+00C3 and U+00A1)
 xelatex --output-directory=/tmp/ succeed/author/unicode-00A1-00AD-00C3.tex >/dev/null 2>&1 && ../dist/build/pdfname/pdfname --dry-run /tmp/unicode-00A1-00AD-00C3.pdf
 <<<
 >>>
@@ -78,7 +78,7 @@ The full path name will be /tmp/marin-suarez-2017.title.pdf
 >>>2
 >>>= 0
 
-# Forename and surname
+# Author: Forename and surname
 pdflatex --output-directory=/tmp/ succeed/author/forename-surname.tex >/dev/null 2>&1 && ../dist/build/pdfname/pdfname --dry-run /tmp/forename-surname.pdf
 <<<
 >>>
@@ -86,7 +86,55 @@ The full path name will be /tmp/surname-2017.title.pdf
 >>>2
 >>>= 0
 
-# TeX lambda in title
+# Author: Forename, middle name and surname
+pdflatex --output-directory=/tmp/ succeed/author/forename-middlename-surname.tex >/dev/null 2>&1 && ../dist/build/pdfname/pdfname --dry-run /tmp/forename-middlename-surname.pdf
+<<<
+>>>
+The full path name will be /tmp/surname-2017.title.pdf
+>>>2
+>>>= 0
+
+# Author: Forename, initial letter middle name and surname
+pdflatex --output-directory=/tmp/ succeed/author/forename-initial-dot-surname.tex >/dev/null 2>&1 && ../dist/build/pdfname/pdfname --dry-run /tmp/forename-initial-dot-surname.pdf
+<<<
+>>>
+The full path name will be /tmp/surname-2017.title.pdf
+>>>2
+>>>= 0
+
+# Author: Two forenames and surnames separate by `and`
+pdflatex --output-directory=/tmp/ succeed/author/forename-surname-and-forename-surname.tex >/dev/null 2>&1 && ../dist/build/pdfname/pdfname --dry-run /tmp/forename-surname-and-forename-surname.pdf
+<<<
+>>>
+The full path name will be /tmp/surname1-surname2-2017.title.pdf
+>>>2
+>>>= 0
+
+# Author: Two forenames and surnames separate by `comma`
+pdflatex --output-directory=/tmp/ succeed/author/forename-surname-comma-forename-surname.tex >/dev/null 2>&1 && ../dist/build/pdfname/pdfname --dry-run /tmp/forename-surname-comma-forename-surname.pdf
+<<<
+>>>
+The full path name will be /tmp/surname1-surname2-2017.title.pdf
+>>>2
+>>>= 0
+
+# Author: Three forenames and surnames separate by US `comma` ending in `and`
+pdflatex --output-directory=/tmp/ succeed/author/forename-surname-comma-forename-surname-comma-and-forename-surname.tex >/dev/null 2>&1 && ../dist/build/pdfname/pdfname --dry-run /tmp/forename-surname-comma-forename-surname-comma-and-forename-surname.pdf
+<<<
+>>>
+The full path name will be /tmp/surname1-surname2-surname3-2017.title.pdf
+>>>2
+>>>= 0
+
+# Author: Three forenames and surnames separate by UK `comma` ending in `and`
+pdflatex --output-directory=/tmp/ succeed/author/forename-surname-comma-forename-surname-and-forename-surname.tex >/dev/null 2>&1 && ../dist/build/pdfname/pdfname --dry-run /tmp/forename-surname-comma-forename-surname-and-forename-surname.pdf
+<<<
+>>>
+The full path name will be /tmp/surname1-surname2-surname3-2017.title.pdf
+>>>2
+>>>= 0
+
+# Title: TeX lambda
 xelatex --output-directory=/tmp/ succeed/title/tex-lambda.tex >/dev/null 2>&1 && ../dist/build/pdfname/pdfname --dry-run /tmp/tex-lambda.pdf
 <<<
 >>>
@@ -94,18 +142,7 @@ The full path name will be /tmp/author-2017.lambda-calculus.pdf
 >>>2
 >>>= 0
 
-# README example
-xelatex --output-directory=/tmp/ succeed/readme-example.tex >/dev/null 2>&1 && ../dist/build/pdfname/pdfname --dry-run /tmp/readme-example.pdf
-<<<
->>>
-The full path name will be /tmp/martin-lof-2010.introduction-to-the-lambda-calculus.pdf
->>>2
->>>= 0
-
-##############################################################################
-# Command-line options
-
-# No options
+# Command-line options: No options
 ../dist/build/pdfname/pdfname
 <<<
 >>>
@@ -115,7 +152,7 @@ Missing: FILE
 Usage: pdfname [-V|--version] [--dry-run] FILE
 >>>= 1
 
-# --help
+# Command-line options: --help
 ../dist/build/pdfname/pdfname --help
 <<<
 >>>
@@ -129,10 +166,18 @@ Available options:
 >>>2
 >>>= 0
 
-# --version
+# Command-line options: Command-line option --version
 ../dist/build/pdfname/pdfname --version
 <<<
 >>>
 pdfname version 0.1.3
+>>>2
+>>>= 0
+
+# Other: README example
+xelatex --output-directory=/tmp/ succeed/readme-example.tex >/dev/null 2>&1 && ../dist/build/pdfname/pdfname --dry-run /tmp/readme-example.pdf
+<<<
+>>>
+The full path name will be /tmp/martin-lof-2010.introduction-to-the-lambda-calculus.pdf
 >>>2
 >>>= 0
