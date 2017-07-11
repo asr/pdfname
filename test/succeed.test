@@ -86,6 +86,14 @@ The full path name will be /tmp/surname-2017.title.pdf
 >>>2
 >>>= 0
 
+# Author: Initial and surname
+pdflatex --output-directory=/tmp/ succeed/author/initial-surname.tex >/dev/null 2>&1 && ../dist/build/pdfname/pdfname --dry-run /tmp/initial-surname.pdf
+<<<
+>>>
+The full path name will be /tmp/surname-2017.title.pdf
+>>>2
+>>>= 0
+
 # Author: Forename, middle name and surname
 pdflatex --output-directory=/tmp/ succeed/author/forename-middlename-surname.tex >/dev/null 2>&1 && ../dist/build/pdfname/pdfname --dry-run /tmp/forename-middlename-surname.pdf
 <<<
@@ -95,10 +103,27 @@ The full path name will be /tmp/surname-2017.title.pdf
 >>>= 0
 
 # Author: Forename, initial letter middle name and surname
-pdflatex --output-directory=/tmp/ succeed/author/forename-initial-dot-surname.tex >/dev/null 2>&1 && ../dist/build/pdfname/pdfname --dry-run /tmp/forename-initial-dot-surname.pdf
+pdflatex --output-directory=/tmp/ succeed/author/forename-initial-surname.tex >/dev/null 2>&1 && ../dist/build/pdfname/pdfname --dry-run /tmp/forename-initial-surname.pdf
 <<<
 >>>
 The full path name will be /tmp/surname-2017.title.pdf
+>>>2
+>>>= 0
+
+# Author: Forename, surname1 and surname2
+pdflatex --output-directory=/tmp/ succeed/author/forename-surname1-surname2.tex >/dev/null 2>&1 && ../dist/build/pdfname/pdfname --dry-run /tmp/forename-surname1-surname2.pdf
+<<<
+>>>
+The full path name will be /tmp/surname1-surname2-2017.title.pdf
+>>>2
+>>>= 0
+
+
+# Author: Forename, initial letter middle name, surname1 and surname2
+pdflatex --output-directory=/tmp/ succeed/author/forename-initial-surname1-surname2.tex >/dev/null 2>&1 && ../dist/build/pdfname/pdfname --dry-run /tmp/forename-initial-surname1-surname2.pdf
+<<<
+>>>
+The full path name will be /tmp/surname1-surname2-2017.title.pdf
 >>>2
 >>>= 0
 
