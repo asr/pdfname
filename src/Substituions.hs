@@ -115,6 +115,7 @@ chUnicodeSubst =
   , ("\"",          "")         -- U+0022 QUOTATION MARK
   , ("#",           "")         -- U+0023 NUMBER SIGN
   , ("$",           "")         -- U+0024 DOLLAR SIGN
+  , ("%",           "")         -- U+0025 PERCENT SIGN
   , ("&",           "")         -- U+0026 AMPERSAND
   , ("'",           "")         -- U+0027 APOSTROPHE
   , ("(",           "")         -- U+0028 LEFT PARENTHESIS
@@ -122,10 +123,8 @@ chUnicodeSubst =
   , ("*",           "")         -- U+002A ASTERISK
   , ("+",           "")         -- U+002B PLUS SIGN
   , (",",           "")         -- U+002C COMMA
-  , ("/",           "-")        -- U+002F SOLIDUS
-  , ("²",           "2")        -- U+00B2 SUPERSCRIPT TWO
-  , ("³",           "3")        -- U+00B3 SUPERSCRIPT THREE
-  , ("¹",           "1")        -- U+00B9 SUPERSCRIPT ONE
+  , (".",           "")         -- U+002D FULL STOP
+  , ("/",           "")         -- U+002F SOLIDUS
   , (":",           ".")        -- U+003A COLON
   , (";",           ".")        -- U+003B SEMICOLON
   , ("<",           "")         -- U+003C LESS-THAN SIGN
@@ -136,11 +135,17 @@ chUnicodeSubst =
   , ("[",           "")         -- U+005B LEFT SQUARE BRACKET
   , ("\\",          "")         -- U+005C REVERSE SOLIDUS
   , ("]",           "")         -- U+005D RIGHT SQUARE BRACKET
+  , ("^",           "")         -- U+005E CIRCUMFLEX ACCENT
   , ("_",           "-")        -- U+005F LOW LINE
   , ("`",           "")         -- U+0060 GRAVE ACCENT
+  , ("{",           "")         -- U+007B LEFT CURLY BRACKET
   , ("|",           "")         -- U+007C VERTICAL LINE
+  , ("}",           "")         -- U+007B RIGHT CURLY BRACKET
   , ("¡",           "")         -- U+00A1 INVERTED EXCLAMATION MARK
   , ("¬",           "")         -- U+00AC NOT SIGN
+  , ("²",           "2")        -- U+00B2 SUPERSCRIPT TWO
+  , ("³",           "3")        -- U+00B3 SUPERSCRIPT THREE
+  , ("¹",           "1")        -- U+00B9 SUPERSCRIPT ONE
   , ("À",           "A")        -- U+00C0 LATIN CAPITAL LETTER A WITH GRAVE
   , ("Á",           "A")        -- U+00C1 LATIN CAPITAL LETTER A WITH ACUTE
   , ("Ã",           "A")        -- U+00C3 LATIN CAPITAL LETTER A WITH TILDE
