@@ -3,14 +3,19 @@
 
 .PHONY : install-bin
 install-bin :
-	cabal install --disable-documentation
+	cabal install --enable-tests --disable-documentation
 
 ##############################################################################
 # Test suite
 
+.PHONY : succeed-tasty
+succeed-tasty :
+	cd test && ../dist/build/pdfname-tests/pdfname-tests
+	@echo "$@ succeeded!"
+
 # Tested with shelltestrunner 1.3.5.
-.PHONY : succeed
-succeed :
+.PHONY : succeed-shelltestrunner
+succeed-shelltestrunner :
 	shelltest --color \
 	          --execdir \
 	          --precise \
@@ -28,7 +33,8 @@ fail :
 
 .PHONY : test
 test :
-	make succeed
+	make succeed-tasty
+	make succeed-shelltestrunner
 	make fail
 	@echo "$@ succeeded!"
 
