@@ -155,33 +155,48 @@ chUnicodeSubst =
   , ("Ã",           "A")        -- U+00C3 LATIN CAPITAL LETTER A WITH TILDE
   , ("Ä",           "A")        -- U+00C4 LATIN CAPITAL LETTER A WITH DIAERESIS
   , ("Å",           "A")        -- U+00C5 LATIN CAPITAL LETTER A WITH RING ABOVE
-  , ("Æ",           "E")        -- U+00C6 LATIN CAPITAL LETTER AE
+  , ("Æ",           "AE")       -- U+00C6 LATIN CAPITAL LETTER AE
+  , ("Ç",           "C")        -- U+00C7 LATIN CAPITAL LETTER C WITH CEDILLA
+  , ("È",           "E")        -- U+00C8 LATIN CAPITAL LETTER E WITH GRAVE
   , ("É",           "E")        -- U+00C9 LATIN CAPITAL LETTER E WITH ACUTE
+  , ("Ê",           "E")        -- U+00CA LATIN CAPITAL LETTER E WITH CIRCUMFLEX
+  , ("Ë",           "E")        -- U+00CB LATIN CAPITAL LETTER E WITH DIAERESIS
   , ("Í",           "I")        -- U+00CD LATIN CAPITAL LETTER I WITH ACUTE
   , ("Î",           "I")        -- U+00CE LATIN CAPITAL LETTER I WITH CIRCUMFLEX
+  , ("Ï",           "I")        -- U+00CF LATIN CAPITAL LETTER I WITH DIAERESIS
   , ("Ñ",           "N")        -- U+00D1 LATIN CAPITAL LETTER N WITH TILDE
   , ("Ó",           "O")        -- U+00D3 LATIN CAPITAL LETTER O WITH ACUTE
+  , ("Ô",           "O")        -- U+00D4 LATIN CAPITAL LETTER O WITH CIRCUMFLEX
   , ("Ú",           "U")        -- U+00DA LATIN CAPITAL LETTER U WITH ACUTE
+  , ("Û",           "U")        -- U+00DB LATIN CAPITAL LETTER U WITH CIRCUMFLEX
   , ("Ü",           "U")        -- U+00DC LATIN CAPITAL LETTER U WITH DIAERESIS
   , ("Ö",           "O")        -- U+00D6 LATIN CAPITAL LETTER O WITH DIAERESIS
   , ("×",           "")         -- U+00D7 MULTIPLICATION SIGN
+  , ("Ù",           "U")        -- U+00D9 LATIN CAPITAL LETTER U WITH GRAVE
   , ("à",           "a")        -- U+00E0 LATIN SMALL LETTER A WITH GRAVE
   , ("á",           "a")        -- U+00E1 LATIN SMALL LETTER A WITH ACUTE
   , ("â",           "a")        -- U+00E2 LATIN SMALL LETTER A CIRCUMFLEX
   , ("ã",           "a")        -- U+00E3 LATIN SMALL LETTER A WITH TILDE
   , ("ä",           "a")        -- U+00E4 LATIN SMALL LETTER A WITH DIAERESIS
   , ("å",           "a")        -- U+00E5 LATIN SMALL LETTER A WITH RING ABOVE
-  , ("æ",           "e")        -- U+00E6 LATIN SMALL LETTER AE
+  , ("æ",           "ae")       -- U+00E6 LATIN SMALL LETTER AE
   , ("ç",           "c")        -- U+00E7 LATIN SMALL LETTER C WITH CEDILLA
+  , ("è",           "e")        -- U+00E8 LATIN SMALL LETTER E WITH GRAVE
   , ("é",           "e")        -- U+00E9 LATIN SMALL LETTER E WITH ACUTE
+  , ("ê",           "e")        -- U+00EA LATIN SMALL LETTER E WITH CIRCUMFLEX
+  , ("ë",           "e")        -- U+00EB LATIN SMALL LETTER E WITH DIAERESIS
   , ("í",           "i")        -- U+00ED LATIN SMALL LETTER I WITH ACUTE
   , ("î",           "i")        -- U+00EE LATIN SMALL LETTER I WITH CIRCUMFLEX
+  , ("ï",           "i")        -- U+00EF LATIN SMALL LETTER I WITH DIAERESIS
   , ("ñ",           "n")        -- U+00F1 LATIN SMALL LETTER N WITH TILDE
   , ("ò",           "o")        -- U+00F2 LATIN SMALL LETTER O WITH GRAVE
   , ("ó",           "o")        -- U+00F3 LATIN SMALL LETTER O WITH ACUTE
+  , ("ô",           "o")        -- U+00F4 LATIN SMALL LETTER O WITH CIRCUMFLEX
   , ("ö",           "o")        -- U+00F6 LATIN SMALL LETTER O WITH DIAERESIS
   , ("ø",           "o")        -- U+00F8 LATIN SMALL LETTER O WITH STROKE
+  , ("ù",           "u")        -- U+00F9 LATIN SMALL LETTER U WITH GRAVE
   , ("ú",           "u")        -- U+00FA LATIN SMALL LETTER U WITH ACUTE
+  , ("û",           "u")        -- U+00FB LATIN SMALL LETTER U WITH CIRCUMFLEX
   , ("ü",           "u")        -- U+00FC LATIN SMALL LETTER U WITH DIAERESIS
   , ("þ",           "t")        -- U+00FE LATIN SMALL LETTER THORN
   , ("ÿ",           "y")        -- U+00FF LATIN SMALL LETTER Y WITH DIAERESIS
@@ -191,6 +206,8 @@ chUnicodeSubst =
   , ("č",           "c")        -- U+010D LATIN SMALL LETTER C WITH CARON
   , ("Ł",           "L")        -- U+0141 LATIN CAPITAL LETTER L WITH STROKE
   , ("ņ",           "n")        -- U+0146 LATIN SMALL LETTER N WITH CEDILLA
+  , ("Œ",           "OE")       -- U+0152 LATIN CAPITAL LIGATURE OE
+  , ("œ",           "oe")       -- U+0153 LATIN SMALL LIGATURE OE
   , ("ř",           "r")        -- U+0159 LATIN SMALL LETTER R WITH CARON
   , ("š",           "s")        -- U+0161 LATIN SMALL LETTER S WITH CARON
   , ("ū",           "u")        -- U+016B LATIN SMALL LETTER U WITH MACRON
