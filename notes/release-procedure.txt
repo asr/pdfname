@@ -15,6 +15,8 @@ Release procedure:
 
     make haddock
 
+* Remove Cabal tests-suite from pdfname.cabal.
+
 * Build source distributions:
 
     cabal configure
@@ -32,6 +34,8 @@ Release procedure:
 * Push all changes
 
     git push --follow-tags
+
+* Restore Cabal test-suite in pdfname.cabal.
 
 * Restore `-Werror` in pdfname.cabal.
 
