@@ -3,6 +3,7 @@
 module Substituions
   ( authorSubst
   , chSubst
+  , commonSubst
   , titleSubst
   ) where
 
@@ -161,6 +162,7 @@ chUnicodeSubst =
   , ("Ñ",           "N")        -- U+00D1 LATIN CAPITAL LETTER N WITH TILDE
   , ("Ó",           "O")        -- U+00D3 LATIN CAPITAL LETTER O WITH ACUTE
   , ("Ú",           "U")        -- U+00DA LATIN CAPITAL LETTER U WITH ACUTE
+  , ("Ü",           "U")        -- U+00DC LATIN CAPITAL LETTER U WITH DIAERESIS
   , ("Ö",           "O")        -- U+00D6 LATIN CAPITAL LETTER O WITH DIAERESIS
   , ("×",           "")         -- U+00D7 MULTIPLICATION SIGN
   , ("à",           "a")        -- U+00E0 LATIN SMALL LETTER A WITH GRAVE
@@ -244,15 +246,26 @@ chSubst ∷ [(Text, Text)]
 chSubst =  chHexSubst ++ chNNSubst ++ chDecSubst ++ chUnicodeSubst
 
 ------------------------------------------------------------------------------
+-- Author and title substituions
+
+commonSubst ∷ [(Text, Text)]
+commonSubst =
+  [ ("Ã¡",      "a")  -- U+00C3 and U+00A1 (LATIN SMALL LETTER A WITH GRAVE)
+  , ("Ã©",      "e")  -- U+00C3 and U+00A9 (LATIN SMALL LETTER E WITH ACUTE)
+  , ("Ã\x00AD", "i")  -- U+00C3 and U+00AD (LATIN SMALL LETTER I GRAVE)
+  -- We erase `Ã¶` because it follows an `o` in the examples we know.
+  , ("Ã¶",      "")   -- U+00C3 and U+00B6 (LATIN SMALL LETTER O WITH DIAERESIS)
+  , ("Å›",      "s")  -- U+00C5 and U+203A (LATIN CAPITAL LETTER S WITH ACUTE)
+  ]
+
+------------------------------------------------------------------------------
 -- Author substituions
 
 authorSubst ∷ [(Text, Text)]
 authorSubst =
-  [ (", ",      ",")
-  , (" and",    ",")
-  , ("Ã¡",      "a")  -- U+00C3 and U+00A1 (LATIN SMALL LETTER A WITH GRAVE)
-  , ("Ã©",      "e")  -- U+00C3 and U+00A9 (LATIN SMALL LETTER E WITH ACUTE)
-  , ("Ã\x00AD", "i")  -- U+00C3 and U+00AD (LATIN SMALL LETTER I GRAVE)
+  [ (", ",   ",")
+  , (" and", ",")
+
   ]
 
 ------------------------------------------------------------------------------
@@ -289,7 +302,4 @@ titleSubst =
   , ("<TEX>{\\sc QuickSpec}</TEX>:",                      "QuickSpec")
   , ("<TEX>{\\sc QuodLibet}</TEX>!",                      "QuodLibet")
   , ("<TEX>{\\sc Vampire}</TEX>",                         "Vampire")
-  -- We erase `Ã¶` because it follows an `o` in the examples we know.
-  , ("Ã¶", "")   -- U+00C3 and U+00B6 (LATIN SMALL LETTER O WITH DIAERESIS)
-  , ("Å›", "s")  -- U+00C5 and U+203A (LATIN CAPITAL LETTER S WITH ACUTE)
   ]

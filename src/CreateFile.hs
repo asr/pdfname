@@ -29,6 +29,7 @@ import Options ( outputDir )
 import Substituions
   ( authorSubst
   , chSubst
+  , commonSubst
   , titleSubst
   )
 
@@ -55,6 +56,7 @@ getAuthor xs =
       . map (T.toLower . T.reverse . T.takeWhile (' ' /=) . T.reverse)
       . T.split (',' ==)
       . replace authorSubst
+      . replace commonSubst
     ) xs
 
 getYear ∷ Text → Text
@@ -69,6 +71,7 @@ getTitle xs =
     ( T.toLower
       . replace chSubst
       . replace titleSubst
+      . replace commonSubst
     ) xs
 
 generateFileName ∷ PDFInfo → IO FilePath
