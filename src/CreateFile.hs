@@ -39,13 +39,15 @@ import Utilities
   )
 
 ------------------------------------------------------------------------------
-defaultValue ∷ Text
-defaultValue = "xx"
+defaultAuthor, defaultTitle, defaultYear ∷ Text
+defaultAuthor = "no-author"
+defaultTitle  = "no-title"
+defaultYear   = "no-year"
 
 getAuthor ∷ Text → Text
 getAuthor xs =
   if T.null xs
-  then defaultValue
+  then defaultYear
   else
     -- NB that the substituions are not commutative.
     ( replace chSubst
@@ -56,12 +58,12 @@ getAuthor xs =
     ) xs
 
 getYear ∷ Text → Text
-getYear xs = if T.null xs then defaultValue else T.take 4 xs
+getYear xs = if T.null xs then defaultYear else T.take 4 xs
 
 getTitle ∷ Text → Text
 getTitle xs =
   if T.null xs
-  then defaultValue
+  then defaultTitle
   else
     -- NB that the substituions are not commutative.
     ( T.toLower
@@ -73,7 +75,7 @@ generateFileName ∷ PDFInfo → IO FilePath
 generateFileName info = do
 
   let authorHelper ∷ Text
-      authorHelper = maybe defaultValue getAuthor $ pdfInfoAuthor info
+      authorHelper = maybe defaultAuthor getAuthor $ pdfInfoAuthor info
 
   author ← if validateName authorHelper
            then return authorHelper
@@ -83,10 +85,10 @@ generateFileName info = do
                        +++ "`"
 
   let year ∷ Text
-      year = maybe defaultValue (getYear . T.pack . show ) $ pdfInfoCreationDate info
+      year = maybe defaultYear (getYear . T.pack . show ) $ pdfInfoCreationDate info
 
   let titleHelper ∷ Text
-      titleHelper = maybe defaultValue getTitle $ pdfInfoTitle info
+      titleHelper = maybe defaultTitle getTitle $ pdfInfoTitle info
 
   title ← if validateName titleHelper
             then return titleHelper
