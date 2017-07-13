@@ -202,17 +202,33 @@ chUnicodeSubst =
   , ("þ",           "t")        -- U+00FE LATIN SMALL LETTER THORN
   , ("ÿ",           "y")        -- U+00FF LATIN SMALL LETTER Y WITH DIAERESIS
   , ("Ă",           "A")        -- U+0102 LATIN CAPITAL LETTER A WITH BREVE
-  , ("ă",           "a")        -- U+0103 LATIN SMALL LETTER A WITH BREVE
+  , ("ă",           "a")        -- U+0103 LATIN SMALL LETTER A WITH
+  -- TODO (2017-07-13): The generated characters for `Ą` and `ą` are
+  -- in upper case (Polish language).
+  , ("Ą",           "A")        -- U+0104 LATIN CAPITAL LETTER A WITH OGONEK
+  , ("ą",           "A")        -- U+0105 LATIN SMALL LETTER A WITH OGONEK
+  , ("Ć",           "c")        -- U+0106 LATIN CAPITAL LETTER C WITH ACUTE
   , ("ć",           "c")        -- U+0107 LATIN SMALL LETTER C WITH ACUTE
   , ("č",           "c")        -- U+010D LATIN SMALL LETTER C WITH CARON
+  , ("Ę",           "e")        -- U+0118 LATIN CAPITAL LETTER E WITH OGONEK
+  , ("ę",           "e")        -- U+0119 LATIN SMALL LETTER E WITH OGONEK
   , ("Ł",           "L")        -- U+0141 LATIN CAPITAL LETTER L WITH STROKE
+  , ("ł",           "L")        -- U+0142 LATIN SMALL LETTER L WITH STROKE
+  , ("Ń",           "N")        -- U+0143 LATIN CAPITAL LETTER N WITH ACUTE
+  , ("ń",           "n")        -- U+0144 LATIN SMALL LETTER N WITH ACUTE
   , ("ņ",           "n")        -- U+0146 LATIN SMALL LETTER N WITH CEDILLA
   , ("Œ",           "OE")       -- U+0152 LATIN CAPITAL LIGATURE OE
   , ("œ",           "oe")       -- U+0153 LATIN SMALL LIGATURE OE
   , ("ř",           "r")        -- U+0159 LATIN SMALL LETTER R WITH CARON
+  , ("Ś",           "S")        -- U+015A LATIN CAPITAL LETTER S WITH ACUTE
+  , ("ś",           "s")        -- U+015B LATIN SMALL LETTER S WITH ACUTE
   , ("š",           "s")        -- U+0161 LATIN SMALL LETTER S WITH CARON
   , ("ū",           "u")        -- U+016B LATIN SMALL LETTER U WITH MACRON
   , ("Ÿ",           "Y")        -- U+0178 LATIN CAPITAL LETTER Y WITH DIAERESIS
+  , ("Ź",           "Z")        -- U+0179 LATIN CAPITAL LETTER Z WITH ACUTE
+  , ("ź",           "z")        -- U+017A LATIN SMALL LETTER Z WITH ACUTE
+  , ("Ż",           "Z")        -- U+017B LATIN CAPITAL LETTER Z WITH DOT ABOVE
+  , ("ż",           "z")        -- U+017C LATIN SMALL LETTER Z WITH DOT ABOVE
   , ("Ș",           "S")        -- U+0218 LATIN CAPITAL LETTER S WITH COMMA BELOW
   , ("ș",           "s")        -- U+0219 LATIN SMALL LETTER S WITH COMMA BELOW
   , ("Ț",           "T")        -- U+021A LATIN CAPITAL LETTER T WITH COMMA BELOW
