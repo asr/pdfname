@@ -151,6 +151,8 @@ chUnicodeSubst =
   , ("À",           "A")        -- U+00C0 LATIN CAPITAL LETTER A WITH GRAVE
   , ("Á",           "A")        -- U+00C1 LATIN CAPITAL LETTER A WITH ACUTE
   , ("Ã",           "A")        -- U+00C3 LATIN CAPITAL LETTER A WITH TILDE
+  , ("Ä",           "A")        -- U+00C4 LATIN CAPITAL LETTER A WITH DIAERESIS
+  , ("Å",           "A")        -- U+00C5 LATIN CAPITAL LETTER A WITH RING ABOVE
   , ("Æ",           "E")        -- U+00C6 LATIN CAPITAL LETTER AE
   , ("É",           "E")        -- U+00C9 LATIN CAPITAL LETTER E WITH ACUTE
   , ("Í",           "I")        -- U+00CD LATIN CAPITAL LETTER I WITH ACUTE
@@ -164,6 +166,7 @@ chUnicodeSubst =
   , ("â",           "a")        -- U+00E2 LATIN SMALL LETTER A CIRCUMFLEX
   , ("ã",           "a")        -- U+00E3 LATIN SMALL LETTER A WITH TILDE
   , ("ä",           "a")        -- U+00E4 LATIN SMALL LETTER A WITH DIAERESIS
+  , ("å",           "a")        -- U+00E5 LATIN SMALL LETTER A WITH RING ABOVE
   , ("æ",           "e")        -- U+00E6 LATIN SMALL LETTER AE
   , ("ç",           "c")        -- U+00E7 LATIN SMALL LETTER C WITH CEDILLA
   , ("é",           "e")        -- U+00E9 LATIN SMALL LETTER E WITH ACUTE
