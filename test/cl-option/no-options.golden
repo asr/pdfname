@@ -1,0 +1,5 @@
+ret > ExitFailure 1
+err > Missing: FILE
+err >
+err > Usage: pdfname [-V|--version] [--dry-run] FILE
+err >

@@ -1,0 +1,9 @@
+ret > ExitSuccess
+out > Usage: pdfname [-V|--version] [--dry-run] FILE
+out >
+out > Available options:
+out >   -h,--help                Show this help text
+out >   -V,--version             Show version number
+out >   --dry-run                Do not create the PDF file only print which would be
+out >                            its full path name
+out >

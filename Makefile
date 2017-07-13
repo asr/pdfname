@@ -14,26 +14,23 @@ succeed-tasty :
 	../dist/build/pdfname-tests/pdfname-tests --regex-include succeed
 	@echo "$@ succeeded-tasty!"
 
-# Tested with shelltestrunner 1.3.5.
-.PHONY : succeed-shelltestrunner
-succeed-shelltestrunner :
-	shelltest --color \
-	          --execdir \
-	          --precise \
-	          test/succeed.test
-	@echo "$@ succeeded"
-
 .PHONY : fail
 fail :
 	cd test && \
 	../dist/build/pdfname-tests/pdfname-tests --regex-include fail
 	@echo "$@ succeeded"
 
+.PHONY : cl-option
+cl-option :
+	cd test && \
+	../dist/build/pdfname-tests/pdfname-tests --regex-include cl-option
+	@echo "$@ succeeded"
+
 .PHONY : test
 test :
 	make succeed-tasty
-	make succeed-shelltestrunner
 	make fail
+	make cl-option
 	@echo "$@ succeeded!"
 
 ##############################################################################

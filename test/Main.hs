@@ -26,18 +26,36 @@ tastyTest testFile =
 succeedTests ∷ IO TestTree
 succeedTests = do
   files ← findByExtension [".pdf"] "succeed"
-  return $ testGroup "Succeed" $ map tastyTest files
+  return $ testGroup "succeed" $ map tastyTest files
 
 failTests ∷ IO TestTree
 failTests = do
   files ← findByExtension [ ".pdf", ".txt" ] "fail"
-  return $ testGroup "Fail" $ map tastyTest files
+  return $ testGroup "fail" $ map tastyTest files
+
+clOptionsTests ∷ TestTree
+clOptionsTests = testGroup "cl-option" [ noOptions, helpOption ]
+  where
+  helper ∷ String → [String] → TestTree
+  helper file arg = goldenVsProg testFile goldenFile pdfnameBIN arg T.empty
+    where
+      testFile ∷ String
+      testFile = "cl-option/" ++ file
+
+      goldenFile ∷ String
+      goldenFile = testFile ++ ".golden"
+
+  noOptions ∷ TestTree
+  noOptions = helper "no-options" []
+
+  helpOption ∷ TestTree
+  helpOption = helper "help" ["--help"]
 
 allTests ∷ IO TestTree
 allTests = do
   allSucceedTests ← succeedTests
   allFailTests    ← failTests
-  return $ testGroup "Tests" [ allSucceedTests, allFailTests ]
+  return $ testGroup "tests" [ allSucceedTests, allFailTests, clOptionsTests ]
 
 main ∷ IO ()
 main = defaultMain =<< allTests
