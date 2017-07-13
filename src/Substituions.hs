@@ -94,9 +94,11 @@ chHexSubst =
   , ("&#x2018;",  "")               -- LEFT SINGLE QUOTATION MARK
   , ("&#x2019;",  "")               -- RIGHT SINGLE QUOTATION MARK
   , ("&#x201A;",  "")               -- SINGLE LOW-9 QUOTATION MAR
+  , ("&#x201B;",  "")               -- SINGLE HIGH-REVERSED-9 QUOTATION MARK
   , ("&#x201C;",  "")               -- LEFT DOUBLE QUOTATION MARK
   , ("&#x201D;",  "")               -- RIGHT DOUBLE QUOTATION MARK
   , ("&#x201E;",  "")               -- DOUBLE LOW-9 QUOTATION MARK
+  , ("&#x201F;",  "")               -- DOUBLE HIGH-REVERSED-9 QUOTATION MARK
   , ("&#x2020;",  "dagger")         -- DAGGER
   , ("&#x2021;",  "dagger-dagger")  -- DOUBLE DAGGER
   , ("&#x2022;",  "")               -- BULLET
@@ -213,6 +215,12 @@ chUnicodeSubst =
   , ("—",           "-")        -- U+2014 EM DASH
   , ("‘",           "")         -- U+2018 LEFT SINGLE QUOTATION MARK
   , ("’",           "")         -- U+2019 RIGHT SINGLE QUOTATION MARK
+  , ("‚",           "")         -- U+201A SINGLE LOW-9 QUOTATION MARK
+  , ("‛",           "")         -- U+201B SINGLE HIGH-REVERSED-9 QUOTATION MARK
+  , ("“",           "")         -- U+201C LEFT DOUBLE QUOTATION MARK
+  , ("”",           "")         -- U+201D RIGHT DOUBLE QUOTATION MARK
+  , ("„",           "")         -- U+201E DOUBLE LOW-9 QUOTATION MARK
+  , ("‟",           "")         -- U+201F DOUBLE HIGH-REVERSED-9 QUOTATION MARK
   , ("‡",           "")         -- U+2021 DOUBLE DAGGER
   , ("™",           "")         -- U+2122 TRADE MARK SIGN
   , ("�",          "")         -- U+FFFD REPLACEMENT CHARACTER
