@@ -173,6 +173,7 @@ chUnicodeSubst =
   , ("Ö",           "O")        -- U+00D6 LATIN CAPITAL LETTER O WITH DIAERESIS
   , ("×",           "")         -- U+00D7 MULTIPLICATION SIGN
   , ("Ù",           "U")        -- U+00D9 LATIN CAPITAL LETTER U WITH GRAVE
+  , ("ß",           "ss")       -- U+00DF LATIN SMALL LETTER SHARP S
   , ("à",           "a")        -- U+00E0 LATIN SMALL LETTER A WITH GRAVE
   , ("á",           "a")        -- U+00E1 LATIN SMALL LETTER A WITH ACUTE
   , ("â",           "a")        -- U+00E2 LATIN SMALL LETTER A CIRCUMFLEX
@@ -242,6 +243,7 @@ chUnicodeSubst =
   , ("χ",           "chi")      -- U+03C7 GREEK SMALL LETTER CHI
   , ("ψ",           "psi")      -- U+03C8 GREEK SMALL LETTER PSI
   , ("ω",           "omega")    -- U+03C9 GREEK SMALL LETTER OMEGA
+  , ("ẞ",           "SS")       -- U+1E9E LATIN CAPITAL LETTER SHARP S
   , ("–",           "-")        -- U+2013 EN DASH
   , ("—",           "-")        -- U+2014 EM DASH
   , ("‘",           "")         -- U+2018 LEFT SINGLE QUOTATION MARK
