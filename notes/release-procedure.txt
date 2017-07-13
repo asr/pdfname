@@ -10,8 +10,8 @@ Release procedure:
     make install-bin
     make test
 
-* Ensure that cabal haddock works with the latest version supported of
-  GHC:
+* Ensure that `cabal haddock` works with the latest version supported
+  of GHC:
 
     make haddock
 
