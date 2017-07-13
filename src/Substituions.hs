@@ -150,12 +150,14 @@ chUnicodeSubst =
   , ("¹",           "1")        -- U+00B9 SUPERSCRIPT ONE
   , ("À",           "A")        -- U+00C0 LATIN CAPITAL LETTER A WITH GRAVE
   , ("Á",           "A")        -- U+00C1 LATIN CAPITAL LETTER A WITH ACUTE
+  , ("Â",           "A")        -- U+00C2 LATIN CAPITAL LETTER A WITH CIRCUMFLEX
   , ("Ã",           "A")        -- U+00C3 LATIN CAPITAL LETTER A WITH TILDE
   , ("Ä",           "A")        -- U+00C4 LATIN CAPITAL LETTER A WITH DIAERESIS
   , ("Å",           "A")        -- U+00C5 LATIN CAPITAL LETTER A WITH RING ABOVE
   , ("Æ",           "E")        -- U+00C6 LATIN CAPITAL LETTER AE
   , ("É",           "E")        -- U+00C9 LATIN CAPITAL LETTER E WITH ACUTE
   , ("Í",           "I")        -- U+00CD LATIN CAPITAL LETTER I WITH ACUTE
+  , ("Î",           "I")        -- U+00CE LATIN CAPITAL LETTER I WITH CIRCUMFLEX
   , ("Ñ",           "N")        -- U+00D1 LATIN CAPITAL LETTER N WITH TILDE
   , ("Ó",           "O")        -- U+00D3 LATIN CAPITAL LETTER O WITH ACUTE
   , ("Ú",           "U")        -- U+00DA LATIN CAPITAL LETTER U WITH ACUTE
@@ -171,6 +173,7 @@ chUnicodeSubst =
   , ("ç",           "c")        -- U+00E7 LATIN SMALL LETTER C WITH CEDILLA
   , ("é",           "e")        -- U+00E9 LATIN SMALL LETTER E WITH ACUTE
   , ("í",           "i")        -- U+00ED LATIN SMALL LETTER I WITH ACUTE
+  , ("î",           "i")        -- U+00EE LATIN SMALL LETTER I WITH CIRCUMFLEX
   , ("ñ",           "n")        -- U+00F1 LATIN SMALL LETTER N WITH TILDE
   , ("ò",           "o")        -- U+00F2 LATIN SMALL LETTER O WITH GRAVE
   , ("ó",           "o")        -- U+00F3 LATIN SMALL LETTER O WITH ACUTE
@@ -180,6 +183,8 @@ chUnicodeSubst =
   , ("ü",           "u")        -- U+00FC LATIN SMALL LETTER U WITH DIAERESIS
   , ("þ",           "t")        -- U+00FE LATIN SMALL LETTER THORN
   , ("ÿ",           "y")        -- U+00FF LATIN SMALL LETTER Y WITH DIAERESIS
+  , ("Ă",           "A")        -- U+0102 LATIN CAPITAL LETTER A WITH BREVE
+  , ("ă",           "a")        -- U+0103 LATIN SMALL LETTER A WITH BREVE
   , ("ć",           "c")        -- U+0107 LATIN SMALL LETTER C WITH ACUTE
   , ("č",           "c")        -- U+010D LATIN SMALL LETTER C WITH CARON
   , ("Ł",           "L")        -- U+0141 LATIN CAPITAL LETTER L WITH STROKE
@@ -188,6 +193,10 @@ chUnicodeSubst =
   , ("š",           "s")        -- U+0161 LATIN SMALL LETTER S WITH CARON
   , ("ū",           "u")        -- U+016B LATIN SMALL LETTER U WITH MACRON
   , ("Ÿ",           "Y")        -- U+0178 LATIN CAPITAL LETTER Y WITH DIAERESIS
+  , ("Ș",           "S")        -- U+0218 LATIN CAPITAL LETTER S WITH COMMA BELOW
+  , ("ș",           "s")        -- U+0219 LATIN SMALL LETTER S WITH COMMA BELOW
+  , ("Ț",           "T")        -- U+021A LATIN CAPITAL LETTER T WITH COMMA BELOW
+  , ("ț",           "t")        -- U+021B LATIN SMALL LETTER T WITH COMMA BELOW
   , ("Ω",           "Omega")    -- U+03A9 GREEK CAPITAL LETTER OMEGA
   , ("α",           "alpha")    -- U+03B1 GREEK SMALL LETTER ALPHA
   , ("β",           "beta")     -- U+03B2 GREEK SMALL LETTER BETA
