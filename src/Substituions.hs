@@ -172,6 +172,7 @@ chUnicodeSubst =
   , ("Ü",           "U")        -- U+00DC LATIN CAPITAL LETTER U WITH DIAERESIS
   , ("Ö",           "O")        -- U+00D6 LATIN CAPITAL LETTER O WITH DIAERESIS
   , ("×",           "")         -- U+00D7 MULTIPLICATION SIGN
+  , ("Ø",           "O")        -- U+00D8 LATIN CAPITAL LETTER O WITH STROKE
   , ("Ù",           "U")        -- U+00D9 LATIN CAPITAL LETTER U WITH GRAVE
   , ("ß",           "ss")       -- U+00DF LATIN SMALL LETTER SHARP S
   , ("à",           "a")        -- U+00E0 LATIN SMALL LETTER A WITH GRAVE
