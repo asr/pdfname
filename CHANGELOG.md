@@ -8,7 +8,7 @@ Changelog for pdfname
   substitutions.
 * [#3](https://github.com/asr/pdfname/issues/3): an empty PDF file
 does not generate an exception.
-Added and fixed substitutions.
+* Added and fixed substitutions.
 
 0.1.2
 -----
