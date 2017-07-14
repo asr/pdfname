@@ -167,6 +167,7 @@ chUnicodeSubst =
   , ("Ñ",           "N")        -- U+00D1 LATIN CAPITAL LETTER N WITH TILDE
   , ("Ó",           "O")        -- U+00D3 LATIN CAPITAL LETTER O WITH ACUTE
   , ("Ô",           "O")        -- U+00D4 LATIN CAPITAL LETTER O WITH CIRCUMFLEX
+  , ("Õ",           "O")        -- U+00D5 LATIN CAPITAL LETTER O WITH TILDE
   , ("Ú",           "U")        -- U+00DA LATIN CAPITAL LETTER U WITH ACUTE
   , ("Û",           "U")        -- U+00DB LATIN CAPITAL LETTER U WITH CIRCUMFLEX
   , ("Ü",           "U")        -- U+00DC LATIN CAPITAL LETTER U WITH DIAERESIS
@@ -194,6 +195,7 @@ chUnicodeSubst =
   , ("ò",           "o")        -- U+00F2 LATIN SMALL LETTER O WITH GRAVE
   , ("ó",           "o")        -- U+00F3 LATIN SMALL LETTER O WITH ACUTE
   , ("ô",           "o")        -- U+00F4 LATIN SMALL LETTER O WITH CIRCUMFLEX
+  , ("õ",           "o")        -- U+00F5 LATIN SMALL LETTER O WITH TILDE
   , ("ö",           "o")        -- U+00F6 LATIN SMALL LETTER O WITH DIAERESIS
   , ("ø",           "o")        -- U+00F8 LATIN SMALL LETTER O WITH STROKE
   , ("ù",           "u")        -- U+00F9 LATIN SMALL LETTER U WITH GRAVE
@@ -223,6 +225,7 @@ chUnicodeSubst =
   , ("ř",           "r")        -- U+0159 LATIN SMALL LETTER R WITH CARON
   , ("Ś",           "S")        -- U+015A LATIN CAPITAL LETTER S WITH ACUTE
   , ("ś",           "s")        -- U+015B LATIN SMALL LETTER S WITH ACUTE
+  , ("Š",           "S")        -- U+0160 LATIN CAPITAL LETTER S WITH CARON
   , ("š",           "s")        -- U+0161 LATIN SMALL LETTER S WITH CARON
   , ("ū",           "u")        -- U+016B LATIN SMALL LETTER U WITH MACRON
   , ("Ÿ",           "Y")        -- U+0178 LATIN CAPITAL LETTER Y WITH DIAERESIS
@@ -230,6 +233,8 @@ chUnicodeSubst =
   , ("ź",           "z")        -- U+017A LATIN SMALL LETTER Z WITH ACUTE
   , ("Ż",           "Z")        -- U+017B LATIN CAPITAL LETTER Z WITH DOT ABOVE
   , ("ż",           "z")        -- U+017C LATIN SMALL LETTER Z WITH DOT ABOVE
+  , ("Ž",           "z")        -- U+017D LATIN CAPITAL LETTER Z WITH CARON
+  , ("ž",           "z")        -- U+017E LATIN SMALL LETTER Z WITH CARON
   , ("Ș",           "S")        -- U+0218 LATIN CAPITAL LETTER S WITH COMMA BELOW
   , ("ș",           "s")        -- U+0219 LATIN SMALL LETTER S WITH COMMA BELOW
   , ("Ț",           "T")        -- U+021A LATIN CAPITAL LETTER T WITH COMMA BELOW
