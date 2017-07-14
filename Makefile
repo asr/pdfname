@@ -8,11 +8,11 @@ install-bin :
 ##############################################################################
 # Test suite
 
-.PHONY : succeed-tasty
-succeed-tasty :
+.PHONY : succeed
+succeed :
 	cd test && \
 	../dist/build/pdfname-tests/pdfname-tests --regex-include succeed
-	@echo "$@ succeeded-tasty!"
+	@echo "$@ succeeded!"
 
 .PHONY : fail
 fail :
@@ -28,7 +28,7 @@ cl-option :
 
 .PHONY : test
 test :
-	make succeed-tasty
+	make succeed
 	make fail
 	make cl-option
 	@echo "$@ succeeded!"
