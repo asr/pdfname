@@ -214,7 +214,7 @@ chUnicodeSubst =
   , ("Ę",           "e")        -- U+0118 LATIN CAPITAL LETTER E WITH OGONEK
   , ("ę",           "e")        -- U+0119 LATIN SMALL LETTER E WITH OGONEK
   , ("Ł",           "L")        -- U+0141 LATIN CAPITAL LETTER L WITH STROKE
-  , ("ł",           "L")        -- U+0142 LATIN SMALL LETTER L WITH STROKE
+  , ("ł",           "l")        -- U+0142 LATIN SMALL LETTER L WITH STROKE
   , ("Ń",           "N")        -- U+0143 LATIN CAPITAL LETTER N WITH ACUTE
   , ("ń",           "n")        -- U+0144 LATIN SMALL LETTER N WITH ACUTE
   , ("ņ",           "n")        -- U+0146 LATIN SMALL LETTER N WITH CEDILLA
