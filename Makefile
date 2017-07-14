@@ -28,10 +28,9 @@ cl-option :
 
 .PHONY : test
 test :
-	make succeed
-	make fail
-	make cl-option
-	@echo "$@ succeeded!"
+	cd test && \
+	../dist/build/pdfname-tests/pdfname-tests
+	@echo "$@ succeeded"
 
 ##############################################################################
 # Test suite: Haddock test
