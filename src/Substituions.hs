@@ -35,7 +35,7 @@ chDecSubst =
   , ("&#243;",  "o")              -- LATIN SMALL LETTER O WITH ACUTE
   , ("&#246;",  "o")              -- LATIN SMALL LETTER O WITH DIAERESIS (ö)
   , ("&#250;",  "u")              -- LATIN SMALL LETTER U WITH ACUTE
-  , ("&#352",   "S")              -- LATIN CAPITAL LETTER S WITH CARON
+  , ("&#352;",  "S")              -- LATIN CAPITAL LETTER S WITH CARON
   , ("&#353",   "s")              -- LATIN SMALL LETTER S WITH CARON
   , ("&#955;",  "lambda")         -- GREEK SMALL LETTER LAMDA
   , ("&#8216;", "")               -- LEFT SINGLE QUOTATION MARK
@@ -112,7 +112,10 @@ chHexSubst =
 -- | Characters substituions in Unicode notation.
 chUnicodeSubst ∷ [(Text,Text)]
 chUnicodeSubst =
-  [ ("\r",          "")         -- U+000D CARRIAGE RETURN (CR)
+  [ ("\t",          "")         -- U+0009 CHARACTER TABULATION
+  , ("\n",          "")         -- U+000A LINE FEED (LF)
+  , ("\f",          "")         -- U+000C FORM FEED (FF)
+  , ("\r",          "")         -- U+000D CARRIAGE RETURN (CR)
   , (" ",           "-")        -- U+0020 SPACE
   , ("!",           "")         -- U+0021 EXCLAMATION MARK
   , ("\"",          "")         -- U+0022 QUOTATION MARK
@@ -128,8 +131,8 @@ chUnicodeSubst =
   , (",",           "")         -- U+002C COMMA
   , (".",           "")         -- U+002D FULL STOP
   , ("/",           "")         -- U+002F SOLIDUS
-  , (":",           ".")        -- U+003A COLON
-  , (";",           ".")        -- U+003B SEMICOLON
+  , (":",           "")         -- U+003A COLON
+  , (";",           "")         -- U+003B SEMICOLON
   , ("<",           "")         -- U+003C LESS-THAN SIGN
   , ("=",           "")         -- U+003D EQUALS SIGN
   , (">",           "")         -- U+003E GREATER-THAN SIGN
@@ -144,6 +147,7 @@ chUnicodeSubst =
   , ("{",           "")         -- U+007B LEFT CURLY BRACKET
   , ("|",           "")         -- U+007C VERTICAL LINE
   , ("}",           "")         -- U+007B RIGHT CURLY BRACKET
+  , ("~",           "")         -- U+007E TILDE
   , ("¡",           "")         -- U+00A1 INVERTED EXCLAMATION MARK
   , ("¬",           "")         -- U+00AC NOT SIGN
   , ("²",           "2")        -- U+00B2 SUPERSCRIPT TWO

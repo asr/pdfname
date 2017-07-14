@@ -5,7 +5,7 @@ module CreateFile
   , generateFileName
   ) where
 
-import Data.Char  ( isAscii )
+import Data.Char  ( isAsciiLower, isDigit )
 import Data.Maybe ( fromMaybe )
 
 import Data.Text ( Text )
@@ -51,9 +51,10 @@ getAuthor xs =
   then defaultYear
   else
     -- NB that the substituions are not commutative.
-    ( replace chSubst
+    ( T.toLower
+      . replace chSubst
       . T.intercalate (T.singleton '-')
-      . map (T.toLower . T.reverse . T.takeWhile (' ' /=) . T.reverse)
+      . map (T.reverse . T.takeWhile (' ' /=) . T.reverse)
       . T.split (',' ==)
       . replace authorSubst
       . replace commonSubst
@@ -80,7 +81,7 @@ generateFileName info = do
   let authorHelper ∷ Text
       authorHelper = maybe defaultAuthor getAuthor $ pdfInfoAuthor info
 
-  author ← if validateName authorHelper
+  author ← if isValidName authorHelper
            then return authorHelper
            else die $ "could not generate the author from "
                        +++ "`"
@@ -93,7 +94,7 @@ generateFileName info = do
   let titleHelper ∷ Text
       titleHelper = maybe defaultTitle getTitle $ pdfInfoTitle info
 
-  title ← if validateName titleHelper
+  title ← if isValidName titleHelper
             then return titleHelper
             else die $ "could not generate the title from "
                        +++ "`"
@@ -112,10 +113,13 @@ generateFileName info = do
 
   return fileName
 
--- TODO (2017-07-04): Is there Data.Text functions instead of
--- Data.Char functions for implementing this function?
-validateName ∷ Text → Bool
-validateName t = all (== True) $ map isAscii $ T.unpack t
+-- TODO (2017-07-11): Is there @Data.Text@ functions instead of
+-- @Data.Char@ functions for implementing this function?
+isValidChar ∷ Char → Bool
+isValidChar c = isAsciiLower c || isDigit c || (c == '-')
+
+isValidName ∷ Text → Bool
+isValidName t = all (== True) $ map isValidChar $ T.unpack t
 
 createFile ∷ FilePath → FilePath → IO ()
 createFile f newF =
