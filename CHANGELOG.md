@@ -4,10 +4,11 @@ Changelog for pdfname
 0.1.3
 -----
 
-* [#5](https://github.com/asr/pdfname/issues/5): added Unicode
+* [#5](https://github.com/asr/pdfname/issues/5) and
+  [#6](https://github.com/asr/pdfname/issues/5): added Unicode
   substitutions.
 * [#3](https://github.com/asr/pdfname/issues/3): an empty PDF file
-does not generate an exception.
+  does not generate an exception.
 * Added and fixed substitutions.
 
 0.1.2

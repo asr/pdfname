@@ -284,6 +284,8 @@ chUnicodeSubst =
   , ("‟",           "")         -- U+201F DOUBLE HIGH-REVERSED-9 QUOTATION MARK
   , ("‡",           "")         -- U+2021 DOUBLE DAGGER
   , ("™",           "")         -- U+2122 TRADE MARK SIGN
+  , ("ℵ",           "aleph")    -- U+2135 ALEF SYMBOL
+  , ("ℶ",           "beth")     -- U+2136 BET SYMBOL
   , ("�",          "")         -- U+FFFD REPLACEMENT CHARACTER
   ]
 
