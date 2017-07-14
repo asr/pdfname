@@ -39,10 +39,10 @@ Release procedure:
 
 * Restore `-Werror` in pdfname.cabal.
 
-* Bump $VERSION in pdfname.cabal and test/succeed.test
+* Bump $VERSION in pdfname.cabal.
 
 * Add a new header to CHANGELOG.
 
 * Push all changes
 
-    git push --follow-tags
+    git push
