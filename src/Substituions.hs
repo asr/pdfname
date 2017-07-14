@@ -206,10 +206,8 @@ chUnicodeSubst =
   , ("ÿ",           "y")        -- U+00FF LATIN SMALL LETTER Y WITH DIAERESIS
   , ("Ă",           "A")        -- U+0102 LATIN CAPITAL LETTER A WITH BREVE
   , ("ă",           "a")        -- U+0103 LATIN SMALL LETTER A WITH
-  -- TODO (2017-07-13): The generated characters for `Ą` and `ą` are
-  -- in upper case (Polish language).
   , ("Ą",           "A")        -- U+0104 LATIN CAPITAL LETTER A WITH OGONEK
-  , ("ą",           "A")        -- U+0105 LATIN SMALL LETTER A WITH OGONEK
+  , ("ą",           "a")        -- U+0105 LATIN SMALL LETTER A WITH OGONEK
   , ("Ć",           "c")        -- U+0106 LATIN CAPITAL LETTER C WITH ACUTE
   , ("ć",           "c")        -- U+0107 LATIN SMALL LETTER C WITH ACUTE
   , ("č",           "c")        -- U+010D LATIN SMALL LETTER C WITH CARON
