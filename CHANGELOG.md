@@ -8,7 +8,7 @@ Changelog for pdfname
 -----
 
 * [#5](https://github.com/asr/pdfname/issues/5) and
-  [#6](https://github.com/asr/pdfname/issues/5): added Unicode
+  [#6](https://github.com/asr/pdfname/issues/6): added Unicode
   substitutions.
 * [#3](https://github.com/asr/pdfname/issues/3): an empty PDF file
   does not generate an exception.
