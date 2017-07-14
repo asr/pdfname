@@ -220,6 +220,8 @@ chUnicodeSubst =
   , ("Ń",           "N")        -- U+0143 LATIN CAPITAL LETTER N WITH ACUTE
   , ("ń",           "n")        -- U+0144 LATIN SMALL LETTER N WITH ACUTE
   , ("ņ",           "n")        -- U+0146 LATIN SMALL LETTER N WITH CEDILLA
+  , ("Ő",           "O")        -- U+0150 LATIN CAPITAL LETTER O WITH DOUBLE ACUTE
+  , ("ő",           "o")        -- U+0151 LATIN SMALL LETTER O WITH DOUBLE ACUTE
   , ("Œ",           "OE")       -- U+0152 LATIN CAPITAL LIGATURE OE
   , ("œ",           "oe")       -- U+0153 LATIN SMALL LIGATURE OE
   , ("ř",           "r")        -- U+0159 LATIN SMALL LETTER R WITH CARON
@@ -228,6 +230,8 @@ chUnicodeSubst =
   , ("Š",           "S")        -- U+0160 LATIN CAPITAL LETTER S WITH CARON
   , ("š",           "s")        -- U+0161 LATIN SMALL LETTER S WITH CARON
   , ("ū",           "u")        -- U+016B LATIN SMALL LETTER U WITH MACRON
+  , ("Ű",           "U")        -- U+0170 LATIN CAPITAL LETTER U WITH DOUBLE ACUTE
+  , ("ű",           "u")        -- U+0171 LATIN SMALL LETTER U WITH DOUBLE ACUTE
   , ("Ÿ",           "Y")        -- U+0178 LATIN CAPITAL LETTER Y WITH DIAERESIS
   , ("Ź",           "Z")        -- U+0179 LATIN CAPITAL LETTER Z WITH ACUTE
   , ("ź",           "z")        -- U+017A LATIN SMALL LETTER Z WITH ACUTE
