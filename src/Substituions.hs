@@ -217,6 +217,9 @@ chUnicodeSubst =
   , ("č",           "c")        -- U+010D LATIN SMALL LETTER C WITH CARON
   , ("Ę",           "e")        -- U+0118 LATIN CAPITAL LETTER E WITH OGONEK
   , ("ę",           "e")        -- U+0119 LATIN SMALL LETTER E WITH OGONEK
+  , ("Ğ",           "G")        -- U+011E LATIN CAPITAL LETTER G WITH BREVE
+  , ("ğ",           "g")        -- U+011F LATIN SMALL LETTER G WITH BREVE
+  , ("İ",           "I")        -- U+0130 LATIN CAPITAL LETTER I WITH DOT ABOVE
   , ("Ł",           "L")        -- U+0141 LATIN CAPITAL LETTER L WITH STROKE
   , ("ł",           "l")        -- U+0142 LATIN SMALL LETTER L WITH STROKE
   , ("Ń",           "N")        -- U+0143 LATIN CAPITAL LETTER N WITH ACUTE
@@ -229,6 +232,8 @@ chUnicodeSubst =
   , ("ř",           "r")        -- U+0159 LATIN SMALL LETTER R WITH CARON
   , ("Ś",           "S")        -- U+015A LATIN CAPITAL LETTER S WITH ACUTE
   , ("ś",           "s")        -- U+015B LATIN SMALL LETTER S WITH ACUTE
+  , ("Ş",           "S")        -- U+015E LATIN CAPITAL LETTER S WITH CEDILLA
+  , ("ş",           "s")        -- U+015F LATIN SMALL LETTER S WITH CEDILLA
   , ("Š",           "S")        -- U+0160 LATIN CAPITAL LETTER S WITH CARON
   , ("š",           "s")        -- U+0161 LATIN SMALL LETTER S WITH CARON
   , ("ū",           "u")        -- U+016B LATIN SMALL LETTER U WITH MACRON
@@ -241,10 +246,12 @@ chUnicodeSubst =
   , ("ż",           "z")        -- U+017C LATIN SMALL LETTER Z WITH DOT ABOVE
   , ("Ž",           "z")        -- U+017D LATIN CAPITAL LETTER Z WITH CARON
   , ("ž",           "z")        -- U+017E LATIN SMALL LETTER Z WITH CARON
+  , ("Ə",           "A")        -- U+018F LATIN CAPITAL LETTER SCHWA
   , ("Ș",           "S")        -- U+0218 LATIN CAPITAL LETTER S WITH COMMA BELOW
   , ("ș",           "s")        -- U+0219 LATIN SMALL LETTER S WITH COMMA BELOW
   , ("Ț",           "T")        -- U+021A LATIN CAPITAL LETTER T WITH COMMA BELOW
   , ("ț",           "t")        -- U+021B LATIN SMALL LETTER T WITH COMMA BELOW
+  , ("ə",           "a")        -- U+0259 LATIN SMALL LETTER SCHWA
   , ("Ω",           "Omega")    -- U+03A9 GREEK CAPITAL LETTER OMEGA
   , ("α",           "alpha")    -- U+03B1 GREEK SMALL LETTER ALPHA
   , ("β",           "beta")     -- U+03B2 GREEK SMALL LETTER BETA
