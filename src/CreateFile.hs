@@ -48,7 +48,7 @@ defaultYear   = "no-year"
 getAuthor ∷ Text → Text
 getAuthor xs =
   if T.null xs
-  then defaultYear
+  then defaultAuthor
   else
     -- NB that the substituions are not commutative.
     ( T.toLower
