@@ -50,7 +50,7 @@ getAuthor xs =
   if T.null xs
   then defaultAuthor
   else
-    -- NB that the substituions are not commutative.
+    -- NB that the substitutions are not commutative.
     ( T.toLower
       . replace chSubst
       . T.intercalate (T.singleton '-')
@@ -68,7 +68,7 @@ getTitle xs =
   if T.null xs
   then defaultTitle
   else
-    -- NB that the substituions are not commutative.
+    -- NB that the substitutions are not commutative.
     ( T.toLower
       . replace chSubst
       . replace titleSubst

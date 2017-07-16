@@ -10,10 +10,10 @@ module Substitutions
 import Data.Text ( Text )
 
 ------------------------------------------------------------------------------
--- Characters substituions
+-- Characters substitutions
 
 -- If a new entry is added here, please also add it to the
--- characters-decimal substituions.
+-- characters-decimal substitutions.
 
 -- | Characters in non-numeric notation.
 chNNSubst ∷ [(Text,Text)]
@@ -24,9 +24,9 @@ chNNSubst =
   ]
 
 -- If a new entry is added here, please also add it to the
--- characters-hexadecimal substituions.
+-- characters-hexadecimal substitutions.
 
--- | Characters substituions in decimal notation.
+-- | Characters substitutions in decimal notation.
 chDecSubst ∷ [(Text,Text)]
 chDecSubst =
   [ ("&#225;",  "a")              -- LATIN SMALL LETTER A WITH ACUTE
@@ -42,7 +42,7 @@ chDecSubst =
   , ("&#8217",  "")               -- RIGHT SINGLE QUOTATION MARK
   ]
 
--- | Characters substituions in hexadecimal notation.
+-- | Characters substitutions in hexadecimal notation.
 chHexSubst ∷ [(Text,Text)]
 chHexSubst =
   [ ("&#x00C4;",  "A")              -- LATIN CAPITAL LETTER A WITH DIAERESIS (Ä)
@@ -109,7 +109,7 @@ chHexSubst =
   , ("&#x02010;", "-")              -- HYPHEN
   ]
 
--- | Characters substituions in Unicode notation.
+-- | Characters substitutions in Unicode notation.
 chUnicodeSubst ∷ [(Text,Text)]
 chUnicodeSubst =
   [ ("\t",          "")         -- U+0009 CHARACTER TABULATION
@@ -296,13 +296,13 @@ chUnicodeSubst =
   , ("�",          "")         -- U+FFFD REPLACEMENT CHARACTER
   ]
 
--- | All the characters substituions.
--- NB that the substituions are not commutative.
+-- | All the characters substitutions.
+-- NB that the substitutions are not commutative.
 chSubst ∷ [(Text, Text)]
 chSubst =  chHexSubst ++ chNNSubst ++ chDecSubst ++ chUnicodeSubst
 
 ------------------------------------------------------------------------------
--- Author and title substituions
+-- Author and title substitutions
 
 commonSubst ∷ [(Text, Text)]
 commonSubst =
@@ -315,7 +315,7 @@ commonSubst =
   ]
 
 ------------------------------------------------------------------------------
--- Author substituions
+-- Author substitutions
 
 authorSubst ∷ [(Text, Text)]
 authorSubst =
@@ -325,9 +325,9 @@ authorSubst =
   ]
 
 ------------------------------------------------------------------------------
--- Title substituions
+-- Title substitutions
 
--- These substituions should be done before converting to lower case.
+-- These substitutions should be done before converting to lower case.
 titleSubst ∷ [(Text,Text)]
 titleSubst =
   [ ("<Emphasis Type=\"BoldItalic\">P </Emphasis>",       "P")
