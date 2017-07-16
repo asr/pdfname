@@ -1,6 +1,6 @@
--- | Substituions.
+-- | Substitutions.
 
-module Substituions
+module Substitutions
   ( authorSubst
   , chSubst
   , commonSubst

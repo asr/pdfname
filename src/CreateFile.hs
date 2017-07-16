@@ -26,7 +26,7 @@ import Text.PDF.Info
 
 import Options ( outputDir )
 
-import Substituions
+import Substitutions
   ( authorSubst
   , chSubst
   , commonSubst

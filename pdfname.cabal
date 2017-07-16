@@ -43,7 +43,7 @@ executable pdfname
   other-modules:  CreateFile
                 , Options
                 , Paths_pdfname
-                , Substituions
+                , Substitutions
                 , Utilities
 
   if impl(ghc >= 8.0)
