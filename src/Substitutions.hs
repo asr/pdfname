@@ -273,6 +273,8 @@ unicodeSubst =
   , ("ý",           "y")        -- U+00FD LATIN SMALL LETTER Y WITH ACUTE
   , ("þ",           "t")        -- U+00FE LATIN SMALL LETTER THORN
   , ("ÿ",           "y")        -- U+00FF LATIN SMALL LETTER Y WITH DIAERESIS
+  , ("Ā",           "A")        -- U+0100 LATIN CAPITAL LETTER A WITH MACRON
+  , ("ā",           "a")        -- U+0101 LATIN SMALL LETTER A WITH MACRON
   , ("Ă",           "A")        -- U+0102 LATIN CAPITAL LETTER A WITH BREVE
   , ("ă",           "a")        -- U+0103 LATIN SMALL LETTER A WITH
   , ("Ą",           "A")        -- U+0104 LATIN CAPITAL LETTER A WITH OGONEK
@@ -283,19 +285,28 @@ unicodeSubst =
   , ("č",           "c")        -- U+010D LATIN SMALL LETTER C WITH CARON
   , ("Ď",           "D")        -- U+010E LATIN CAPITAL LETTER D WITH CARON
   , ("ď",           "d")        -- U+010F LATIN SMALL LETTER D WITH CARON
+  , ("Ē",           "E")        -- U+0112 LATIN CAPITAL LETTER E WITH MACRON
+  , ("ē",           "e")        -- U+0113 LATIN SMALL LETTER E WITH MACRON
   , ("Ę",           "e")        -- U+0118 LATIN CAPITAL LETTER E WITH OGONEK
   , ("ę",           "e")        -- U+0119 LATIN SMALL LETTER E WITH OGONEK
   , ("Ě",           "E")        -- U+011A LATIN CAPITAL LETTER E WITH CARON
   , ("ě",           "e")        -- U+011B LATIN SMALL LETTER E WITH CARON
   , ("Ğ",           "G")        -- U+011E LATIN CAPITAL LETTER G WITH BREVE
   , ("ğ",           "g")        -- U+011F LATIN SMALL LETTER G WITH BREVE
+  , ("Ģ",           "G")        -- U+0122 LATIN CAPITAL LETTER G WITH CEDILLA
+  , ("ģ",           "g")        -- U+0123 LATIN SMALL LETTER G WITH CEDILLA
   , ("Ī",           "I")        -- U+012A LATIN CAPITAL LETTER I WITH MACRON
   , ("ī",           "I")        -- U+012B LATIN SMALL LETTER I WITH MACRON
   , ("İ",           "I")        -- U+0130 LATIN CAPITAL LETTER I WITH DOT ABOVE
+  , ("Ķ",           "K")        -- U+0136 LATIN CAPITAL LETTER K WITH CEDILLA
+  , ("ķ",           "k")        -- U+0137 LATIN SMALL LETTER K WITH CEDILLA
+  , ("Ļ",           "L")        -- U+013B LATIN CAPITAL LETTER L WITH CEDILLA
+  , ("ļ",           "l")        -- U+013C LATIN SMALL LETTER L WITH CEDILLA
   , ("Ł",           "L")        -- U+0141 LATIN CAPITAL LETTER L WITH STROKE
   , ("ł",           "l")        -- U+0142 LATIN SMALL LETTER L WITH STROKE
   , ("Ń",           "N")        -- U+0143 LATIN CAPITAL LETTER N WITH ACUTE
   , ("ń",           "n")        -- U+0144 LATIN SMALL LETTER N WITH ACUTE
+  , ("Ņ",           "n")        -- U+0145 LATIN CAPITAL LETTER N WITH CEDILLA
   , ("ņ",           "n")        -- U+0146 LATIN SMALL LETTER N WITH CEDILLA
   , ("Ň",           "N")        -- U+0147 LATIN CAPITAL LETTER N WITH CARON
   , ("ň",           "n")        -- U+0148 LATIN SMALL LETTER N WITH CARON
@@ -313,6 +324,7 @@ unicodeSubst =
   , ("š",           "s")        -- U+0161 LATIN SMALL LETTER S WITH CARON
   , ("Ť",           "T")        -- U+0164 LATIN CAPITAL LETTER T WITH CARON
   , ("ť",           "t")        -- U+0165 LATIN SMALL LETTER T WITH CARON
+  , ("Ū",           "U")        -- U+016A LATIN CAPITAL LETTER U WITH MACRON
   , ("ū",           "u")        -- U+016B LATIN SMALL LETTER U WITH MACRON
   , ("Ů",           "U")        -- U+016E LATIN CAPITAL LETTER U WITH RING ABOVE
   , ("ů",           "u")        -- U+016F LATIN SMALL LETTER U WITH RING ABOVE
