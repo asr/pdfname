@@ -2,68 +2,92 @@
 
 module Substitutions
   ( authorSubst
-  , chSubst
-  , commonSubst
+  , htmlEntitySubst
   , titleSubst
+  , unicodeSubst
+  , weirdSubst
   ) where
 
 import Data.Text ( Text )
 
 ------------------------------------------------------------------------------
--- Characters substitutions
+-- HTML entities substitutions
 
--- If a new entry is added here, please also add it to the
--- characters-decimal substitutions.
+-- If a new entry is added here, also add it to the substitutions of
+-- HTML entities by decimal and hexadecimal references.
 
--- | Characters in non-numeric notation.
-chNNSubst ∷ [(Text,Text)]
-chNNSubst =
-  [ ("&ouml;", "o")  -- LATIN SMALL LETTER O WITH DIAERESIS   (ö)
-  , ("&Auml;", "A")  -- LATIN CAPITAL LETTER A WITH DIAERESIS (Ä)
-  , ("&Uuml;", "U")  -- LATIN CAPITAL LETTER U WITH DIAERESIS (Ü)
+-- | Substitutions of HTML entities by name.
+htmlEntityNameSubst ∷ [(Text,Text)]
+htmlEntityNameSubst =
+  [ ("&Auml;", "A")  -- U+00C4 LATIN CAPITAL LETTER A WITH DIAERESIS
+  , ("&Euml;", "E")  -- U+00CB LATIN CAPITAL LETTER E WITH DIAERESIS
+  , ("&Iuml;", "I")  -- U+00CF LATIN CAPITAL LETTER I WITH DIAERESIS
+  , ("&Ouml;", "O")  -- U+00D6 LATIN CAPITAL LETTER U WITH DIAERESIS
+  , ("&Uuml;", "U")  -- U+00DC LATIN CAPITAL LETTER U WITH DIAERESIS
+  , ("&auml;", "a")  -- U+00E4 LATIN SMALL LETTER A WITH DIAERESIS
+  , ("&euml;", "e")  -- U+00EB LATIN SMALL LETTER E WITH DIAERESIS
+  , ("&iuml;", "i")  -- U+00EF LATIN SMALL LETTER I WITH DIAERESIS
+  , ("&ouml;", "o")  -- U+00F6 LATIN SMALL LETTER O WITH DIAERESIS
+  , ("&uuml;", "u")  -- U+00FC LATIN SMALL LETTER U WITH DIAERESIS
   ]
 
--- If a new entry is added here, please also add it to the
--- characters-hexadecimal substitutions.
+-- If a new entry is added here, also add it to the substitutions of
+-- HTML entities by hexadecimal references.
 
--- | Characters substitutions in decimal notation.
-chDecSubst ∷ [(Text,Text)]
-chDecSubst =
-  [ ("&#225;",  "a")              -- LATIN SMALL LETTER A WITH ACUTE
-  , ("&#233;",  "e")              -- LATIN SMALL LETTER E WITH ACUTE
-  , ("&#237;",  "i")              -- LATIN SMALL LETTER I WITH ACUTE
-  , ("&#243;",  "o")              -- LATIN SMALL LETTER O WITH ACUTE
-  , ("&#246;",  "o")              -- LATIN SMALL LETTER O WITH DIAERESIS (ö)
-  , ("&#250;",  "u")              -- LATIN SMALL LETTER U WITH ACUTE
-  , ("&#352;",  "S")              -- LATIN CAPITAL LETTER S WITH CARON
-  , ("&#353",   "s")              -- LATIN SMALL LETTER S WITH CARON
-  , ("&#955;",  "lambda")         -- GREEK SMALL LETTER LAMDA
-  , ("&#8216;", "")               -- LEFT SINGLE QUOTATION MARK
-  , ("&#8217",  "")               -- RIGHT SINGLE QUOTATION MARK
+-- | Substitutions of HTML entities by decimal reference.
+htmlEntityDecSubst ∷ [(Text,Text)]
+htmlEntityDecSubst =
+  [ ("&#196;",  "A")       -- U+00C4 LATIN CAPITAL LETTER A WITH DIAERESIS
+  , ("&#203;",  "E")       -- U+00CB LATIN CAPITAL LETTER E WITH DIAERESIS
+  , ("&#207;",  "I")       -- U+00CF LATIN CAPITAL LETTER I WITH DIAERESIS
+  , ("&#214;",  "O")       -- U+00D6 LATIN CAPITAL LETTER U WITH DIAERESIS
+  , ("&#220;",  "U")       -- U+00DC LATIN CAPITAL LETTER U WITH DIAERESIS
+  , ("&#225;",  "a")       -- U+00E1 LATIN SMALL LETTER A WITH ACUTE
+  , ("&#228;",  "a")       -- U+00E4 LATIN SMALL LETTER A WITH DIAERESIS
+  , ("&#233;",  "e")       -- U+00E9 LATIN SMALL LETTER E WITH ACUTE
+  , ("&#235;",  "e")       -- U+00EB LATIN SMALL LETTER E WITH DIAERESIS
+  , ("&#237;",  "i")       -- U+00ED LATIN SMALL LETTER I WITH ACUTE
+  , ("&#239;",  "i")       -- U+00EF LATIN SMALL LETTER I WITH DIAERESIS
+  , ("&#243;",  "o")       -- U+00F3 LATIN SMALL LETTER O WITH ACUTE
+  , ("&#246;",  "o")       -- U+00F6 LATIN SMALL LETTER O WITH DIAERESIS
+  , ("&#250;",  "u")       -- U+00FA LATIN SMALL LETTER U WITH ACUTE
+  , ("&#252",   "u")       -- U+00FC LATIN SMALL LETTER U WITH DIAERESIS
+  , ("&#352;",  "S")       -- U+0160 LATIN CAPITAL LETTER S WITH CARON
+  , ("&#353",   "s")       -- U+0161 LATIN SMALL LETTER S WITH CARON
+  , ("&#955;",  "lambda")  -- U+03BB GREEK SMALL LETTER LAMDA
+  , ("&#8216;", "")        -- U+2018 LEFT SINGLE QUOTATION MARK
+  , ("&#8217",  "")        -- U+2019 RIGHT SINGLE QUOTATION MARK
   ]
 
--- | Characters substitutions in hexadecimal notation.
-chHexSubst ∷ [(Text,Text)]
-chHexSubst =
-  [ ("&#x00C4;",  "A")              -- LATIN CAPITAL LETTER A WITH DIAERESIS (Ä)
-  , ("&#x00DC;",  "U")              -- LATIN CAPITAL LETTER U WITH DIAERESIS (Ü)
+-- If a new entry is added here, also add it to the Unicode
+-- substitutions.
+
+-- | Substitutions of HTML entities by hexadecimal reference.
+htmlEntityHexSubst ∷ [(Text,Text)]
+htmlEntityHexSubst =
+  [ ("&#x00C4;",  "A")              -- LATIN CAPITAL LETTER A WITH DIAERESIS
+  , ("&#x00CB;",  "E")              -- LATIN CAPITAL LETTER E WITH DIAERESIS
+  , ("&#x00CF;",  "I")              -- LATIN CAPITAL LETTER I WITH DIAERESIS
+  , ("&#x00D6;",  "O")              -- LATIN CAPITAL LETTER U WITH DIAERESIS
+  , ("&#x00DC;",  "U")              -- LATIN CAPITAL LETTER U WITH DIAERESIS
   , ("&#x00E1;",  "a")              -- LATIN SMALL LETTER A WITH ACUTE
+  , ("&#x00E4;",  "a")              -- LATIN SMALL LETTER A WITH DIAERESIS
   , ("&#x00E9;",  "e")              -- LATIN SMALL LETTER E WITH ACUTE
+  , ("&#x00EB;",  "e")              -- LATIN SMALL LETTER E WITH DIAERESIS
   , ("&#x00ED;",  "i")              -- LATIN SMALL LETTER I WITH ACUTE
+  , ("&#x00EF;",  "i")              -- LATIN SMALL LETTER I WITH DIAERESIS
   , ("&#x00F3;",  "o")              -- LATIN SMALL LETTER O WITH ACUTE
+  , ("&#x00F6;",  "o")              -- LATIN SMALL LETTER O WITH DIAERESIS
   , ("&#x00FA;",  "u")              -- LATIN SMALL LETTER U WITH ACUTE
-  , ("&#x00F6;",  "o")              -- LATIN SMALL LETTER O WITH DIAERESIS (ö)
-  , ("&#x00FC;",  "u")              -- LATIN SMALL LETTER U WITH DIAERESIS (ü)
-  , ("&#x0160",   "S")              -- LATIN CAPITAL LETTER S WITH CARON
-  , ("&#x0161",   "s")              -- LATIN SMALL LETTER S WITH CARON
+  , ("&#x00FC;",  "u")              -- LATIN SMALL LETTER U WITH DIAERESIS
   , ("&#x012A;",  "I")              -- LATIN CAPITAL LETTER I WITH MACRON
   , ("&#x012B;",  "I")              -- LATIN SMALL LETTER I WITH MACRON
   , ("&#x015A;",  "S")              -- LATIN CAPITAL LETTER S WITH ACUTE
   , ("&#x015B;",  "s")              -- LATIN SMALL LETTER S WITH ACUTE
   , ("&#x015E;",  "s")              -- LATIN CAPITAL LETTER S WITH CEDILLA
   , ("&#x015F;",  "s")              -- LATIN SMALL LETTER S WITH CEDILLA
-  , ("&#x012A;",  "I")              -- LATIN CAPITAL LETTER I WITH MACRON
-  , ("&#x012B;",  "i")              -- LATIN SMALL LETTER I WITH MACRON
+  , ("&#x0160",   "S")              -- LATIN CAPITAL LETTER S WITH CARON
+  , ("&#x0161",   "s")              -- LATIN SMALL LETTER S WITH CARON
   , ("&#x03B1;",  "alpha")          -- GREEK SMALL LETTER ALPHA
   , ("&#x03B2;",  "beta")           -- GREEK SMALL LETTER BETA
   , ("&#x03B3;",  "gamma")          -- GREEK SMALL LETTER GAMMA
@@ -109,9 +133,17 @@ chHexSubst =
   , ("&#x02010;", "-")              -- HYPHEN
   ]
 
--- | Characters substitutions in Unicode notation.
-chUnicodeSubst ∷ [(Text,Text)]
-chUnicodeSubst =
+-- | All the HTML entities substitutions.
+htmlEntitySubst ∷ [(Text, Text)]
+htmlEntitySubst =
+  htmlEntityHexSubst ++ htmlEntityDecSubst ++ htmlEntityNameSubst
+
+------------------------------------------------------------------------------
+-- Unicode substitutions
+
+-- | Unicode substitutions.
+unicodeSubst ∷ [(Text,Text)]
+unicodeSubst =
   [ ("\t",          "")         -- U+0009 CHARACTER TABULATION
   , ("\n",          "")         -- U+000A LINE FEED (LF)
   , ("\f",          "")         -- U+000C FORM FEED (FF)
@@ -172,10 +204,10 @@ chUnicodeSubst =
   , ("Ó",           "O")        -- U+00D3 LATIN CAPITAL LETTER O WITH ACUTE
   , ("Ô",           "O")        -- U+00D4 LATIN CAPITAL LETTER O WITH CIRCUMFLEX
   , ("Õ",           "O")        -- U+00D5 LATIN CAPITAL LETTER O WITH TILDE
+  , ("Ö",           "O")        -- U+00D6 LATIN CAPITAL LETTER O WITH DIAERESIS
   , ("Ú",           "U")        -- U+00DA LATIN CAPITAL LETTER U WITH ACUTE
   , ("Û",           "U")        -- U+00DB LATIN CAPITAL LETTER U WITH CIRCUMFLEX
   , ("Ü",           "U")        -- U+00DC LATIN CAPITAL LETTER U WITH DIAERESIS
-  , ("Ö",           "O")        -- U+00D6 LATIN CAPITAL LETTER O WITH DIAERESIS
   , ("×",           "")         -- U+00D7 MULTIPLICATION SIGN
   , ("Ø",           "O")        -- U+00D8 LATIN CAPITAL LETTER O WITH STROKE
   , ("Ù",           "U")        -- U+00D9 LATIN CAPITAL LETTER U WITH GRAVE
@@ -219,6 +251,8 @@ chUnicodeSubst =
   , ("ę",           "e")        -- U+0119 LATIN SMALL LETTER E WITH OGONEK
   , ("Ğ",           "G")        -- U+011E LATIN CAPITAL LETTER G WITH BREVE
   , ("ğ",           "g")        -- U+011F LATIN SMALL LETTER G WITH BREVE
+  , ("Ī",           "I")        -- U+012A LATIN CAPITAL LETTER I WITH MACRON
+  , ("ī",           "I")        -- U+012B LATIN SMALL LETTER I WITH MACRON
   , ("İ",           "I")        -- U+0130 LATIN CAPITAL LETTER I WITH DOT ABOVE
   , ("Ł",           "L")        -- U+0141 LATIN CAPITAL LETTER L WITH STROKE
   , ("ł",           "l")        -- U+0142 LATIN SMALL LETTER L WITH STROKE
@@ -270,8 +304,8 @@ chUnicodeSubst =
   , ("ο",           "omicron")  -- U+03BF GREEK SMALL LETTER OMICRON
   , ("π",           "pi")       -- U+03C0 GREEK SMALL LETTER PI
   , ("ρ",           "rho")      -- U+03C1 GREEK SMALL LETTER RHO
-  , ("σ",           "sigma")    -- U+03C3 GREEK SMALL LETTER SIGMA
   , ("ς",           "sigma")    -- U+03C2 GREEK SMALL LETTER FINAL SIGMA
+  , ("σ",           "sigma")    -- U+03C3 GREEK SMALL LETTER SIGMA
   , ("τ",           "tau")      -- U+03C4 GREEK SMALL LETTER TAU
   , ("υ",           "upsilon")  -- U+03C5 GREEK SMALL LETTER UPSILON
   , ("φ",           "phi")      -- U+03C6 GREEK SMALL LETTER PHI
@@ -279,6 +313,7 @@ chUnicodeSubst =
   , ("ψ",           "psi")      -- U+03C8 GREEK SMALL LETTER PSI
   , ("ω",           "omega")    -- U+03C9 GREEK SMALL LETTER OMEGA
   , ("ẞ",           "SS")       -- U+1E9E LATIN CAPITAL LETTER SHARP S
+  , ("‐",           "-")        -- U+2210 HYPHEN
   , ("–",           "-")        -- U+2013 EN DASH
   , ("—",           "-")        -- U+2014 EM DASH
   , ("‘",           "")         -- U+2018 LEFT SINGLE QUOTATION MARK
@@ -289,23 +324,28 @@ chUnicodeSubst =
   , ("”",           "")         -- U+201D RIGHT DOUBLE QUOTATION MARK
   , ("„",           "")         -- U+201E DOUBLE LOW-9 QUOTATION MARK
   , ("‟",           "")         -- U+201F DOUBLE HIGH-REVERSED-9 QUOTATION MARK
+  , ("†",           "")         -- U+2020 DAGGER
   , ("‡",           "")         -- U+2021 DOUBLE DAGGER
+  , ("•",           "")         -- U+2022 BULLET
+  , ("…",           "")         -- U+2026 HORIZONTAL ELLIPSIS
   , ("™",           "")         -- U+2122 TRADE MARK SIGN
   , ("ℵ",           "aleph")    -- U+2135 ALEF SYMBOL
   , ("ℶ",           "beth")     -- U+2136 BET SYMBOL
+  , ("⊃",           "")         -- U+2283 SUPERSET OF
+  , ("⌝",           "")         -- U+231D TOP RIGHT CORNER
   , ("�",          "")         -- U+FFFD REPLACEMENT CHARACTER
   ]
-
--- | All the characters substitutions.
--- NB that the substitutions are not commutative.
-chSubst ∷ [(Text, Text)]
-chSubst =  chHexSubst ++ chNNSubst ++ chDecSubst ++ chUnicodeSubst
 
 ------------------------------------------------------------------------------
 -- Author and title substitutions
 
-commonSubst ∷ [(Text, Text)]
-commonSubst =
+-- | Weird author and title substitutions.
+
+-- These substitutions should be done before the substitutions of the
+-- HTML entities and converting to lower case.
+
+weirdSubst ∷ [(Text, Text)]
+weirdSubst =
   [ ("Ã¡",      "a")  -- U+00C3 and U+00A1 (LATIN SMALL LETTER A WITH GRAVE)
   , ("Ã©",      "e")  -- U+00C3 and U+00A9 (LATIN SMALL LETTER E WITH ACUTE)
   , ("Ã\x00AD", "i")  -- U+00C3 and U+00AD (LATIN SMALL LETTER I GRAVE)
@@ -314,9 +354,7 @@ commonSubst =
   , ("Å›",      "s")  -- U+00C5 and U+203A (LATIN CAPITAL LETTER S WITH ACUTE)
   ]
 
-------------------------------------------------------------------------------
--- Author substitutions
-
+-- | Author substitutions.
 authorSubst ∷ [(Text, Text)]
 authorSubst =
   [ (", ",   ",")
@@ -324,10 +362,10 @@ authorSubst =
 
   ]
 
-------------------------------------------------------------------------------
--- Title substitutions
+-- | Title substitutions.
 
--- These substitutions should be done before converting to lower case.
+-- These substitutions should be done before the substitutions of the
+-- HTML entities and converting to lower case.
 titleSubst ∷ [(Text,Text)]
 titleSubst =
   [ ("<Emphasis Type=\"BoldItalic\">P </Emphasis>",       "P")

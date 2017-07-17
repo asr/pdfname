@@ -28,9 +28,10 @@ import Options ( outputDir )
 
 import Substitutions
   ( authorSubst
-  , chSubst
-  , commonSubst
+  , htmlEntitySubst
   , titleSubst
+  , unicodeSubst
+  , weirdSubst
   )
 
 import Utilities
@@ -52,12 +53,13 @@ getAuthor xs =
   else
     -- NB that the substitutions are not commutative.
     ( T.toLower
-      . replace chSubst
+      . replace unicodeSubst
       . T.intercalate (T.singleton '-')
       . map (T.reverse . T.takeWhile (' ' /=) . T.reverse)
       . T.split (',' ==)
+      . replace htmlEntitySubst
       . replace authorSubst
-      . replace commonSubst
+      . replace weirdSubst
     ) xs
 
 getYear ∷ Text → Text
@@ -70,9 +72,10 @@ getTitle xs =
   else
     -- NB that the substitutions are not commutative.
     ( T.toLower
-      . replace chSubst
+      . replace unicodeSubst
+      . replace htmlEntitySubst
       . replace titleSubst
-      . replace commonSubst
+      . replace weirdSubst
     ) xs
 
 generateFileName ∷ PDFInfo → IO FilePath
