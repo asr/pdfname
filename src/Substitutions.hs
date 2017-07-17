@@ -19,16 +19,18 @@ import Data.Text ( Text )
 -- | Substitutions of HTML entities by name.
 htmlEntityNameSubst ∷ [(Text,Text)]
 htmlEntityNameSubst =
-  [ ("&Auml;", "A")  -- U+00C4 LATIN CAPITAL LETTER A WITH DIAERESIS
-  , ("&Euml;", "E")  -- U+00CB LATIN CAPITAL LETTER E WITH DIAERESIS
-  , ("&Iuml;", "I")  -- U+00CF LATIN CAPITAL LETTER I WITH DIAERESIS
-  , ("&Ouml;", "O")  -- U+00D6 LATIN CAPITAL LETTER U WITH DIAERESIS
-  , ("&Uuml;", "U")  -- U+00DC LATIN CAPITAL LETTER U WITH DIAERESIS
-  , ("&auml;", "a")  -- U+00E4 LATIN SMALL LETTER A WITH DIAERESIS
-  , ("&euml;", "e")  -- U+00EB LATIN SMALL LETTER E WITH DIAERESIS
-  , ("&iuml;", "i")  -- U+00EF LATIN SMALL LETTER I WITH DIAERESIS
-  , ("&ouml;", "o")  -- U+00F6 LATIN SMALL LETTER O WITH DIAERESIS
-  , ("&uuml;", "u")  -- U+00FC LATIN SMALL LETTER U WITH DIAERESIS
+  [ ("&Auml;",   "A")  -- U+00C4 LATIN CAPITAL LETTER A WITH DIAERESIS
+  , ("&Euml;",   "E")  -- U+00CB LATIN CAPITAL LETTER E WITH DIAERESIS
+  , ("&Iuml;",   "I")  -- U+00CF LATIN CAPITAL LETTER I WITH DIAERESIS
+  , ("&Ouml;",   "O")  -- U+00D6 LATIN CAPITAL LETTER U WITH DIAERESIS
+  , ("&Oslash;", "O")  -- U+00D8 LATIN CAPITAL LETTER O WITH STROKE
+  , ("&Uuml;",   "U")  -- U+00DC LATIN CAPITAL LETTER U WITH DIAERESIS
+  , ("&auml;",   "a")  -- U+00E4 LATIN SMALL LETTER A WITH DIAERESIS
+  , ("&euml;",   "e")  -- U+00EB LATIN SMALL LETTER E WITH DIAERESIS
+  , ("&iuml;",   "i")  -- U+00EF LATIN SMALL LETTER I WITH DIAERESIS
+  , ("&ouml;",   "o")  -- U+00F6 LATIN SMALL LETTER O WITH DIAERESIS
+  , ("&oslash;", "O")  -- U+00F8 LATIN SMALL LETTER O WITH STROKE
+  , ("&uuml;",   "u")  -- U+00FC LATIN SMALL LETTER U WITH DIAERESIS
   ]
 
 -- If a new entry is added here, also add it to the substitutions of
@@ -41,6 +43,7 @@ htmlEntityDecSubst =
   , ("&#203;",  "E")       -- U+00CB LATIN CAPITAL LETTER E WITH DIAERESIS
   , ("&#207;",  "I")       -- U+00CF LATIN CAPITAL LETTER I WITH DIAERESIS
   , ("&#214;",  "O")       -- U+00D6 LATIN CAPITAL LETTER U WITH DIAERESIS
+  , ("&#216;",  "O")       -- U+00D8 LATIN CAPITAL LETTER O WITH STROKE
   , ("&#220;",  "U")       -- U+00DC LATIN CAPITAL LETTER U WITH DIAERESIS
   , ("&#225;",  "a")       -- U+00E1 LATIN SMALL LETTER A WITH ACUTE
   , ("&#228;",  "a")       -- U+00E4 LATIN SMALL LETTER A WITH DIAERESIS
@@ -50,6 +53,7 @@ htmlEntityDecSubst =
   , ("&#239;",  "i")       -- U+00EF LATIN SMALL LETTER I WITH DIAERESIS
   , ("&#243;",  "o")       -- U+00F3 LATIN SMALL LETTER O WITH ACUTE
   , ("&#246;",  "o")       -- U+00F6 LATIN SMALL LETTER O WITH DIAERESIS
+  , ("&#248;",  "O")       -- U+00F8 LATIN SMALL LETTER O WITH STROKE
   , ("&#250;",  "u")       -- U+00FA LATIN SMALL LETTER U WITH ACUTE
   , ("&#252",   "u")       -- U+00FC LATIN SMALL LETTER U WITH DIAERESIS
   , ("&#352;",  "S")       -- U+0160 LATIN CAPITAL LETTER S WITH CARON
@@ -69,6 +73,7 @@ htmlEntityHexSubst =
   , ("&#x00CB;",  "E")              -- LATIN CAPITAL LETTER E WITH DIAERESIS
   , ("&#x00CF;",  "I")              -- LATIN CAPITAL LETTER I WITH DIAERESIS
   , ("&#x00D6;",  "O")              -- LATIN CAPITAL LETTER U WITH DIAERESIS
+  , ("&#x00D8;",  "O")              -- LATIN CAPITAL LETTER O WITH STROKE
   , ("&#x00DC;",  "U")              -- LATIN CAPITAL LETTER U WITH DIAERESIS
   , ("&#x00E1;",  "a")              -- LATIN SMALL LETTER A WITH ACUTE
   , ("&#x00E4;",  "a")              -- LATIN SMALL LETTER A WITH DIAERESIS
@@ -78,6 +83,7 @@ htmlEntityHexSubst =
   , ("&#x00EF;",  "i")              -- LATIN SMALL LETTER I WITH DIAERESIS
   , ("&#x00F3;",  "o")              -- LATIN SMALL LETTER O WITH ACUTE
   , ("&#x00F6;",  "o")              -- LATIN SMALL LETTER O WITH DIAERESIS
+  , ("&x00F8;",   "O")              -- LATIN SMALL LETTER O WITH STROKE
   , ("&#x00FA;",  "u")              -- LATIN SMALL LETTER U WITH ACUTE
   , ("&#x00FC;",  "u")              -- LATIN SMALL LETTER U WITH DIAERESIS
   , ("&#x012A;",  "I")              -- LATIN CAPITAL LETTER I WITH MACRON
