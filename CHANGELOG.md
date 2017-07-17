@@ -4,7 +4,7 @@ Changelog for pdfname
 0.1.4
 -----
 
-* Added subtitutions of some HTML entities.
+* Added substitutions for Unicode and some HTML entities.
 
 0.1.3
 -----
