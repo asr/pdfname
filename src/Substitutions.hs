@@ -29,7 +29,7 @@ htmlEntityNameSubst =
   , ("&euml;",   "e")  -- U+00EB LATIN SMALL LETTER E WITH DIAERESIS
   , ("&iuml;",   "i")  -- U+00EF LATIN SMALL LETTER I WITH DIAERESIS
   , ("&ouml;",   "o")  -- U+00F6 LATIN SMALL LETTER O WITH DIAERESIS
-  , ("&oslash;", "O")  -- U+00F8 LATIN SMALL LETTER O WITH STROKE
+  , ("&oslash;", "o")  -- U+00F8 LATIN SMALL LETTER O WITH STROKE
   , ("&uuml;",   "u")  -- U+00FC LATIN SMALL LETTER U WITH DIAERESIS
   ]
 
@@ -53,7 +53,7 @@ htmlEntityDecSubst =
   , ("&#239;",  "i")        -- U+00EF LATIN SMALL LETTER I WITH DIAERESIS
   , ("&#243;",  "o")        -- U+00F3 LATIN SMALL LETTER O WITH ACUTE
   , ("&#246;",  "o")        -- U+00F6 LATIN SMALL LETTER O WITH DIAERESIS
-  , ("&#248;",  "O")        -- U+00F8 LATIN SMALL LETTER O WITH STROKE
+  , ("&#248;",  "o")        -- U+00F8 LATIN SMALL LETTER O WITH STROKE
   , ("&#250;",  "u")        -- U+00FA LATIN SMALL LETTER U WITH ACUTE
   , ("&#252;",  "u")        -- U+00FC LATIN SMALL LETTER U WITH DIAERESIS
   , ("&#352;",  "S")        -- U+0160 LATIN CAPITAL LETTER S WITH CARON
@@ -108,7 +108,7 @@ htmlEntityHexSubst =
   , ("&#x00EF;",  "i")              -- LATIN SMALL LETTER I WITH DIAERESIS
   , ("&#x00F3;",  "o")              -- LATIN SMALL LETTER O WITH ACUTE
   , ("&#x00F6;",  "o")              -- LATIN SMALL LETTER O WITH DIAERESIS
-  , ("&#x00F8;",   "O")              -- LATIN SMALL LETTER O WITH STROKE
+  , ("&#x00F8;",  "o")              -- LATIN SMALL LETTER O WITH STROKE
   , ("&#x00FA;",  "u")              -- LATIN SMALL LETTER U WITH ACUTE
   , ("&#x00FC;",  "u")              -- LATIN SMALL LETTER U WITH DIAERESIS
   , ("&#x012A;",  "I")              -- LATIN CAPITAL LETTER I WITH MACRON
