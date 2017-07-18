@@ -16,16 +16,22 @@ import Data.Text ( Text )
 -- If a new entry is added here, also add it to the substitutions of
 -- HTML entities by decimal and hexadecimal references.
 
+-- Used by example for the Journal of Functional programmning.
+
 -- | Substitutions of HTML entities by name.
 htmlEntityNameSubst ∷ [(Text,Text)]
 htmlEntityNameSubst =
-  [ ("&Auml;",   "A")  -- U+00C4 LATIN CAPITAL LETTER A WITH DIAERESIS
+  [ ("&Acirc;",  "A")  -- U+00C2 LATIN CAPITAL LETTER A WITH CIRCUMFLEX
+  , ("&Auml;",   "A")  -- U+00C4 LATIN CAPITAL LETTER A WITH DIAERESIS
+  , ("&Ccedil;", "C")  -- U+00C7 LATIN CAPITAL LETTER C WITH CEDILLA
   , ("&Euml;",   "E")  -- U+00CB LATIN CAPITAL LETTER E WITH DIAERESIS
   , ("&Iuml;",   "I")  -- U+00CF LATIN CAPITAL LETTER I WITH DIAERESIS
   , ("&Ouml;",   "O")  -- U+00D6 LATIN CAPITAL LETTER U WITH DIAERESIS
   , ("&Oslash;", "O")  -- U+00D8 LATIN CAPITAL LETTER O WITH STROKE
   , ("&Uuml;",   "U")  -- U+00DC LATIN CAPITAL LETTER U WITH DIAERESIS
+  , ("&acirc;",  "a")  -- U+00E2 LATIN SMALL LETTER A WITH CIRCUMFLEX
   , ("&auml;",   "a")  -- U+00E4 LATIN SMALL LETTER A WITH DIAERESIS
+  , ("&ccedil;", "c")  -- U+00E7 LATIN SMALL LETTER C WITH CEDILLA
   , ("&euml;",   "e")  -- U+00EB LATIN SMALL LETTER E WITH DIAERESIS
   , ("&iuml;",   "i")  -- U+00EF LATIN SMALL LETTER I WITH DIAERESIS
   , ("&ouml;",   "o")  -- U+00F6 LATIN SMALL LETTER O WITH DIAERESIS
@@ -39,14 +45,18 @@ htmlEntityNameSubst =
 -- | Substitutions of HTML entities by decimal reference.
 htmlEntityDecSubst ∷ [(Text,Text)]
 htmlEntityDecSubst =
-  [ ("&#196;",  "A")        -- U+00C4 LATIN CAPITAL LETTER A WITH DIAERESIS
+  [ ("&#194;",  "A")        -- U+00C2 LATIN CAPITAL LETTER A WITH CIRCUMFLEX
+  , ("&#196;",  "A")        -- U+00C4 LATIN CAPITAL LETTER A WITH DIAERESIS
+  , ("&#199;",  "C")        -- U+00C7 LATIN CAPITAL LETTER C WITH CEDILLA
   , ("&#203;",  "E")        -- U+00CB LATIN CAPITAL LETTER E WITH DIAERESIS
   , ("&#207;",  "I")        -- U+00CF LATIN CAPITAL LETTER I WITH DIAERESIS
   , ("&#214;",  "O")        -- U+00D6 LATIN CAPITAL LETTER U WITH DIAERESIS
   , ("&#216;",  "O")        -- U+00D8 LATIN CAPITAL LETTER O WITH STROKE
   , ("&#220;",  "U")        -- U+00DC LATIN CAPITAL LETTER U WITH DIAERESIS
   , ("&#225;",  "a")        -- U+00E1 LATIN SMALL LETTER A WITH ACUTE
+  , ("&#226;",  "a")        -- U+00E2 LATIN SMALL LETTER A WITH CIRCUMFLEX
   , ("&#228;",  "a")        -- U+00E4 LATIN SMALL LETTER A WITH DIAERESIS
+  , ("&#231;",  "c")        -- U+00E7 LATIN SMALL LETTER C WITH CEDILLA
   , ("&#233;",  "e")        -- U+00E9 LATIN SMALL LETTER E WITH ACUTE
   , ("&#235;",  "e")        -- U+00EB LATIN SMALL LETTER E WITH DIAERESIS
   , ("&#237;",  "i")        -- U+00ED LATIN SMALL LETTER I WITH ACUTE
@@ -94,14 +104,18 @@ htmlEntityDecSubst =
 -- | Substitutions of HTML entities by hexadecimal reference.
 htmlEntityHexSubst ∷ [(Text,Text)]
 htmlEntityHexSubst =
-  [ ("&#x00C4;",  "A")              -- LATIN CAPITAL LETTER A WITH DIAERESIS
+  [ ("&#x00C2;",  "A")              -- LATIN CAPITAL LETTER A WITH CIRCUMFLEX
+  , ("&#x00C4;",  "A")              -- LATIN CAPITAL LETTER A WITH DIAERESIS
+  , ("&#x00C7;",  "C")              -- LATIN CAPITAL LETTER C WITH CEDILLA
   , ("&#x00CB;",  "E")              -- LATIN CAPITAL LETTER E WITH DIAERESIS
   , ("&#x00CF;",  "I")              -- LATIN CAPITAL LETTER I WITH DIAERESIS
   , ("&#x00D6;",  "O")              -- LATIN CAPITAL LETTER U WITH DIAERESIS
   , ("&#x00D8;",  "O")              -- LATIN CAPITAL LETTER O WITH STROKE
   , ("&#x00DC;",  "U")              -- LATIN CAPITAL LETTER U WITH DIAERESIS
   , ("&#x00E1;",  "a")              -- LATIN SMALL LETTER A WITH ACUTE
+  , ("&#x00E2;",  "a")              -- LATIN SMALL LETTER A WITH CIRCUMFLEX
   , ("&#x00E4;",  "a")              -- LATIN SMALL LETTER A WITH DIAERESIS
+  , ("&#x00E7;",  "c")              -- LATIN SMALL LETTER C WITH CEDILLA
   , ("&#x00E9;",  "e")              -- LATIN SMALL LETTER E WITH ACUTE
   , ("&#x00EB;",  "e")              -- LATIN SMALL LETTER E WITH DIAERESIS
   , ("&#x00ED;",  "i")              -- LATIN SMALL LETTER I WITH ACUTE
