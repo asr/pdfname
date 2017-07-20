@@ -2,7 +2,6 @@
 
 module Substitutions
   ( authorSubst
-  , htmlSymbolHexSubst
   , titleSubst
   , replace
   , replaceHTMLEntities
@@ -55,94 +54,82 @@ replace xs ys = foldl (flip (uncurry T.replace)) ys xs
 -- | Substitutions of HTML entities.
 htmlEntitySubst ∷ [(HTMLEntityName, HTMLEntityDec, HTMLEntityHex, Text)]
 htmlEntitySubst =
-  [ ("&Acirc;",  "&#194;", "&#x00C2;", "A")  -- LATIN CAPITAL LETTER A WITH CIRCUMFLEX
-  , ("&Auml;",   "&#196;", "&#x00C4;", "A")  -- LATIN CAPITAL LETTER A WITH DIAERESIS
-  , ("&Ccedil;", "&#199;", "&#x00C7;", "C")  -- LATIN CAPITAL LETTER C WITH CEDILLA
-  , ("&Euml;",   "&#203;", "&#x00CB;", "E")  -- LATIN CAPITAL LETTER E WITH DIAERESIS
-  , ("&Iuml;",   "&#207;", "&#x00CF;", "I")  -- LATIN CAPITAL LETTER I WITH DIAERESIS
-  , ("&Ouml;",   "&#214;", "&#x00D6;", "O")  -- LATIN CAPITAL LETTER U WITH DIAERESIS
-  , ("&Oslash;", "&#216;", "&#x00D8;", "O")  -- LATIN CAPITAL LETTER O WITH STROKE
-  , ("&Uuml;",   "&#220;", "&#x00DC;", "U")  -- LATIN CAPITAL LETTER U WITH DIAERESIS
-  , ("&acirc;",  "&#226;", "&#x00E2;", "a")  -- LATIN SMALL LETTER A WITH CIRCUMFLEX
-  , ("&auml;",   "&#228;", "&#x00E4;", "a")  -- LATIN SMALL LETTER A WITH DIAERESIS
-  , ("&ccedil;", "&#231;", "&#x00E7;", "c")  -- LATIN SMALL LETTER C WITH CEDILLA
-  , ("&euml;",   "&#235;", "&#x00EB;", "e")  -- LATIN SMALL LETTER E WITH DIAERESIS
-  , ("&iuml;",   "&#239;", "&#x00EF;", "i")  -- LATIN SMALL LETTER I WITH DIAERESIS
-  , ("&ouml;",   "&#246;", "&#x00F6;", "o")  -- LATIN SMALL LETTER O WITH DIAERESIS
-  , ("&oslash;", "&#248;", "&#x00F8;", "o")  -- LATIN SMALL LETTER O WITH STROKE
-  , ("&uuml;",   "&#252;", "&#x00FC;", "u")  -- LATIN SMALL LETTER U WITH DIAERESIS
+  [ ("&Acirc;",   "&#194;",  "&#x00C2;", "A")              -- LATIN CAPITAL LETTER A WITH CIRCUMFLEX
+  , ("&Auml;",    "&#196;",  "&#x00C4;", "A")              -- LATIN CAPITAL LETTER A WITH DIAERESIS
+  , ("&Ccedil;",  "&#199;",  "&#x00C7;", "C")              -- LATIN CAPITAL LETTER C WITH CEDILLA
+  , ("&Euml;",    "&#203;",  "&#x00CB;", "E")              -- LATIN CAPITAL LETTER E WITH DIAERESIS
+  , ("&Iuml;",    "&#207;",  "&#x00CF;", "I")              -- LATIN CAPITAL LETTER I WITH DIAERESIS
+  , ("&Ouml;",    "&#214;",  "&#x00D6;", "O")              -- LATIN CAPITAL LETTER U WITH DIAERESIS
+  , ("&Oslash;",  "&#216;",  "&#x00D8;", "O")              -- LATIN CAPITAL LETTER O WITH STROKE
+  , ("&Uuml;",    "&#220;",  "&#x00DC;", "U")              -- LATIN CAPITAL LETTER U WITH DIAERESIS
+  , ("&aacute;",  "&#225;",  "&#x00E1;", "a")              -- LATIN SMALL LETTER A WITH ACUTE
+  , ("&acirc;",   "&#226;",  "&#x00E2;", "a")              -- LATIN SMALL LETTER A WITH CIRCUMFLEX
+  , ("&auml;",    "&#228;",  "&#x00E4;", "a")              -- LATIN SMALL LETTER A WITH DIAERESIS
+  , ("&ccedil;",  "&#231;",  "&#x00E7;", "c")              -- LATIN SMALL LETTER C WITH CEDILLA
+  , ("&eacute;",  "&#233;",  "&#x00E9;", "e")              -- LATIN SMALL LETTER E WITH ACUTE
+  , ("&euml;",    "&#235;",  "&#x00EB;", "e")              -- LATIN SMALL LETTER E WITH DIAERESIS
+  , ("&iacute;",  "&#237;",  "&#x00ED;", "i")              -- LATIN SMALL LETTER I WITH ACUTE
+  , ("&iuml;",    "&#239;",  "&#x00EF;", "i")              -- LATIN SMALL LETTER I WITH DIAERESIS
+  , ("&oacute;",  "&#243;",  "&#x00F3;", "o")              -- LATIN SMALL LETTER O WITH ACUTE
+  , ("&ouml;",    "&#246;",  "&#x00F6;", "o")              -- LATIN SMALL LETTER O WITH DIAERESIS
+  , ("&oslash;",  "&#248;",  "&#x00F8;", "o")              -- LATIN SMALL LETTER O WITH STROKE
+  , ("&uacute;",  "&#250;",  "&#x00FA;", "u")              -- LATIN SMALL LETTER U WITH ACUTE
+  , ("&uuml;",    "&#252;",  "&#x00FC;", "u")              -- LATIN SMALL LETTER U WITH DIAERESIS
+  , ("&Imacr;",   "&#298;",  "&#x012A;", "I")              -- LATIN CAPITAL LETTER I WITH MACRON
+  , ("&imacr;",   "&#299;",  "&#x012B;", "I")              -- LATIN SMALL LETTER I WITH MACRON
+  , ("&Sacute;",  "&#346;",  "&#x015A;", "S")              -- LATIN CAPITAL LETTER S WITH ACUTE
+  , ("&sacute;",  "&#347;",  "&#x015B;", "s")              -- LATIN SMALL LETTER S WITH ACUTE
+  , ("&Scedil;",  "&#350;",  "&#x015E;", "s")              -- LATIN CAPITAL LETTER S WITH CEDILLA
+  , ("&scedil;",  "&#351;",  "&#x015F;", "s")              -- LATIN SMALL LETTER S WITH CEDILLA
+  , ("&Scaron;",  "&#352;",  "&#x0160",  "S")              -- LATIN CAPITAL LETTER S WITH CARON
+  , ("&scaron;",  "&#353;",  "&#x0161",  "s")              -- LATIN SMALL LETTER S WITH CARON
+  , ("&alpha;",   "&#945;",  "&#x03B1;", "alpha")          -- GREEK SMALL LETTER ALPHA
+  , ("&beta;",    "&#946;",  "&#x03B2;", "beta")           -- GREEK SMALL LETTER BETA
+  , ("&gamma;",   "&#947;",  "&#x03B3;", "gamma")          -- GREEK SMALL LETTER GAMMA
+  , ("&delta;",   "&#948;",  "&#x03B4;", "delta")          -- GREEK SMALL LETTER DELTA
+  , ("&epsilon;", "&#949;",  "&#x03B5;", "epsilon")        -- GREEK SMALL LETTER EPSILON
+  , ("&zeta;",    "&#950;",  "&#x03B6;", "zeta")           -- GREEK SMALL LETTER ZETA
+  , ("&eta;",     "&#951;",  "&#x03B7;", "eta")            -- GREEK SMALL LETTER ETA
+  , ("&theta;",   "&#952;",  "&#x03B8;", "theta")          -- GREEK SMALL LETTER THETA
+  , ("&iota;",    "&#953;",  "&#x03B9;", "iota")           -- GREEK SMALL LETTER IOTA
+  , ("&kappa;",   "&#954;",  "&#x03BA;", "kappa")          -- GREEK SMALL LETTER KAPPA
+  , ("&lambda;",  "&#955;",  "&#x03BB;", "lambda")         -- GREEK SMALL LETTER LAMDA
+  , ("&mu;",      "&#956;",  "&#x03BC;", "mu")             -- GREEK SMALL LETTER MU
+  , ("&nu;",      "&#957;",  "&#x03BD;", "nu")             -- GREEK SMALL LETTER NU
+  , ("&xi;",      "&#958;",  "&#x03BE;", "xi")             -- GREEK SMALL LETTER ZI
+  , ("&omicron;", "&#959;",  "&#x03BF;", "omicron")        -- GREEK SMALL LETTER OMICRON
+  , ("&pi;",      "&#960;",  "&#x03C0;", "pi")             -- GREEK SMALL LETTER PI
+  , ("&rho;",     "&#961;",  "&#x03C1;", "rho")            -- GREEK SMALL LETTER RHO
+  , ("&sigmaf;",  "&#962;",  "&#x03C2;", "sigma")          -- GREEK SMALL LETTER FINAL SIGMA
+  , ("&sigma;",   "&#963;",  "&#x03C3;", "sigma")          -- GREEK SMALL LETTER SIGMA
+  , ("&tau;",     "&#964;",  "&#x03C4;", "tau")            -- GREEK SMALL LETTER TAU
+  , ("&upsilon;", "&#965;",  "&#x03C5;", "upsilon")        -- GREEK SMALL LETTER UPSILON
+  , ("&phi;",     "&#966;",  "&#x03C6;", "phi")            -- GREEK SMALL LETTER PHI
+  , ("&chi;",     "&#967;",  "&#x03C7;", "chi")            -- GREEK SMALL LETTER CHI
+  , ("&psi;",     "&#968;",  "&#x03C8;", "psi")            -- GREEK SMALL LETTER PSI
+  , ("&omega;",   "&#969;",  "&#x03C9;", "omega")          -- GREEK SMALL LETTER OMEGA
+  , ("&ndash;",   "&#8211;", "&#x2013;", "-")              -- EN DASH
+  , ("&mdash;",   "&#8212;", "&#x2014;", ".")              -- EM DAS
+  , ("&lsquo;",   "&#8216;", "&#x2018;", "")               -- LEFT SINGLE QUOTATION MARK
+  , ("&rsquo;",   "&#8217;", "&#x2019;", "")               -- RIGHT SINGLE QUOTATION MARK
+  , ("&sbquo;",   "&#8218;", "&#x201A;", "")               -- SINGLE LOW-9 QUOTATION MAR
+  , ("&ldquo;",   "&#8220;", "&#x201C;", "")               -- LEFT DOUBLE QUOTATION MARK
+  , ("&rdquo;",   "&#8221;", "&#x201D;", "")               -- RIGHT DOUBLE QUOTATION MARK
+  , ("&bdquo;",   "&#8222;", "&#x201E;", "")               -- DOUBLE LOW-9 QUOTATION MARK
+  , ("&dagger;",  "&#8224;", "&#x2020;", "dagger")         -- DAGGER
+  , ("&Dagger;",  "&#8225;", "&#x2021;", "dagger-dagger")  -- DOUBLE DAGGER
+  , ("&bull;",    "&#8226;", "&#x2022;", "")               -- BULLET
+  , ("&hellip;",  "&#8230;", "&#x2026;", "")               -- HORIZONTAL ELLIPSIS
+  , ("&sup;",     "&#8323;", "&#x2283;", "")               -- SUPERSET OF
   ]
 
 -- | Substitutions of HTML symbols.
 htmlSymbolSubst ∷ [(HTMLSymbolDec, HTMLSymbolHex, Text)]
 htmlSymbolSubst =
-  [ ("&#225;",  "&#x00E1;", "a")        -- LATIN SMALL LETTER A WITH ACUTE
-  , ("&#233;",  "&#x00E9;", "e")        -- LATIN SMALL LETTER E WITH ACUTE
-  , ("&#237;",  "&#x00ED;", "i")        -- LATIN SMALL LETTER I WITH ACUTE
-  , ("&#243;",  "&#x00F3;", "o")        -- LATIN SMALL LETTER O WITH ACUTE
-  , ("&#250;",  "&#x00FA;", "u")        -- LATIN SMALL LETTER U WITH ACUTE
-  , ("&#352;",  "&#x0160",  "S")        -- LATIN CAPITAL LETTER S WITH CARON
-  , ("&#353;",  "&#x0161",  "s")        -- LATIN SMALL LETTER S WITH CARON
-  , ("&#945;",  "&#x03B1;", "alpha")    -- GREEK SMALL LETTER ALPHA
-  , ("&#946;",  "&#x03B2;", "beta")     -- GREEK SMALL LETTER BETA
-  , ("&#947;",  "&#x03B3;", "gamma")    -- GREEK SMALL LETTER GAMMA
-  , ("&#948;",  "&#x03B4;", "delta")    -- GREEK SMALL LETTER DELTA
-  , ("&#949;",  "&#x03B5;", "epsilon")  -- GREEK SMALL LETTER EPSILON
-  , ("&#950;",  "&#x03B6;", "zeta")     -- GREEK SMALL LETTER ZETA
-  , ("&#951;",  "&#x03B7;", "eta")      -- GREEK SMALL LETTER ETA
-  , ("&#952;",  "&#x03B8;", "theta")    -- GREEK SMALL LETTER THETA
-  , ("&#953;",  "&#x03B9;", "iota")     -- GREEK SMALL LETTER IOTA
-  , ("&#954;",  "&#x03BA;", "kappa")    -- GREEK SMALL LETTER KAPPA
-  , ("&#955;",  "&#x03BB;", "lambda")   -- GREEK SMALL LETTER LAMDA
-  , ("&#956;",  "&#x03BC;", "mu")       -- GREEK SMALL LETTER MU
-  , ("&#957;",  "&#x03BD;", "nu")       -- GREEK SMALL LETTER NU
-  , ("&#958;",  "&#x03BE;", "xi")       -- GREEK SMALL LETTER ZI
-  , ("&#959;",  "&#x03BF;", "omicron")  -- GREEK SMALL LETTER OMICRON
-  , ("&#960;",  "&#x03C0;", "pi")       -- GREEK SMALL LETTER PI
-  , ("&#961;",  "&#x03C1;", "rho")      -- GREEK SMALL LETTER RHO
-  , ("&#962;",  "&#x03C2;", "sigma")    -- GREEK SMALL LETTER FINAL SIGMA
-  , ("&#963;",  "&#x03C3;", "sigma")    -- GREEK SMALL LETTER SIGMA
-  , ("&#964;",  "&#x03C4;", "tau")      -- GREEK SMALL LETTER TAU
-  , ("&#965;",  "&#x03C5;", "upsilon")  -- GREEK SMALL LETTER UPSILON
-  , ("&#966;",  "&#x03C6;", "phi")      -- GREEK SMALL LETTER PHI
-  , ("&#967;",  "&#x03C7;", "chi")      -- GREEK SMALL LETTER CHI
-  , ("&#968;",  "&#x03C8;", "psi")      -- GREEK SMALL LETTER PSI
-  , ("&#969;",  "&#x03C9;","omega")     -- GREEK SMALL LETTER OMEGA
-  , ("&#8216;", "&#x2018;", "")         -- LEFT SINGLE QUOTATION MARK
-  ]
-
-  -- TODO (2017-07-17): Missing `;`.
-  -- , ("&#8217",  "")         -- U+2019 RIGHT SINGLE QUOTATION MARK
-
--- If a new entry is added here, also add it to the Unicode
--- substitutions.
-
--- | Substitutions of HTML symbols by hexadecimal reference.
-htmlSymbolHexSubst ∷ [(Text,Text)]
-htmlSymbolHexSubst =
-  [ ("&#x012A;",  "I")              -- LATIN CAPITAL LETTER I WITH MACRON
-  , ("&#x012B;",  "I")              -- LATIN SMALL LETTER I WITH MACRON
-  , ("&#x015A;",  "S")              -- LATIN CAPITAL LETTER S WITH ACUTE
-  , ("&#x015B;",  "s")              -- LATIN SMALL LETTER S WITH ACUTE
-  , ("&#x015E;",  "s")              -- LATIN CAPITAL LETTER S WITH CEDILLA
-  , ("&#x015F;",  "s")              -- LATIN SMALL LETTER S WITH CEDILLA
-  , ("&#x2010;",  "-")              -- HYPHEN
-  , ("&#x2013;",  "-")              -- EN DASH
-  , ("&#x2014;",  ".")              -- EM DAS
-  , ("&#x2019;",  "")               -- RIGHT SINGLE QUOTATION MARK
-  , ("&#x201A;",  "")               -- SINGLE LOW-9 QUOTATION MAR
-  , ("&#x201B;",  "")               -- SINGLE HIGH-REVERSED-9 QUOTATION MARK
-  , ("&#x201C;",  "")               -- LEFT DOUBLE QUOTATION MARK
-  , ("&#x201D;",  "")               -- RIGHT DOUBLE QUOTATION MARK
-  , ("&#x201E;",  "")               -- DOUBLE LOW-9 QUOTATION MARK
-  , ("&#x201F;",  "")               -- DOUBLE HIGH-REVERSED-9 QUOTATION MARK
-  , ("&#x2020;",  "dagger")         -- DAGGER
-  , ("&#x2021;",  "dagger-dagger")  -- DOUBLE DAGGER
-  , ("&#x2022;",  "")               -- BULLET
-  , ("&#x2026;",  "")               -- HORIZONTAL ELLIPSIS
-  , ("&#x2283;",  "")               -- SUPERSET OF
-  , ("&#x231D;",  "")               -- TOP RIGHT CORNER
-  , ("&#x02010;", "-")              -- HYPHEN
+  [ ("&#8208;", "&#x2010;", "-")  -- HYPHEN
+  , ("&#8219;", "&#x201B;", "")   -- SINGLE HIGH-REVERSED-9 QUOTATION MARK
+  , ("&#8223;", "&#x201F;", "")   -- DOUBLE HIGH-REVERSED-9 QUOTATION MARK
+  , ("&#8989;", "&#x231D;", "")   -- TOP RIGHT CORNER
   ]
 
 ------------------------------------------------------------------------------
@@ -372,27 +359,11 @@ unicodeSubst =
 ------------------------------------------------------------------------------
 -- Author and title substitutions
 
--- | Weird author and title substitutions.
-
--- These substitutions should be done before the substitutions of the
--- HTML entities and converting to lower case.
-
-weirdSubst ∷ [(Text, Text)]
-weirdSubst =
-  [ ("Ã¡",      "a")  -- U+00C3 and U+00A1 (LATIN SMALL LETTER A WITH GRAVE)
-  , ("Ã©",      "e")  -- U+00C3 and U+00A9 (LATIN SMALL LETTER E WITH ACUTE)
-  , ("Ã\x00AD", "i")  -- U+00C3 and U+00AD (LATIN SMALL LETTER I GRAVE)
-  -- We erase `Ã¶` because it follows an `o` in the examples we know.
-  , ("Ã¶",      "")   -- U+00C3 and U+00B6 (LATIN SMALL LETTER O WITH DIAERESIS)
-  , ("Å›",      "s")  -- U+00C5 and U+203A (LATIN CAPITAL LETTER S WITH ACUTE)
-  ]
-
 -- | Author substitutions.
 authorSubst ∷ [(Text, Text)]
 authorSubst =
   [ (", ",   ",")
   , (" and", ",")
-
   ]
 
 -- | Title substitutions.
@@ -429,4 +400,25 @@ titleSubst =
   , ("<TEX>{\\sc QuickSpec}</TEX>:",                      "QuickSpec")
   , ("<TEX>{\\sc QuodLibet}</TEX>!",                      "QuodLibet")
   , ("<TEX>{\\sc Vampire}</TEX>",                         "Vampire")
+  ]
+
+------------------------------------------------------------------------------
+-- Weird substitutions.
+
+-- These substitutions should be done before the substitutions of the
+-- HTML entities and symbols and converting to lower case.
+
+-- | Weird author and title substitutions.
+weirdSubst ∷ [(Text, Text)]
+weirdSubst =
+  [ ("Ã¡",      "a")    -- U+00C3 and U+00A1 (LATIN SMALL LETTER A WITH GRAVE)
+  , ("Ã©",      "e")    -- U+00C3 and U+00A9 (LATIN SMALL LETTER E WITH ACUTE)
+  , ("Ã\x00AD", "i")    -- U+00C3 and U+00AD (LATIN SMALL LETTER I GRAVE)
+  -- We erase `Ã¶` because it follows an `o` in the examples we know.
+  , ("Ã¶",      "")     -- U+00C3 and U+00B6 (LATIN SMALL LETTER O WITH DIAERESIS)
+  , ("Å›",      "s")    -- U+00C5 and U+203A (LATIN CAPITAL LETTER S WITH ACUTE)
+  -- TODO (2017-07-20): Five hex numbers
+  , ("&#x02010;", "-")  -- U+2010 HYPHEN
+  -- TODO (2017-07-17): Missing `;`.
+  , ("&#8217",  "")     -- U+2019 RIGHT SINGLE QUOTATION MARK
   ]
