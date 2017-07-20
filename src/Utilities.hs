@@ -5,7 +5,6 @@ module Utilities
  , die
  , ifM
  , progNameVersion
- , replace
  , unless_
  , unlessM
  , upperFirst
@@ -50,9 +49,6 @@ die err = do
   progName ← getProgName
   T.hPutStrLn stderr (T.pack progName +++ ": " +++ err)
   exitFailure
-
-replace ∷ [(Text,Text)] → Text → Text
-replace xs ys = foldl (flip (uncurry T.replace)) ys xs
 
 -- | Uppercase the first character of a text.
 upperFirst ∷ Text → Text

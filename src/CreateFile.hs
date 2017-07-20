@@ -28,17 +28,16 @@ import Options ( outputDir )
 
 import Substitutions
   ( authorSubst
-  , htmlEntitySubst
+  , htmlSymbolHexSubst
   , titleSubst
+  , replace
+  , replaceHTMLEntities
+  , replaceHTMLSymbols
   , unicodeSubst
   , weirdSubst
   )
 
-import Utilities
-  ( (+++)
-  , die
-  , replace
-  )
+import Utilities ( (+++), die )
 
 ------------------------------------------------------------------------------
 defaultAuthor, defaultTitle, defaultYear ∷ Text
@@ -57,7 +56,9 @@ getAuthor xs =
       . T.intercalate (T.singleton '-')
       . map (T.reverse . T.takeWhile (' ' /=) . T.reverse)
       . T.split (',' ==)
-      . replace htmlEntitySubst
+      . replace htmlSymbolHexSubst
+      . replaceHTMLSymbols
+      . replaceHTMLEntities
       . replace authorSubst
       . replace weirdSubst
     ) xs
@@ -73,7 +74,9 @@ getTitle xs =
     -- NB that the substitutions are not commutative.
     ( T.toLower
       . replace unicodeSubst
-      . replace htmlEntitySubst
+      . replace htmlSymbolHexSubst
+      . replaceHTMLSymbols
+      . replaceHTMLEntities
       . replace titleSubst
       . replace weirdSubst
     ) xs
