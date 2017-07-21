@@ -4,6 +4,7 @@ Changelog for pdfname
 0.1.4
 -----
 
+* [#7](https://github.com/asr/pdfname/issues/7): fixed default author
 * Added substitutions for Unicode and some HTML entities.
 
 0.1.3
