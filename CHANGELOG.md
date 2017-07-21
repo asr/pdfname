@@ -4,23 +4,23 @@ Changelog for pdfname
 0.1.4
 -----
 
-* [#7](https://github.com/asr/pdfname/issues/7): fixed default author
+* Fixed default author, [#7](https://github.com/asr/pdfname/issues/7).
 * Added substitutions for Unicode and some HTML entities.
 
 0.1.3
 -----
 
-* [#5](https://github.com/asr/pdfname/issues/5) and
-  [#6](https://github.com/asr/pdfname/issues/6): added Unicode
-  substitutions.
-* [#3](https://github.com/asr/pdfname/issues/3): an empty PDF file
-  does not generate an exception.
+* Added Unicode substitutions,
+  [#5](https://github.com/asr/pdfname/issues/5) and
+  [#6](https://github.com/asr/pdfname/issues/6).
+* An empty PDF file does not generate an exception,
+  [#3](https://github.com/asr/pdfname/issues/3).
 * Added and fixed substitutions.
 
 0.1.2
 -----
 
-[#1](https://github.com/asr/pdfname/issues/1): improved error message.
+Improved error message, [#1](https://github.com/asr/pdfname/issues/1).
 
 0.1.1
 -----
