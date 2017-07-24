@@ -22,6 +22,8 @@ type HTMLEntityHex  = Text
 type HTMLSymbolDec  = Text
 type HTMLSymbolHex  = Text
 
+-- These substitutions should be done before the Unicode
+-- substitutions.
 replaceHTMLEntities ∷ Text → Text
 replaceHTMLEntities = replace nameSubst . replace decSubst . replace hexSubst
   where
@@ -34,6 +36,8 @@ replaceHTMLEntities = replace nameSubst . replace decSubst . replace hexSubst
    hexSubst ∷ [(HTMLEntityHex, Text)]
    hexSubst = map (\ (_, _, c, d) → (c, d)) htmlEntitySubst
 
+-- These substitutions should be done before the Unicode
+-- substitutions.
 replaceHTMLSymbols ∷ Text → Text
 replaceHTMLSymbols = replace decSubst . replace hexSubst
   where
@@ -54,82 +58,82 @@ replace xs ys = foldl (flip (uncurry T.replace)) ys xs
 -- | Substitutions of HTML entities.
 htmlEntitySubst ∷ [(HTMLEntityName, HTMLEntityDec, HTMLEntityHex, Text)]
 htmlEntitySubst =
-  [ ("&Acirc;",   "&#194;",  "&#x00C2;", "A")              -- LATIN CAPITAL LETTER A WITH CIRCUMFLEX
-  , ("&Auml;",    "&#196;",  "&#x00C4;", "A")              -- LATIN CAPITAL LETTER A WITH DIAERESIS
-  , ("&Ccedil;",  "&#199;",  "&#x00C7;", "C")              -- LATIN CAPITAL LETTER C WITH CEDILLA
-  , ("&Euml;",    "&#203;",  "&#x00CB;", "E")              -- LATIN CAPITAL LETTER E WITH DIAERESIS
-  , ("&Iuml;",    "&#207;",  "&#x00CF;", "I")              -- LATIN CAPITAL LETTER I WITH DIAERESIS
-  , ("&Ouml;",    "&#214;",  "&#x00D6;", "O")              -- LATIN CAPITAL LETTER U WITH DIAERESIS
-  , ("&Oslash;",  "&#216;",  "&#x00D8;", "O")              -- LATIN CAPITAL LETTER O WITH STROKE
-  , ("&Uuml;",    "&#220;",  "&#x00DC;", "U")              -- LATIN CAPITAL LETTER U WITH DIAERESIS
-  , ("&aacute;",  "&#225;",  "&#x00E1;", "a")              -- LATIN SMALL LETTER A WITH ACUTE
-  , ("&acirc;",   "&#226;",  "&#x00E2;", "a")              -- LATIN SMALL LETTER A WITH CIRCUMFLEX
-  , ("&auml;",    "&#228;",  "&#x00E4;", "a")              -- LATIN SMALL LETTER A WITH DIAERESIS
-  , ("&ccedil;",  "&#231;",  "&#x00E7;", "c")              -- LATIN SMALL LETTER C WITH CEDILLA
-  , ("&eacute;",  "&#233;",  "&#x00E9;", "e")              -- LATIN SMALL LETTER E WITH ACUTE
-  , ("&euml;",    "&#235;",  "&#x00EB;", "e")              -- LATIN SMALL LETTER E WITH DIAERESIS
-  , ("&iacute;",  "&#237;",  "&#x00ED;", "i")              -- LATIN SMALL LETTER I WITH ACUTE
-  , ("&iuml;",    "&#239;",  "&#x00EF;", "i")              -- LATIN SMALL LETTER I WITH DIAERESIS
-  , ("&oacute;",  "&#243;",  "&#x00F3;", "o")              -- LATIN SMALL LETTER O WITH ACUTE
-  , ("&ouml;",    "&#246;",  "&#x00F6;", "o")              -- LATIN SMALL LETTER O WITH DIAERESIS
-  , ("&oslash;",  "&#248;",  "&#x00F8;", "o")              -- LATIN SMALL LETTER O WITH STROKE
-  , ("&uacute;",  "&#250;",  "&#x00FA;", "u")              -- LATIN SMALL LETTER U WITH ACUTE
-  , ("&uuml;",    "&#252;",  "&#x00FC;", "u")              -- LATIN SMALL LETTER U WITH DIAERESIS
-  , ("&Imacr;",   "&#298;",  "&#x012A;", "I")              -- LATIN CAPITAL LETTER I WITH MACRON
-  , ("&imacr;",   "&#299;",  "&#x012B;", "I")              -- LATIN SMALL LETTER I WITH MACRON
-  , ("&Sacute;",  "&#346;",  "&#x015A;", "S")              -- LATIN CAPITAL LETTER S WITH ACUTE
-  , ("&sacute;",  "&#347;",  "&#x015B;", "s")              -- LATIN SMALL LETTER S WITH ACUTE
-  , ("&Scedil;",  "&#350;",  "&#x015E;", "s")              -- LATIN CAPITAL LETTER S WITH CEDILLA
-  , ("&scedil;",  "&#351;",  "&#x015F;", "s")              -- LATIN SMALL LETTER S WITH CEDILLA
-  , ("&Scaron;",  "&#352;",  "&#x0160",  "S")              -- LATIN CAPITAL LETTER S WITH CARON
-  , ("&scaron;",  "&#353;",  "&#x0161",  "s")              -- LATIN SMALL LETTER S WITH CARON
-  , ("&alpha;",   "&#945;",  "&#x03B1;", "alpha")          -- GREEK SMALL LETTER ALPHA
-  , ("&beta;",    "&#946;",  "&#x03B2;", "beta")           -- GREEK SMALL LETTER BETA
-  , ("&gamma;",   "&#947;",  "&#x03B3;", "gamma")          -- GREEK SMALL LETTER GAMMA
-  , ("&delta;",   "&#948;",  "&#x03B4;", "delta")          -- GREEK SMALL LETTER DELTA
-  , ("&epsilon;", "&#949;",  "&#x03B5;", "epsilon")        -- GREEK SMALL LETTER EPSILON
-  , ("&zeta;",    "&#950;",  "&#x03B6;", "zeta")           -- GREEK SMALL LETTER ZETA
-  , ("&eta;",     "&#951;",  "&#x03B7;", "eta")            -- GREEK SMALL LETTER ETA
-  , ("&theta;",   "&#952;",  "&#x03B8;", "theta")          -- GREEK SMALL LETTER THETA
-  , ("&iota;",    "&#953;",  "&#x03B9;", "iota")           -- GREEK SMALL LETTER IOTA
-  , ("&kappa;",   "&#954;",  "&#x03BA;", "kappa")          -- GREEK SMALL LETTER KAPPA
-  , ("&lambda;",  "&#955;",  "&#x03BB;", "lambda")         -- GREEK SMALL LETTER LAMDA
-  , ("&mu;",      "&#956;",  "&#x03BC;", "mu")             -- GREEK SMALL LETTER MU
-  , ("&nu;",      "&#957;",  "&#x03BD;", "nu")             -- GREEK SMALL LETTER NU
-  , ("&xi;",      "&#958;",  "&#x03BE;", "xi")             -- GREEK SMALL LETTER ZI
-  , ("&omicron;", "&#959;",  "&#x03BF;", "omicron")        -- GREEK SMALL LETTER OMICRON
-  , ("&pi;",      "&#960;",  "&#x03C0;", "pi")             -- GREEK SMALL LETTER PI
-  , ("&rho;",     "&#961;",  "&#x03C1;", "rho")            -- GREEK SMALL LETTER RHO
-  , ("&sigmaf;",  "&#962;",  "&#x03C2;", "sigma")          -- GREEK SMALL LETTER FINAL SIGMA
-  , ("&sigma;",   "&#963;",  "&#x03C3;", "sigma")          -- GREEK SMALL LETTER SIGMA
-  , ("&tau;",     "&#964;",  "&#x03C4;", "tau")            -- GREEK SMALL LETTER TAU
-  , ("&upsilon;", "&#965;",  "&#x03C5;", "upsilon")        -- GREEK SMALL LETTER UPSILON
-  , ("&phi;",     "&#966;",  "&#x03C6;", "phi")            -- GREEK SMALL LETTER PHI
-  , ("&chi;",     "&#967;",  "&#x03C7;", "chi")            -- GREEK SMALL LETTER CHI
-  , ("&psi;",     "&#968;",  "&#x03C8;", "psi")            -- GREEK SMALL LETTER PSI
-  , ("&omega;",   "&#969;",  "&#x03C9;", "omega")          -- GREEK SMALL LETTER OMEGA
-  , ("&ndash;",   "&#8211;", "&#x2013;", "-")              -- EN DASH
-  , ("&mdash;",   "&#8212;", "&#x2014;", ".")              -- EM DAS
-  , ("&lsquo;",   "&#8216;", "&#x2018;", "")               -- LEFT SINGLE QUOTATION MARK
-  , ("&rsquo;",   "&#8217;", "&#x2019;", "")               -- RIGHT SINGLE QUOTATION MARK
-  , ("&sbquo;",   "&#8218;", "&#x201A;", "")               -- SINGLE LOW-9 QUOTATION MAR
-  , ("&ldquo;",   "&#8220;", "&#x201C;", "")               -- LEFT DOUBLE QUOTATION MARK
-  , ("&rdquo;",   "&#8221;", "&#x201D;", "")               -- RIGHT DOUBLE QUOTATION MARK
-  , ("&bdquo;",   "&#8222;", "&#x201E;", "")               -- DOUBLE LOW-9 QUOTATION MARK
-  , ("&dagger;",  "&#8224;", "&#x2020;", "dagger")         -- DAGGER
-  , ("&Dagger;",  "&#8225;", "&#x2021;", "dagger-dagger")  -- DOUBLE DAGGER
-  , ("&bull;",    "&#8226;", "&#x2022;", "")               -- BULLET
-  , ("&hellip;",  "&#8230;", "&#x2026;", "")               -- HORIZONTAL ELLIPSIS
-  , ("&sup;",     "&#8323;", "&#x2283;", "")               -- SUPERSET OF
+  [ ("&Acirc;",   "&#194;",  "&#x00C2;", "Â")
+  , ("&Auml;",    "&#196;",  "&#x00C4;", "Ä")
+  , ("&Ccedil;",  "&#199;",  "&#x00C7;", "Ç")
+  , ("&Euml;",    "&#203;",  "&#x00CB;", "Ë")
+  , ("&Iuml;",    "&#207;",  "&#x00CF;", "Ï")
+  , ("&Ouml;",    "&#214;",  "&#x00D6;", "Ö")
+  , ("&Oslash;",  "&#216;",  "&#x00D8;", "Ø")
+  , ("&Uuml;",    "&#220;",  "&#x00DC;", "Ü")
+  , ("&aacute;",  "&#225;",  "&#x00E1;", "á")
+  , ("&acirc;",   "&#226;",  "&#x00E2;", "â")
+  , ("&auml;",    "&#228;",  "&#x00E4;", "ä")
+  , ("&ccedil;",  "&#231;",  "&#x00E7;", "ç")
+  , ("&eacute;",  "&#233;",  "&#x00E9;", "é")
+  , ("&euml;",    "&#235;",  "&#x00EB;", "ë")
+  , ("&iacute;",  "&#237;",  "&#x00ED;", "í")
+  , ("&iuml;",    "&#239;",  "&#x00EF;", "ï")
+  , ("&oacute;",  "&#243;",  "&#x00F3;", "ó")
+  , ("&ouml;",    "&#246;",  "&#x00F6;", "ö")
+  , ("&oslash;",  "&#248;",  "&#x00F8;", "ø")
+  , ("&uacute;",  "&#250;",  "&#x00FA;", "ú")
+  , ("&uuml;",    "&#252;",  "&#x00FC;", "ü")
+  , ("&Imacr;",   "&#298;",  "&#x012A;", "Ī")
+  , ("&imacr;",   "&#299;",  "&#x012B;", "ī")
+  , ("&Sacute;",  "&#346;",  "&#x015A;", "Ś")
+  , ("&sacute;",  "&#347;",  "&#x015B;", "ś")
+  , ("&Scedil;",  "&#350;",  "&#x015E;", "Ş")
+  , ("&scedil;",  "&#351;",  "&#x015F;", "ş")
+  , ("&Scaron;",  "&#352;",  "&#x0160",  "Š")
+  , ("&scaron;",  "&#353;",  "&#x0161",  "š")
+  , ("&alpha;",   "&#945;",  "&#x03B1;", "α")
+  , ("&beta;",    "&#946;",  "&#x03B2;", "β")
+  , ("&gamma;",   "&#947;",  "&#x03B3;", "γ")
+  , ("&delta;",   "&#948;",  "&#x03B4;", "δ")
+  , ("&epsilon;", "&#949;",  "&#x03B5;", "ε")
+  , ("&zeta;",    "&#950;",  "&#x03B6;", "ζ")
+  , ("&eta;",     "&#951;",  "&#x03B7;", "η")
+  , ("&theta;",   "&#952;",  "&#x03B8;", "θ")
+  , ("&iota;",    "&#953;",  "&#x03B9;", "ι")
+  , ("&kappa;",   "&#954;",  "&#x03BA;", "κ")
+  , ("&lambda;",  "&#955;",  "&#x03BB;", "λ")
+  , ("&mu;",      "&#956;",  "&#x03BC;", "μ")
+  , ("&nu;",      "&#957;",  "&#x03BD;", "ν")
+  , ("&xi;",      "&#958;",  "&#x03BE;", "ξ")
+  , ("&omicron;", "&#959;",  "&#x03BF;", "ο")
+  , ("&pi;",      "&#960;",  "&#x03C0;", "π")
+  , ("&rho;",     "&#961;",  "&#x03C1;", "ρ")
+  , ("&sigmaf;",  "&#962;",  "&#x03C2;", "ς")
+  , ("&sigma;",   "&#963;",  "&#x03C3;", "σ")
+  , ("&tau;",     "&#964;",  "&#x03C4;", "τ")
+  , ("&upsilon;", "&#965;",  "&#x03C5;", "υ")
+  , ("&phi;",     "&#966;",  "&#x03C6;", "φ")
+  , ("&chi;",     "&#967;",  "&#x03C7;", "χ")
+  , ("&psi;",     "&#968;",  "&#x03C8;", "ψ")
+  , ("&omega;",   "&#969;",  "&#x03C9;", "ω")
+  , ("&ndash;",   "&#8211;", "&#x2013;", "–")
+  , ("&mdash;",   "&#8212;", "&#x2014;", "—")
+  , ("&lsquo;",   "&#8216;", "&#x2018;", "‘")
+  , ("&rsquo;",   "&#8217;", "&#x2019;", "’")
+  , ("&sbquo;",   "&#8218;", "&#x201A;", "‚")
+  , ("&ldquo;",   "&#8220;", "&#x201C;", "“")
+  , ("&rdquo;",   "&#8221;", "&#x201D;", "”")
+  , ("&bdquo;",   "&#8222;", "&#x201E;", "„")
+  , ("&dagger;",  "&#8224;", "&#x2020;", "†")
+  , ("&Dagger;",  "&#8225;", "&#x2021;", "‡")
+  , ("&bull;",    "&#8226;", "&#x2022;", "•")
+  , ("&hellip;",  "&#8230;", "&#x2026;", "…")
+  , ("&sup;",     "&#8323;", "&#x2283;", "⊃")
   ]
 
 -- | Substitutions of HTML symbols.
 htmlSymbolSubst ∷ [(HTMLSymbolDec, HTMLSymbolHex, Text)]
 htmlSymbolSubst =
-  [ ("&#8208;", "&#x2010;", "-")  -- HYPHEN
-  , ("&#8219;", "&#x201B;", "")   -- SINGLE HIGH-REVERSED-9 QUOTATION MARK
-  , ("&#8223;", "&#x201F;", "")   -- DOUBLE HIGH-REVERSED-9 QUOTATION MARK
-  , ("&#8989;", "&#x231D;", "")   -- TOP RIGHT CORNER
+  [ ("&#8208;", "&#x2010;", "‐")
+  , ("&#8219;", "&#x201B;", "‛")
+  , ("&#8223;", "&#x201F;", "‟")
+  , ("&#8989;", "&#x231D;", "⌝")
   ]
 
 ------------------------------------------------------------------------------
