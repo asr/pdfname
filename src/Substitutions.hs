@@ -4,8 +4,7 @@ module Substitutions
   ( authorSubst
   , titleSubst
   , replace
-  , replaceHTMLEntities
-  , replaceHTMLSymbols
+  , replaceHTMLEscapedText
   , unicodeSubst
   , weirdSubst
   ) where
@@ -22,29 +21,18 @@ import Text.Printf ( printf )
 
 -- These substitutions should be done before the Unicode
 -- substitutions.
-replaceHTMLEntities ∷ Text → Text
-replaceHTMLEntities =
-  replace (entityNameSubst ++ entityDecSubst ++ entityHexSubst)
+replaceHTMLEscapedText ∷ Text → Text
+replaceHTMLEscapedText =
+  replace (htmlNameSubst ++ htmlDecSubst ++ htmlHexSubst)
   where
-   entityDecSubst ∷ [(Text, Text)]
-   entityDecSubst = map (\ (_, b) → (format "&#%d;" b, b)) entityNameSubst
+   htmlDecSubst ∷ [(Text, Text)]
+   htmlDecSubst = map (\ (_, b) → (format "&#%d;" b, b)) htmlNameSubst
 
-   entityHexSubst ∷ [(Text, Text)]
-   entityHexSubst = map (\ (_, b) → (format "&#x%04X;" b, b)) entityNameSubst
+   htmlHexSubst ∷ [(Text, Text)]
+   htmlHexSubst = map (\ (_, b) → (format "&#x%04X;" b, b)) htmlNameSubst
 
    format ∷ String → Text → Text
    format f u = T.pack $ printf f (ord $ T.head u)
-
--- These substitutions should be done before the Unicode
--- substitutions.
-replaceHTMLSymbols ∷ Text → Text
-replaceHTMLSymbols = replace decSubst . replace hexSubst
-  where
-   decSubst ∷ [(Text, Text)]
-   decSubst = map (\ (a, _, c) → (a, c)) htmlSymbolSubst
-
-   hexSubst ∷ [(Text, Text)]
-   hexSubst = map (\ (_, b, c) → (b, c)) htmlSymbolSubst
 
 replace ∷ [(Text,Text)] → Text → Text
 replace xs ys = foldl (flip (uncurry T.replace)) ys xs
@@ -52,11 +40,14 @@ replace xs ys = foldl (flip (uncurry T.replace)) ys xs
 ------------------------------------------------------------------------------
 -- HTML entities and symbols substitutions
 
--- Used by example for the Journal of Functional Programmning.
+-- The name of the HTML entities is used by example for the Journal of
+-- Functional Programmning.
 
--- | Substitutions of HTML entities.
-entityNameSubst ∷ [(Text, Text)]
-entityNameSubst =
+-- | Substitutions of HTML-escaped text (entities and symbols).
+
+-- We use the name `NA` when the HTML symbol has not an entity name.
+htmlNameSubst ∷ [(Text, Text)]
+htmlNameSubst =
   [ ("&Agrave;",  "À")  -- U+00C0
   , ("&Aacute;",  "Á")  -- U+00C1
   , ("&Acirc;",   "Â")  -- U+00C2
@@ -154,28 +145,23 @@ entityNameSubst =
   , ("&chi;",     "χ")  -- U+03C7
   , ("&psi;",     "ψ")  -- U+03C8
   , ("&omega;",   "ω")  -- U+03C9
+  , ("NA",        "‐")  -- U+2010
   , ("&ndash;",   "–")  -- U+2013
   , ("&mdash;",   "—")  -- U+2014
   , ("&lsquo;",   "‘")  -- U+2018
   , ("&rsquo;",   "’")  -- U+2019
   , ("&sbquo;",   "‚")  -- U+201A
+  , ("NA",        "‛")  -- U+201B
   , ("&ldquo;",   "“")  -- U+201C
   , ("&rdquo;",   "”")  -- U+201D
   , ("&bdquo;",   "„")  -- U+201E
+  , ("NA",        "‟")  -- U+201F
   , ("&dagger;",  "†")  -- U+2020
   , ("&Dagger;",  "‡")  -- U+2021
   , ("&bull;",    "•")  -- U+2022
   , ("&hellip;",  "…")  -- U+2026
   , ("&sup;",     "⊃")  -- U+2283
-  ]
-
--- | Substitutions of HTML symbols.
-htmlSymbolSubst ∷ [(Text, Text, Text)]
-htmlSymbolSubst =
-  [ ("&#8208;", "&#x2010;", "‐")
-  , ("&#8219;", "&#x201B;", "‛")
-  , ("&#8223;", "&#x201F;", "‟")
-  , ("&#8989;", "&#x231D;", "⌝")
+  , ("NA",        "⌝")  -- U+231D
   ]
 
 ------------------------------------------------------------------------------
