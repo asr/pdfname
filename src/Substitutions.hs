@@ -57,27 +57,70 @@ replace xs ys = foldl (flip (uncurry T.replace)) ys xs
 -- | Substitutions of HTML entities.
 entityNameSubst ∷ [(Text, Text)]
 entityNameSubst =
-  [ ("&Acirc;",   "Â")  -- U+00C2
+  [ ("&Agrave;",  "À")  -- U+00C0
+  , ("&Aacute;",  "Á")  -- U+00C1
+  , ("&Acirc;",   "Â")  -- U+00C2
+  , ("&Atilde;",  "Ã")  -- U+00C3
   , ("&Auml;",    "Ä")  -- U+00C4
+  , ("&Aring;",   "Å")  -- U+00C5
+  , ("&AElig;",   "Æ")  -- U+00C6
   , ("&Ccedil;",  "Ç")  -- U+00C7
+  , ("&Egrave;",  "È")  -- U+00C8
+  , ("&Eacute;",  "É")  -- U+00C9
+  , ("&Ecirc;",   "Ê")  -- U+00CA
   , ("&Euml;",    "Ë")  -- U+00CB
+  , ("&Igrave;",  "Ì")  -- U+00CC
+  , ("&Iacute;",  "Í")  -- U+00CD
+  , ("&Icirc;",   "Î")  -- U+00CE
   , ("&Iuml;",    "Ï")  -- U+00CF
+  , ("&ETH;",     "Ð")  -- U+00D0
+  , ("&Ntilde;",  "Ñ")  -- U+00D1
+  , ("&Ograve;",  "Ò")  -- U+00D2
+  , ("&Oacute;",  "Ó")  -- U+00D3
+  , ("&Ocirc;",   "Ô")  -- U+00D4
+  , ("&Otilde;",  "Õ")  -- U+00D5
   , ("&Ouml;",    "Ö")  -- U+00D6
+  , ("&times;",   "×")  -- U+00D7
   , ("&Oslash;",  "Ø")  -- U+00D8
+  , ("&Ugrave;",  "Ù")  -- U+00D9
+  , ("&Uacute;",  "Ú")  -- U+00DA
+  , ("&Ucirc;",   "Û")  -- U+00DB
   , ("&Uuml;",    "Ü")  -- U+00DC
+  , ("&Yacute;",  "Ý")  -- U+00DD
+  , ("&THORN;",   "Þ")  -- U+00DE
+  , ("&szlig;",   "ß")  -- U+00DF
+  , ("&agrave;",  "à")  -- U+00E0
   , ("&aacute;",  "á")  -- U+00E1
   , ("&acirc;",   "â")  -- U+00E2
+  , ("&atilde;",  "ã")  -- U+00E3
   , ("&auml;",    "ä")  -- U+00E4
+  , ("&aring;",   "å")  -- U+00E5
+  , ("&aelig;",   "æ")  -- U+00E6
   , ("&ccedil;",  "ç")  -- U+00E7
+  , ("&egrave;",  "è")  -- U+00E8
   , ("&eacute;",  "é")  -- U+00E9
+  , ("&ecirc;",   "ê")  -- U+00EA
   , ("&euml;",    "ë")  -- U+00EB
+  , ("&igrave;",  "ì")  -- U+00EC
   , ("&iacute;",  "í")  -- U+00ED
+  , ("&icirc;",   "î")  -- U+00EE
   , ("&iuml;",    "ï")  -- U+00EF
+  , ("&eth;",     "ð")  -- U+00F0
+  , ("&ntilde;",  "ñ")  -- U+00F1
+  , ("&ograve;",  "ò")  -- U+00F2
   , ("&oacute;",  "ó")  -- U+00F3
+  , ("&ocirc;",   "ô")  -- U+00F4
+  , ("&otilde;",  "õ")  -- U+00F5
   , ("&ouml;",    "ö")  -- U+00F6
+  , ("&divide;",  "÷")  -- U+00F7
   , ("&oslash;",  "ø")  -- U+00F8
+  , ("&ugrave;",  "ù")  -- U+00F9
   , ("&uacute;",  "ú")  -- U+00FA
+  , ("&ucirc;",   "û")  -- U+00FB
   , ("&uuml;",    "ü")  -- U+00FC
+  , ("&yacute;",  "ý")  -- U+00FD
+  , ("&thorn;",   "þ")  -- U+00FE
+  , ("&yuml;",    "ÿ")  -- U+00FF
   , ("&Imacr;",   "Ī")  -- U+012A
   , ("&imacr;",   "ī")  -- U+012B
   , ("&Sacute;",  "Ś")  -- U+015A
@@ -237,6 +280,7 @@ unicodeSubst =
   , ("ô",           "o")        -- U+00F4 LATIN SMALL LETTER O WITH CIRCUMFLEX
   , ("õ",           "o")        -- U+00F5 LATIN SMALL LETTER O WITH TILDE
   , ("ö",           "o")        -- U+00F6 LATIN SMALL LETTER O WITH DIAERESIS
+  , ("÷",           "")         -- U+00F7 DIVISION SIGN
   , ("ø",           "o")        -- U+00F8 LATIN SMALL LETTER O WITH STROKE
   , ("ù",           "u")        -- U+00F9 LATIN SMALL LETTER U WITH GRAVE
   , ("ú",           "u")        -- U+00FA LATIN SMALL LETTER U WITH ACUTE
