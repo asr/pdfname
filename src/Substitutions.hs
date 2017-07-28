@@ -10,41 +10,40 @@ module Substitutions
   , weirdSubst
   ) where
 
+import Data.Char ( ord )
+
 import Data.Text ( Text )
 import qualified Data.Text as T
+
+import Text.Printf ( printf )
 
 ------------------------------------------------------------------------------
 -- Replacements
 
-type HTMLEntityName = Text
-type HTMLEntityDec  = Text
-type HTMLEntityHex  = Text
-type HTMLSymbolDec  = Text
-type HTMLSymbolHex  = Text
-
 -- These substitutions should be done before the Unicode
 -- substitutions.
 replaceHTMLEntities ∷ Text → Text
-replaceHTMLEntities = replace nameSubst . replace decSubst . replace hexSubst
+replaceHTMLEntities =
+  replace (entityNameSubst ++ entityDecSubst ++ entityHexSubst)
   where
-   nameSubst ∷ [(HTMLEntityName, Text)]
-   nameSubst = map (\ (a, _, _, d) → (a, d)) htmlEntitySubst
+   entityDecSubst ∷ [(Text, Text)]
+   entityDecSubst = map (\ (_, b) → (format "&#%d;" b, b)) entityNameSubst
 
-   decSubst ∷ [(HTMLEntityDec, Text)]
-   decSubst = map (\ (_, b, _, d) → (b, d)) htmlEntitySubst
+   entityHexSubst ∷ [(Text, Text)]
+   entityHexSubst = map (\ (_, b) → (format "&#x%04X;" b, b)) entityNameSubst
 
-   hexSubst ∷ [(HTMLEntityHex, Text)]
-   hexSubst = map (\ (_, _, c, d) → (c, d)) htmlEntitySubst
+   format ∷ String → Text → Text
+   format f u = T.pack $ printf f (ord $ T.head u)
 
 -- These substitutions should be done before the Unicode
 -- substitutions.
 replaceHTMLSymbols ∷ Text → Text
 replaceHTMLSymbols = replace decSubst . replace hexSubst
   where
-   decSubst ∷ [(HTMLSymbolDec, Text)]
+   decSubst ∷ [(Text, Text)]
    decSubst = map (\ (a, _, c) → (a, c)) htmlSymbolSubst
 
-   hexSubst ∷ [(HTMLSymbolHex, Text)]
+   hexSubst ∷ [(Text, Text)]
    hexSubst = map (\ (_, b, c) → (b, c)) htmlSymbolSubst
 
 replace ∷ [(Text,Text)] → Text → Text
@@ -56,79 +55,79 @@ replace xs ys = foldl (flip (uncurry T.replace)) ys xs
 -- Used by example for the Journal of Functional Programmning.
 
 -- | Substitutions of HTML entities.
-htmlEntitySubst ∷ [(HTMLEntityName, HTMLEntityDec, HTMLEntityHex, Text)]
-htmlEntitySubst =
-  [ ("&Acirc;",   "&#194;",  "&#x00C2;", "Â")
-  , ("&Auml;",    "&#196;",  "&#x00C4;", "Ä")
-  , ("&Ccedil;",  "&#199;",  "&#x00C7;", "Ç")
-  , ("&Euml;",    "&#203;",  "&#x00CB;", "Ë")
-  , ("&Iuml;",    "&#207;",  "&#x00CF;", "Ï")
-  , ("&Ouml;",    "&#214;",  "&#x00D6;", "Ö")
-  , ("&Oslash;",  "&#216;",  "&#x00D8;", "Ø")
-  , ("&Uuml;",    "&#220;",  "&#x00DC;", "Ü")
-  , ("&aacute;",  "&#225;",  "&#x00E1;", "á")
-  , ("&acirc;",   "&#226;",  "&#x00E2;", "â")
-  , ("&auml;",    "&#228;",  "&#x00E4;", "ä")
-  , ("&ccedil;",  "&#231;",  "&#x00E7;", "ç")
-  , ("&eacute;",  "&#233;",  "&#x00E9;", "é")
-  , ("&euml;",    "&#235;",  "&#x00EB;", "ë")
-  , ("&iacute;",  "&#237;",  "&#x00ED;", "í")
-  , ("&iuml;",    "&#239;",  "&#x00EF;", "ï")
-  , ("&oacute;",  "&#243;",  "&#x00F3;", "ó")
-  , ("&ouml;",    "&#246;",  "&#x00F6;", "ö")
-  , ("&oslash;",  "&#248;",  "&#x00F8;", "ø")
-  , ("&uacute;",  "&#250;",  "&#x00FA;", "ú")
-  , ("&uuml;",    "&#252;",  "&#x00FC;", "ü")
-  , ("&Imacr;",   "&#298;",  "&#x012A;", "Ī")
-  , ("&imacr;",   "&#299;",  "&#x012B;", "ī")
-  , ("&Sacute;",  "&#346;",  "&#x015A;", "Ś")
-  , ("&sacute;",  "&#347;",  "&#x015B;", "ś")
-  , ("&Scedil;",  "&#350;",  "&#x015E;", "Ş")
-  , ("&scedil;",  "&#351;",  "&#x015F;", "ş")
-  , ("&Scaron;",  "&#352;",  "&#x0160",  "Š")
-  , ("&scaron;",  "&#353;",  "&#x0161",  "š")
-  , ("&alpha;",   "&#945;",  "&#x03B1;", "α")
-  , ("&beta;",    "&#946;",  "&#x03B2;", "β")
-  , ("&gamma;",   "&#947;",  "&#x03B3;", "γ")
-  , ("&delta;",   "&#948;",  "&#x03B4;", "δ")
-  , ("&epsilon;", "&#949;",  "&#x03B5;", "ε")
-  , ("&zeta;",    "&#950;",  "&#x03B6;", "ζ")
-  , ("&eta;",     "&#951;",  "&#x03B7;", "η")
-  , ("&theta;",   "&#952;",  "&#x03B8;", "θ")
-  , ("&iota;",    "&#953;",  "&#x03B9;", "ι")
-  , ("&kappa;",   "&#954;",  "&#x03BA;", "κ")
-  , ("&lambda;",  "&#955;",  "&#x03BB;", "λ")
-  , ("&mu;",      "&#956;",  "&#x03BC;", "μ")
-  , ("&nu;",      "&#957;",  "&#x03BD;", "ν")
-  , ("&xi;",      "&#958;",  "&#x03BE;", "ξ")
-  , ("&omicron;", "&#959;",  "&#x03BF;", "ο")
-  , ("&pi;",      "&#960;",  "&#x03C0;", "π")
-  , ("&rho;",     "&#961;",  "&#x03C1;", "ρ")
-  , ("&sigmaf;",  "&#962;",  "&#x03C2;", "ς")
-  , ("&sigma;",   "&#963;",  "&#x03C3;", "σ")
-  , ("&tau;",     "&#964;",  "&#x03C4;", "τ")
-  , ("&upsilon;", "&#965;",  "&#x03C5;", "υ")
-  , ("&phi;",     "&#966;",  "&#x03C6;", "φ")
-  , ("&chi;",     "&#967;",  "&#x03C7;", "χ")
-  , ("&psi;",     "&#968;",  "&#x03C8;", "ψ")
-  , ("&omega;",   "&#969;",  "&#x03C9;", "ω")
-  , ("&ndash;",   "&#8211;", "&#x2013;", "–")
-  , ("&mdash;",   "&#8212;", "&#x2014;", "—")
-  , ("&lsquo;",   "&#8216;", "&#x2018;", "‘")
-  , ("&rsquo;",   "&#8217;", "&#x2019;", "’")
-  , ("&sbquo;",   "&#8218;", "&#x201A;", "‚")
-  , ("&ldquo;",   "&#8220;", "&#x201C;", "“")
-  , ("&rdquo;",   "&#8221;", "&#x201D;", "”")
-  , ("&bdquo;",   "&#8222;", "&#x201E;", "„")
-  , ("&dagger;",  "&#8224;", "&#x2020;", "†")
-  , ("&Dagger;",  "&#8225;", "&#x2021;", "‡")
-  , ("&bull;",    "&#8226;", "&#x2022;", "•")
-  , ("&hellip;",  "&#8230;", "&#x2026;", "…")
-  , ("&sup;",     "&#8323;", "&#x2283;", "⊃")
+entityNameSubst ∷ [(Text, Text)]
+entityNameSubst =
+  [ ("&Acirc;",   "Â")  -- U+00C2
+  , ("&Auml;",    "Ä")  -- U+00C4
+  , ("&Ccedil;",  "Ç")  -- U+00C7
+  , ("&Euml;",    "Ë")  -- U+00CB
+  , ("&Iuml;",    "Ï")  -- U+00CF
+  , ("&Ouml;",    "Ö")  -- U+00D6
+  , ("&Oslash;",  "Ø")  -- U+00D8
+  , ("&Uuml;",    "Ü")  -- U+00DC
+  , ("&aacute;",  "á")  -- U+00E1
+  , ("&acirc;",   "â")  -- U+00E2
+  , ("&auml;",    "ä")  -- U+00E4
+  , ("&ccedil;",  "ç")  -- U+00E7
+  , ("&eacute;",  "é")  -- U+00E9
+  , ("&euml;",    "ë")  -- U+00EB
+  , ("&iacute;",  "í")  -- U+00ED
+  , ("&iuml;",    "ï")  -- U+00EF
+  , ("&oacute;",  "ó")  -- U+00F3
+  , ("&ouml;",    "ö")  -- U+00F6
+  , ("&oslash;",  "ø")  -- U+00F8
+  , ("&uacute;",  "ú")  -- U+00FA
+  , ("&uuml;",    "ü")  -- U+252
+  , ("&Imacr;",   "Ī")  -- U+012A
+  , ("&imacr;",   "ī")  -- U+012B
+  , ("&Sacute;",  "Ś")  -- U+015A
+  , ("&sacute;",  "ś")  -- U+015B
+  , ("&Scedil;",  "Ş")  -- U+015E
+  , ("&scedil;",  "ş")  -- U+015F
+  , ("&Scaron;",  "Š")  -- U+0160
+  , ("&scaron;",  "š")  -- U+0161
+  , ("&alpha;",   "α")  -- U+03B1
+  , ("&beta;",    "β")  -- U+03B2
+  , ("&gamma;",   "γ")  -- U+03B3
+  , ("&delta;",   "δ")  -- U+03B4
+  , ("&epsilon;", "ε")  -- U+03B5
+  , ("&zeta;",    "ζ")  -- U+03B6
+  , ("&eta;",     "η")  -- U+03B7
+  , ("&theta;",   "θ")  -- U+03B8
+  , ("&iota;",    "ι")  -- U+03B9
+  , ("&kappa;",   "κ")  -- U+03BA
+  , ("&lambda;",  "λ")  -- U+03BB
+  , ("&mu;",      "μ")  -- U+03BC
+  , ("&nu;",      "ν")  -- U+03BD
+  , ("&xi;",      "ξ")  -- U+03BE
+  , ("&omicron;", "ο")  -- U+03BF
+  , ("&pi;",      "π")  -- U+03C0
+  , ("&rho;",     "ρ")  -- U+03C1
+  , ("&sigmaf;",  "ς")  -- U+03C2
+  , ("&sigma;",   "σ")  -- U+03C3
+  , ("&tau;",     "τ")  -- U+03C4
+  , ("&upsilon;", "υ")  -- U+03C5
+  , ("&phi;",     "φ")  -- U+03C6
+  , ("&chi;",     "χ")  -- U+03C7
+  , ("&psi;",     "ψ")  -- U+03C8
+  , ("&omega;",   "ω")  -- U+03C9
+  , ("&ndash;",   "–")  -- U+2013
+  , ("&mdash;",   "—")  -- U+2014
+  , ("&lsquo;",   "‘")  -- U+2018
+  , ("&rsquo;",   "’")  -- U+2019
+  , ("&sbquo;",   "‚")  -- U+201A
+  , ("&ldquo;",   "“")  -- U+201C
+  , ("&rdquo;",   "”")  -- U+201D
+  , ("&bdquo;",   "„")  -- U+201E
+  , ("&dagger;",  "†")  -- U+2020
+  , ("&Dagger;",  "‡")  -- U+2021
+  , ("&bull;",    "•")  -- U+2022
+  , ("&hellip;",  "…")  -- U+2026
+  , ("&sup;",     "⊃")  -- U+x2283
   ]
 
 -- | Substitutions of HTML symbols.
-htmlSymbolSubst ∷ [(HTMLSymbolDec, HTMLSymbolHex, Text)]
+htmlSymbolSubst ∷ [(Text, Text, Text)]
 htmlSymbolSubst =
   [ ("&#8208;", "&#x2010;", "‐")
   , ("&#8219;", "&#x201B;", "‛")
