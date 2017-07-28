@@ -198,6 +198,7 @@ unicodeSubst =
   , ("Í",           "I")        -- U+00CD LATIN CAPITAL LETTER I WITH ACUTE
   , ("Î",           "I")        -- U+00CE LATIN CAPITAL LETTER I WITH CIRCUMFLEX
   , ("Ï",           "I")        -- U+00CF LATIN CAPITAL LETTER I WITH DIAERESIS
+  , ("Ð",           "ETH")      -- U+00D0 LATIN CAPITAL LETTER ETH
   , ("Ñ",           "N")        -- U+00D1 LATIN CAPITAL LETTER N WITH TILDE
   , ("Ò",           "O")        -- U+00D2 LATIN CAPITAL LETTER O WITH GRAVE
   , ("Ó",           "O")        -- U+00D3 LATIN CAPITAL LETTER O WITH ACUTE
@@ -211,6 +212,7 @@ unicodeSubst =
   , ("Û",           "U")        -- U+00DB LATIN CAPITAL LETTER U WITH CIRCUMFLEX
   , ("Ü",           "U")        -- U+00DC LATIN CAPITAL LETTER U WITH DIAERESIS
   , ("Ý",           "Y")        -- U+00DD LATIN CAPITAL LETTER Y WITH ACUTE
+  , ("Þ",           "THORN")    -- U+00DE LATIN CAPITAL LETTER THORN
   , ("ß",           "ss")       -- U+00DF LATIN SMALL LETTER SHARP S
   , ("à",           "a")        -- U+00E0 LATIN SMALL LETTER A WITH GRAVE
   , ("á",           "a")        -- U+00E1 LATIN SMALL LETTER A WITH ACUTE
@@ -228,6 +230,7 @@ unicodeSubst =
   , ("í",           "i")        -- U+00ED LATIN SMALL LETTER I WITH ACUTE
   , ("î",           "i")        -- U+00EE LATIN SMALL LETTER I WITH CIRCUMFLEX
   , ("ï",           "i")        -- U+00EF LATIN SMALL LETTER I WITH DIAERESIS
+  , ("ð",           "eth")      -- U+00F0 LATIN SMALL LETTER ETH
   , ("ñ",           "n")        -- U+00F1 LATIN SMALL LETTER N WITH TILDE
   , ("ò",           "o")        -- U+00F2 LATIN SMALL LETTER O WITH GRAVE
   , ("ó",           "o")        -- U+00F3 LATIN SMALL LETTER O WITH ACUTE
@@ -240,7 +243,7 @@ unicodeSubst =
   , ("û",           "u")        -- U+00FB LATIN SMALL LETTER U WITH CIRCUMFLEX
   , ("ü",           "u")        -- U+00FC LATIN SMALL LETTER U WITH DIAERESIS
   , ("ý",           "y")        -- U+00FD LATIN SMALL LETTER Y WITH ACUTE
-  , ("þ",           "t")        -- U+00FE LATIN SMALL LETTER THORN
+  , ("þ",           "thorn")    -- U+00FE LATIN SMALL LETTER THORN
   , ("ÿ",           "y")        -- U+00FF LATIN SMALL LETTER Y WITH DIAERESIS
   , ("Ā",           "A")        -- U+0100 LATIN CAPITAL LETTER A WITH MACRON
   , ("ā",           "a")        -- U+0101 LATIN SMALL LETTER A WITH MACRON
