@@ -77,7 +77,7 @@ entityNameSubst =
   , ("&ouml;",    "ö")  -- U+00F6
   , ("&oslash;",  "ø")  -- U+00F8
   , ("&uacute;",  "ú")  -- U+00FA
-  , ("&uuml;",    "ü")  -- U+252
+  , ("&uuml;",    "ü")  -- U+00FC
   , ("&Imacr;",   "Ī")  -- U+012A
   , ("&imacr;",   "ī")  -- U+012B
   , ("&Sacute;",  "Ś")  -- U+015A
@@ -123,7 +123,7 @@ entityNameSubst =
   , ("&Dagger;",  "‡")  -- U+2021
   , ("&bull;",    "•")  -- U+2022
   , ("&hellip;",  "…")  -- U+2026
-  , ("&sup;",     "⊃")  -- U+x2283
+  , ("&sup;",     "⊃")  -- U+2283
   ]
 
 -- | Substitutions of HTML symbols.
