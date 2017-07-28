@@ -194,10 +194,12 @@ unicodeSubst =
   , ("É",           "E")        -- U+00C9 LATIN CAPITAL LETTER E WITH ACUTE
   , ("Ê",           "E")        -- U+00CA LATIN CAPITAL LETTER E WITH CIRCUMFLEX
   , ("Ë",           "E")        -- U+00CB LATIN CAPITAL LETTER E WITH DIAERESIS
+  , ("Ì",           "I")        -- U+00CC LATIN CAPITAL LETTER I WITH GRAVE
   , ("Í",           "I")        -- U+00CD LATIN CAPITAL LETTER I WITH ACUTE
   , ("Î",           "I")        -- U+00CE LATIN CAPITAL LETTER I WITH CIRCUMFLEX
   , ("Ï",           "I")        -- U+00CF LATIN CAPITAL LETTER I WITH DIAERESIS
   , ("Ñ",           "N")        -- U+00D1 LATIN CAPITAL LETTER N WITH TILDE
+  , ("Ò",           "O")        -- U+00D2 LATIN CAPITAL LETTER O WITH GRAVE
   , ("Ó",           "O")        -- U+00D3 LATIN CAPITAL LETTER O WITH ACUTE
   , ("Ô",           "O")        -- U+00D4 LATIN CAPITAL LETTER O WITH CIRCUMFLEX
   , ("Õ",           "O")        -- U+00D5 LATIN CAPITAL LETTER O WITH TILDE
@@ -222,6 +224,7 @@ unicodeSubst =
   , ("é",           "e")        -- U+00E9 LATIN SMALL LETTER E WITH ACUTE
   , ("ê",           "e")        -- U+00EA LATIN SMALL LETTER E WITH CIRCUMFLEX
   , ("ë",           "e")        -- U+00EB LATIN SMALL LETTER E WITH DIAERESIS
+  , ("ì",           "i")        -- U+00EC LATIN SMALL LETTER I WITH GRAVE
   , ("í",           "i")        -- U+00ED LATIN SMALL LETTER I WITH ACUTE
   , ("î",           "i")        -- U+00EE LATIN SMALL LETTER I WITH CIRCUMFLEX
   , ("ï",           "i")        -- U+00EF LATIN SMALL LETTER I WITH DIAERESIS
