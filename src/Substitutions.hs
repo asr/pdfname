@@ -52,7 +52,29 @@ noName = "N/A"
 -- We use @noName@ when the HTML symbol has not an entity name.
 htmlNameSubst ∷ [(Text, Text)]
 htmlNameSubst =
-  [ ("&Agrave;",  "À")  -- U+00C0
+  [ (noName,      "!")  -- U+0021 EXCLAMATION MARK
+  , ("&quot;",    "\"") -- U+0022 QUOTATION MARK
+  , (noName,      "#")  -- U+0023 NUMBER SIGN
+  , (noName,      "$")  -- U+0024 DOLLAR SIGN
+  , (noName,      "%")  -- U+0025 PERCENT SIGN
+  , ("&amp;",     "&")  -- U+0026 AMPERSAND
+  , (noName,      "'")  -- U+0027 APOSTROPHE
+  , (noName,      "(")  -- U+0028 LEFT PARENTHESIS
+  , (noName,      ")")  -- U+0029 RIGHT PARENTHESIS
+  , (noName,      "*")  -- U+002A ASTERISK
+  , (noName,      "+")  -- U+002B PLUS SIGN
+  , (noName,      ",")  -- U+002C COMMA
+  -- We do not substitute U+002D HYPHEN-MINUS
+  , (noName,      ".")  -- U+002E FULL STOP
+  , (noName,      "/")  -- U+002F SOLIDUS
+  , (noName,      ":")  -- U+003A COLON
+  , (noName,      ";")  -- U+003B SEMICOLON
+  , ("&lt;",      "<")  -- U+003C LESS-THAN SIGN
+  , (noName,      "=")  -- U+003D EQUALS SIGN
+  , ("&gt;",      ">")  -- U+003E GREATER-THAN SIGN
+  , (noName,      "?")  -- U+003F QUESTION MARK
+  , (noName,      "@")  -- U+0040 COMMERCIAL AT
+  , ("&Agrave;",  "À")  -- U+00C0
   , ("&Aacute;",  "Á")  -- U+00C1
   , ("&Acirc;",   "Â")  -- U+00C2
   , ("&Atilde;",  "Ã")  -- U+00C3
@@ -191,7 +213,8 @@ unicodeSubst =
   , ("*",           "")         -- U+002A ASTERISK
   , ("+",           "")         -- U+002B PLUS SIGN
   , (",",           "")         -- U+002C COMMA
-  , (".",           "")         -- U+002D FULL STOP
+  -- We do not substitute U+002D HYPHEN-MINUS
+  , (".",           "")         -- U+002E FULL STOP
   , ("/",           "")         -- U+002F SOLIDUS
   , (":",           "")         -- U+003A COLON
   , (";",           "")         -- U+003B SEMICOLON
