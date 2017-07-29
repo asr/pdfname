@@ -28,7 +28,7 @@ import Options ( outputDir )
 
 import Substitutions
   ( authorSubst
-  , titleSubst
+  , removeFromTitle
   , replace
   , replaceHTMLEscapedText
   , unicodeSubst
@@ -71,7 +71,7 @@ getTitle xs =
     ( T.toLower
       . replace unicodeSubst
       . replaceHTMLEscapedText
-      . replace titleSubst
+      . removeFromTitle
       . replace weirdSubst
     ) xs
 

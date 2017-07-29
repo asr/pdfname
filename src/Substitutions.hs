@@ -2,7 +2,7 @@
 
 module Substitutions
   ( authorSubst
-  , titleSubst
+  , removeFromTitle
   , replace
   , replaceHTMLEscapedText
   , unicodeSubst
@@ -17,7 +17,11 @@ import qualified Data.Text as T
 import Text.Printf ( printf )
 
 ------------------------------------------------------------------------------
--- Replacements
+-- Replacements and pre-processing
+
+-- | Remove text from the title.
+removeFromTitle ∷ Text → Text
+removeFromTitle = replace $ map (\ a → (a, T.empty)) titleErase
 
 -- These substitutions should be done before the Unicode
 -- substitutions.
@@ -375,7 +379,8 @@ unicodeSubst =
   , ("ψ",           "psi")      -- U+03C8 GREEK SMALL LETTER PSI
   , ("ω",           "omega")    -- U+03C9 GREEK SMALL LETTER OMEGA
   , ("ẞ",           "SS")       -- U+1E9E LATIN CAPITAL LETTER SHARP S
-  , ("‐",           "-")        -- U+2210 HYPHEN
+  , (" ",           "-")        -- U+2009 THIN SPACE
+  , ("‐",           "-")        -- U+2010 HYPHEN
   , ("–",           "-")        -- U+2013 EN DASH
   , ("—",           "-")        -- U+2014 EM DASH
   , ("‘",           "")         -- U+2018 LEFT SINGLE QUOTATION MARK
@@ -408,42 +413,6 @@ authorSubst =
   , (" and", ",")
   ]
 
--- | Title substitutions.
-
--- These substitutions should be done before the substitutions of the
--- HTML entities and converting to lower case.
-titleSubst ∷ [(Text,Text)]
-titleSubst =
-  [ ("<Emphasis Type=\"BoldItalic\">P </Emphasis>",       "P")
-  , ("<Emphasis Type=\"Italic\">0 </Emphasis>",           "0")
-  , ("<Emphasis Type=\"Italic\">C</Emphasis>",            "C")
-  , ("<Emphasis Type=\"Italic\">CC</Emphasis>",           "CC")
-  , ("<Emphasis Type=\"Italic\">I </Emphasis>",           "I")
-  , ("<Emphasis Type=\"Italic\">J</Emphasis>",            "J")
-  , ("<Emphasis Type=\"Italic\">Modus ponens</Emphasis>", "Modus ponens")
-  , ("<Emphasis Type=\"Italic\">P </Emphasis>",           "P")
-  , ("<Emphasis Type=\"Italic\">really </Emphasis>",      "really")
-  , ("<Emphasis Type=\"Italic\">S-P</Emphasis>",          "S-P")
-  , ("<Subscript>3</Subscript>",                          "3")
-  -- The whitespace around `+` is not the standard one.
-  -- TODO (2017-07-04): Added test case.
-  , ("<Superscript> + </Superscript>",                    "plus")
-  , ("<Subscript>&#x03C9;</Subscript>",                   "omega")
-  , ("<TEX>$\\alpha$</TEX>",                              "alpha")
-  , ("<TEX>$\\beta$</TEX>",                               "beta")
-  , ("<TEX>$\\gamma$</TEX>",                              "gamma")
-  , ("<TEX>$\\epsilon$</TEX>",                            "epsilon")
-  , ("<TEX>$\\eta$</TEX>",                                "eta")
-  , ("<TEX>$\\lambda$</TEX>",                             "lambda")
-  , ("<TEX>$\\pi$</TEX>",                                 "pi")
-  , ("<TEX>$\\omega$</TEX>",                              "omega")
-  , ("<TEX>{\\sc Coq}</TEX>",                             "Coq")
-  , ("<TEX>{\\sf Haskell}</TEX>:",                        "Haskell")
-  , ("<TEX>{\\sc QuickSpec}</TEX>:",                      "QuickSpec")
-  , ("<TEX>{\\sc QuodLibet}</TEX>!",                      "QuodLibet")
-  , ("<TEX>{\\sc Vampire}</TEX>",                         "Vampire")
-  ]
-
 ------------------------------------------------------------------------------
 -- Weird substitutions.
 
@@ -463,4 +432,23 @@ weirdSubst =
   , ("&#x02010;", "-")  -- U+2010 HYPHEN
   -- TODO (2017-07-17): Missing `;`.
   , ("&#8217",  "")     -- U+2019 RIGHT SINGLE QUOTATION MARK
+  ]
+
+------------------------------------------------------------------------------
+-- Title pre-processing
+
+titleErase ∷ [Text]
+titleErase =
+  [ "<Emphasis Type=\"BoldItalic\">"  -- opening
+  , "<Emphasis Type=\"Italic\">"      -- opening
+  , "</Emphasis>"                     -- closing
+  , "<Subscript>"                     -- opening
+  , "</Subscript>"                    -- closing
+  , "<Superscript>"                   -- opening
+  , "</Superscript>"                  -- closing
+  , "<TEX>$\\"                        -- opening
+  , "$</TEX>"                         -- closing
+  , "<TEX>{\\sc "                     -- opening
+  , "<TEX>{\\sf "                     -- opening
+  , "}</TEX>"                         -- closing
   ]
