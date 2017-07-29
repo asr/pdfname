@@ -44,9 +44,6 @@ replace xs ys = foldl (flip (uncurry T.replace)) ys xs
 ------------------------------------------------------------------------------
 -- HTML entities and symbols substitutions
 
--- The name of the HTML entities is used by example for the Journal of
--- Functional Programmning.
-
 noName ∷ Text
 noName = "N/A"
 
