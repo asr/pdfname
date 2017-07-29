@@ -52,142 +52,142 @@ noName = "N/A"
 -- We use @noName@ when the HTML symbol has not an entity name.
 htmlNameSubst ∷ [(Text, Text)]
 htmlNameSubst =
-  [ (noName,      "!")  -- U+0021 EXCLAMATION MARK
-  , ("&quot;",    "\"") -- U+0022 QUOTATION MARK
-  , (noName,      "#")  -- U+0023 NUMBER SIGN
-  , (noName,      "$")  -- U+0024 DOLLAR SIGN
-  , (noName,      "%")  -- U+0025 PERCENT SIGN
-  , ("&amp;",     "&")  -- U+0026 AMPERSAND
-  , (noName,      "'")  -- U+0027 APOSTROPHE
-  , (noName,      "(")  -- U+0028 LEFT PARENTHESIS
-  , (noName,      ")")  -- U+0029 RIGHT PARENTHESIS
-  , (noName,      "*")  -- U+002A ASTERISK
-  , (noName,      "+")  -- U+002B PLUS SIGN
-  , (noName,      ",")  -- U+002C COMMA
+  [ (noName,      "!")   -- U+0021 EXCLAMATION MARK
+  , ("&quot;",    "\"")  -- U+0022 QUOTATION MARK
+  , (noName,      "#")   -- U+0023 NUMBER SIGN
+  , (noName,      "$")   -- U+0024 DOLLAR SIGN
+  , (noName,      "%")   -- U+0025 PERCENT SIGN
+  , ("&amp;",     "&")   -- U+0026 AMPERSAND
+  , (noName,      "'")   -- U+0027 APOSTROPHE
+  , (noName,      "(")   -- U+0028 LEFT PARENTHESIS
+  , (noName,      ")")   -- U+0029 RIGHT PARENTHESIS
+  , (noName,      "*")   -- U+002A ASTERISK
+  , (noName,      "+")   -- U+002B PLUS SIGN
+  , (noName,      ",")   -- U+002C COMMA
   -- We do not substitute U+002D HYPHEN-MINUS
-  , (noName,      ".")  -- U+002E FULL STOP
-  , (noName,      "/")  -- U+002F SOLIDUS
-  , (noName,      ":")  -- U+003A COLON
-  , (noName,      ";")  -- U+003B SEMICOLON
-  , ("&lt;",      "<")  -- U+003C LESS-THAN SIGN
-  , (noName,      "=")  -- U+003D EQUALS SIGN
-  , ("&gt;",      ">")  -- U+003E GREATER-THAN SIGN
-  , (noName,      "?")  -- U+003F QUESTION MARK
-  , (noName,      "@")  -- U+0040 COMMERCIAL AT
-  , ("&Agrave;",  "À")  -- U+00C0
-  , ("&Aacute;",  "Á")  -- U+00C1
-  , ("&Acirc;",   "Â")  -- U+00C2
-  , ("&Atilde;",  "Ã")  -- U+00C3
-  , ("&Auml;",    "Ä")  -- U+00C4
-  , ("&Aring;",   "Å")  -- U+00C5
-  , ("&AElig;",   "Æ")  -- U+00C6
-  , ("&Ccedil;",  "Ç")  -- U+00C7
-  , ("&Egrave;",  "È")  -- U+00C8
-  , ("&Eacute;",  "É")  -- U+00C9
-  , ("&Ecirc;",   "Ê")  -- U+00CA
-  , ("&Euml;",    "Ë")  -- U+00CB
-  , ("&Igrave;",  "Ì")  -- U+00CC
-  , ("&Iacute;",  "Í")  -- U+00CD
-  , ("&Icirc;",   "Î")  -- U+00CE
-  , ("&Iuml;",    "Ï")  -- U+00CF
-  , ("&ETH;",     "Ð")  -- U+00D0
-  , ("&Ntilde;",  "Ñ")  -- U+00D1
-  , ("&Ograve;",  "Ò")  -- U+00D2
-  , ("&Oacute;",  "Ó")  -- U+00D3
-  , ("&Ocirc;",   "Ô")  -- U+00D4
-  , ("&Otilde;",  "Õ")  -- U+00D5
-  , ("&Ouml;",    "Ö")  -- U+00D6
-  , ("&times;",   "×")  -- U+00D7
-  , ("&Oslash;",  "Ø")  -- U+00D8
-  , ("&Ugrave;",  "Ù")  -- U+00D9
-  , ("&Uacute;",  "Ú")  -- U+00DA
-  , ("&Ucirc;",   "Û")  -- U+00DB
-  , ("&Uuml;",    "Ü")  -- U+00DC
-  , ("&Yacute;",  "Ý")  -- U+00DD
-  , ("&THORN;",   "Þ")  -- U+00DE
-  , ("&szlig;",   "ß")  -- U+00DF
-  , ("&agrave;",  "à")  -- U+00E0
-  , ("&aacute;",  "á")  -- U+00E1
-  , ("&acirc;",   "â")  -- U+00E2
-  , ("&atilde;",  "ã")  -- U+00E3
-  , ("&auml;",    "ä")  -- U+00E4
-  , ("&aring;",   "å")  -- U+00E5
-  , ("&aelig;",   "æ")  -- U+00E6
-  , ("&ccedil;",  "ç")  -- U+00E7
-  , ("&egrave;",  "è")  -- U+00E8
-  , ("&eacute;",  "é")  -- U+00E9
-  , ("&ecirc;",   "ê")  -- U+00EA
-  , ("&euml;",    "ë")  -- U+00EB
-  , ("&igrave;",  "ì")  -- U+00EC
-  , ("&iacute;",  "í")  -- U+00ED
-  , ("&icirc;",   "î")  -- U+00EE
-  , ("&iuml;",    "ï")  -- U+00EF
-  , ("&eth;",     "ð")  -- U+00F0
-  , ("&ntilde;",  "ñ")  -- U+00F1
-  , ("&ograve;",  "ò")  -- U+00F2
-  , ("&oacute;",  "ó")  -- U+00F3
-  , ("&ocirc;",   "ô")  -- U+00F4
-  , ("&otilde;",  "õ")  -- U+00F5
-  , ("&ouml;",    "ö")  -- U+00F6
-  , ("&divide;",  "÷")  -- U+00F7
-  , ("&oslash;",  "ø")  -- U+00F8
-  , ("&ugrave;",  "ù")  -- U+00F9
-  , ("&uacute;",  "ú")  -- U+00FA
-  , ("&ucirc;",   "û")  -- U+00FB
-  , ("&uuml;",    "ü")  -- U+00FC
-  , ("&yacute;",  "ý")  -- U+00FD
-  , ("&thorn;",   "þ")  -- U+00FE
-  , ("&yuml;",    "ÿ")  -- U+00FF
-  , ("&Imacr;",   "Ī")  -- U+012A
-  , ("&imacr;",   "ī")  -- U+012B
-  , ("&Sacute;",  "Ś")  -- U+015A
-  , ("&sacute;",  "ś")  -- U+015B
-  , ("&Scedil;",  "Ş")  -- U+015E
-  , ("&scedil;",  "ş")  -- U+015F
-  , ("&Scaron;",  "Š")  -- U+0160
-  , ("&scaron;",  "š")  -- U+0161
-  , ("&alpha;",   "α")  -- U+03B1
-  , ("&beta;",    "β")  -- U+03B2
-  , ("&gamma;",   "γ")  -- U+03B3
-  , ("&delta;",   "δ")  -- U+03B4
-  , ("&epsilon;", "ε")  -- U+03B5
-  , ("&zeta;",    "ζ")  -- U+03B6
-  , ("&eta;",     "η")  -- U+03B7
-  , ("&theta;",   "θ")  -- U+03B8
-  , ("&iota;",    "ι")  -- U+03B9
-  , ("&kappa;",   "κ")  -- U+03BA
-  , ("&lambda;",  "λ")  -- U+03BB
-  , ("&mu;",      "μ")  -- U+03BC
-  , ("&nu;",      "ν")  -- U+03BD
-  , ("&xi;",      "ξ")  -- U+03BE
-  , ("&omicron;", "ο")  -- U+03BF
-  , ("&pi;",      "π")  -- U+03C0
-  , ("&rho;",     "ρ")  -- U+03C1
-  , ("&sigmaf;",  "ς")  -- U+03C2
-  , ("&sigma;",   "σ")  -- U+03C3
-  , ("&tau;",     "τ")  -- U+03C4
-  , ("&upsilon;", "υ")  -- U+03C5
-  , ("&phi;",     "φ")  -- U+03C6
-  , ("&chi;",     "χ")  -- U+03C7
-  , ("&psi;",     "ψ")  -- U+03C8
-  , ("&omega;",   "ω")  -- U+03C9
-  , (noName,      "‐")  -- U+2010
-  , ("&ndash;",   "–")  -- U+2013
-  , ("&mdash;",   "—")  -- U+2014
-  , ("&lsquo;",   "‘")  -- U+2018
-  , ("&rsquo;",   "’")  -- U+2019
-  , ("&sbquo;",   "‚")  -- U+201A
-  , (noName,      "‛")  -- U+201B
-  , ("&ldquo;",   "“")  -- U+201C
-  , ("&rdquo;",   "”")  -- U+201D
-  , ("&bdquo;",   "„")  -- U+201E
-  , ("NA",        "‟")  -- U+201F
-  , ("&dagger;",  "†")  -- U+2020
-  , ("&Dagger;",  "‡")  -- U+2021
-  , ("&bull;",    "•")  -- U+2022
-  , ("&hellip;",  "…")  -- U+2026
-  , ("&sup;",     "⊃")  -- U+2283
-  , (noName,      "⌝")  -- U+231D
+  , (noName,      ".")   -- U+002E FULL STOP
+  , (noName,      "/")   -- U+002F SOLIDUS
+  , (noName,      ":")   -- U+003A COLON
+  , (noName,      ";")   -- U+003B SEMICOLON
+  , ("&lt;",      "<")   -- U+003C LESS-THAN SIGN
+  , (noName,      "=")   -- U+003D EQUALS SIGN
+  , ("&gt;",      ">")   -- U+003E GREATER-THAN SIGN
+  , (noName,      "?")   -- U+003F QUESTION MARK
+  , (noName,      "@")   -- U+0040 COMMERCIAL AT
+  , ("&Agrave;",  "À")   -- U+00C0
+  , ("&Aacute;",  "Á")   -- U+00C1
+  , ("&Acirc;",   "Â")   -- U+00C2
+  , ("&Atilde;",  "Ã")   -- U+00C3
+  , ("&Auml;",    "Ä")   -- U+00C4
+  , ("&Aring;",   "Å")   -- U+00C5
+  , ("&AElig;",   "Æ")   -- U+00C6
+  , ("&Ccedil;",  "Ç")   -- U+00C7
+  , ("&Egrave;",  "È")   -- U+00C8
+  , ("&Eacute;",  "É")   -- U+00C9
+  , ("&Ecirc;",   "Ê")   -- U+00CA
+  , ("&Euml;",    "Ë")   -- U+00CB
+  , ("&Igrave;",  "Ì")   -- U+00CC
+  , ("&Iacute;",  "Í")   -- U+00CD
+  , ("&Icirc;",   "Î")   -- U+00CE
+  , ("&Iuml;",    "Ï")   -- U+00CF
+  , ("&ETH;",     "Ð")   -- U+00D0
+  , ("&Ntilde;",  "Ñ")   -- U+00D1
+  , ("&Ograve;",  "Ò")   -- U+00D2
+  , ("&Oacute;",  "Ó")   -- U+00D3
+  , ("&Ocirc;",   "Ô")   -- U+00D4
+  , ("&Otilde;",  "Õ")   -- U+00D5
+  , ("&Ouml;",    "Ö")   -- U+00D6
+  , ("&times;",   "×")   -- U+00D7
+  , ("&Oslash;",  "Ø")   -- U+00D8
+  , ("&Ugrave;",  "Ù")   -- U+00D9
+  , ("&Uacute;",  "Ú")   -- U+00DA
+  , ("&Ucirc;",   "Û")   -- U+00DB
+  , ("&Uuml;",    "Ü")   -- U+00DC
+  , ("&Yacute;",  "Ý")   -- U+00DD
+  , ("&THORN;",   "Þ")   -- U+00DE
+  , ("&szlig;",   "ß")   -- U+00DF
+  , ("&agrave;",  "à")   -- U+00E0
+  , ("&aacute;",  "á")   -- U+00E1
+  , ("&acirc;",   "â")   -- U+00E2
+  , ("&atilde;",  "ã")   -- U+00E3
+  , ("&auml;",    "ä")   -- U+00E4
+  , ("&aring;",   "å")   -- U+00E5
+  , ("&aelig;",   "æ")   -- U+00E6
+  , ("&ccedil;",  "ç")   -- U+00E7
+  , ("&egrave;",  "è")   -- U+00E8
+  , ("&eacute;",  "é")   -- U+00E9
+  , ("&ecirc;",   "ê")   -- U+00EA
+  , ("&euml;",    "ë")   -- U+00EB
+  , ("&igrave;",  "ì")   -- U+00EC
+  , ("&iacute;",  "í")   -- U+00ED
+  , ("&icirc;",   "î")   -- U+00EE
+  , ("&iuml;",    "ï")   -- U+00EF
+  , ("&eth;",     "ð")   -- U+00F0
+  , ("&ntilde;",  "ñ")   -- U+00F1
+  , ("&ograve;",  "ò")   -- U+00F2
+  , ("&oacute;",  "ó")   -- U+00F3
+  , ("&ocirc;",   "ô")   -- U+00F4
+  , ("&otilde;",  "õ")   -- U+00F5
+  , ("&ouml;",    "ö")   -- U+00F6
+  , ("&divide;",  "÷")   -- U+00F7
+  , ("&oslash;",  "ø")   -- U+00F8
+  , ("&ugrave;",  "ù")   -- U+00F9
+  , ("&uacute;",  "ú")   -- U+00FA
+  , ("&ucirc;",   "û")   -- U+00FB
+  , ("&uuml;",    "ü")   -- U+00FC
+  , ("&yacute;",  "ý")   -- U+00FD
+  , ("&thorn;",   "þ")   -- U+00FE
+  , ("&yuml;",    "ÿ")   -- U+00FF
+  , ("&Imacr;",   "Ī")   -- U+012A
+  , ("&imacr;",   "ī")   -- U+012B
+  , ("&Sacute;",  "Ś")   -- U+015A
+  , ("&sacute;",  "ś")   -- U+015B
+  , ("&Scedil;",  "Ş")   -- U+015E
+  , ("&scedil;",  "ş")   -- U+015F
+  , ("&Scaron;",  "Š")   -- U+0160
+  , ("&scaron;",  "š")   -- U+0161
+  , ("&alpha;",   "α")   -- U+03B1
+  , ("&beta;",    "β")   -- U+03B2
+  , ("&gamma;",   "γ")   -- U+03B3
+  , ("&delta;",   "δ")   -- U+03B4
+  , ("&epsilon;", "ε")   -- U+03B5
+  , ("&zeta;",    "ζ")   -- U+03B6
+  , ("&eta;",     "η")   -- U+03B7
+  , ("&theta;",   "θ")   -- U+03B8
+  , ("&iota;",    "ι")   -- U+03B9
+  , ("&kappa;",   "κ")   -- U+03BA
+  , ("&lambda;",  "λ")   -- U+03BB
+  , ("&mu;",      "μ")   -- U+03BC
+  , ("&nu;",      "ν")   -- U+03BD
+  , ("&xi;",      "ξ")   -- U+03BE
+  , ("&omicron;", "ο")   -- U+03BF
+  , ("&pi;",      "π")   -- U+03C0
+  , ("&rho;",     "ρ")   -- U+03C1
+  , ("&sigmaf;",  "ς")   -- U+03C2
+  , ("&sigma;",   "σ")   -- U+03C3
+  , ("&tau;",     "τ")   -- U+03C4
+  , ("&upsilon;", "υ")   -- U+03C5
+  , ("&phi;",     "φ")   -- U+03C6
+  , ("&chi;",     "χ")   -- U+03C7
+  , ("&psi;",     "ψ")   -- U+03C8
+  , ("&omega;",   "ω")   -- U+03C9
+  , (noName,      "‐")   -- U+2010
+  , ("&ndash;",   "–")   -- U+2013
+  , ("&mdash;",   "—")   -- U+2014
+  , ("&lsquo;",   "‘")   -- U+2018
+  , ("&rsquo;",   "’")   -- U+2019
+  , ("&sbquo;",   "‚")   -- U+201A
+  , (noName,      "‛")   -- U+201B
+  , ("&ldquo;",   "“")   -- U+201C
+  , ("&rdquo;",   "”")   -- U+201D
+  , ("&bdquo;",   "„")   -- U+201E
+  , ("NA",        "‟")   -- U+201F
+  , ("&dagger;",  "†")   -- U+2020
+  , ("&Dagger;",  "‡")   -- U+2021
+  , ("&bull;",    "•")   -- U+2022
+  , ("&hellip;",  "…")   -- U+2026
+  , ("&sup;",     "⊃")   -- U+2283
+  , (noName,      "⌝")   -- U+231D
   ]
 
 ------------------------------------------------------------------------------
