@@ -43,9 +43,12 @@ replace xs ys = foldl (flip (uncurry T.replace)) ys xs
 -- The name of the HTML entities is used by example for the Journal of
 -- Functional Programmning.
 
+noName ∷ Text
+noName = "N/A"
+
 -- | Substitutions of HTML-escaped text (entities and symbols).
 
--- We use the name `NA` when the HTML symbol has not an entity name.
+-- We use @noName@ when the HTML symbol has not an entity name.
 htmlNameSubst ∷ [(Text, Text)]
 htmlNameSubst =
   [ ("&Agrave;",  "À")  -- U+00C0
@@ -145,13 +148,13 @@ htmlNameSubst =
   , ("&chi;",     "χ")  -- U+03C7
   , ("&psi;",     "ψ")  -- U+03C8
   , ("&omega;",   "ω")  -- U+03C9
-  , ("NA",        "‐")  -- U+2010
+  , (noName,      "‐")  -- U+2010
   , ("&ndash;",   "–")  -- U+2013
   , ("&mdash;",   "—")  -- U+2014
   , ("&lsquo;",   "‘")  -- U+2018
   , ("&rsquo;",   "’")  -- U+2019
   , ("&sbquo;",   "‚")  -- U+201A
-  , ("NA",        "‛")  -- U+201B
+  , (noName,      "‛")  -- U+201B
   , ("&ldquo;",   "“")  -- U+201C
   , ("&rdquo;",   "”")  -- U+201D
   , ("&bdquo;",   "„")  -- U+201E
@@ -161,7 +164,7 @@ htmlNameSubst =
   , ("&bull;",    "•")  -- U+2022
   , ("&hellip;",  "…")  -- U+2026
   , ("&sup;",     "⊃")  -- U+2283
-  , ("NA",        "⌝")  -- U+231D
+  , (noName,      "⌝")  -- U+231D
   ]
 
 ------------------------------------------------------------------------------
