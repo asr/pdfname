@@ -1,8 +1,10 @@
 Changelog for pdfname
 =====================
 
-0.2.1
------
+0.3
+---
+
+Added Unicode and HTML escaped text substitutions.
 
 0.2
 ---
