@@ -26,17 +26,19 @@ removeFromTitle = replace $ map (\ a → (a, T.empty)) titleErase
 -- These substitutions should be done before the Unicode
 -- substitutions.
 replaceHTMLEscapedText ∷ Text → Text
-replaceHTMLEscapedText =
-  replace (htmlNameSubst ++ htmlDecSubst ++ htmlHexSubst)
+replaceHTMLEscapedText = replace (htmlNameSubst ++ htmlDecSubst ++ htmlHexSubst)
   where
-   htmlDecSubst ∷ [(Text, Text)]
-   htmlDecSubst = map (\ (_, b) → (format "&#%d;" b, b)) htmlNameSubst
+  htmlDecSubst ∷ [(Text, Text)]
+  htmlDecSubst = substHelper "&#%d;"
 
-   htmlHexSubst ∷ [(Text, Text)]
-   htmlHexSubst = map (\ (_, b) → (format "&#x%04X;" b, b)) htmlNameSubst
+  htmlHexSubst ∷ [(Text, Text)]
+  htmlHexSubst = substHelper "&#x%04X;"
 
-   format ∷ String → Text → Text
-   format f u = T.pack $ printf f (ord $ T.head u)
+  substHelper ∷ String → [(Text, Text)]
+  substHelper format = map (\ (_, b) → (printfHelper format b, b)) htmlNameSubst
+    where
+    printfHelper ∷ String → Text → Text
+    printfHelper pFormat t = T.pack $ printf pFormat (ord $ T.head t)
 
 replace ∷ [(Text,Text)] → Text → Text
 replace xs ys = foldl (flip (uncurry T.replace)) ys xs
