@@ -72,7 +72,7 @@ htmlNameSubst =
   , (noName,      "*")   -- U+002A
   , (noName,      "+")   -- U+002B
   , (noName,      ",")   -- U+002C
-  -- We do not substitute U+002D
+  -- We do not substitute U+002D.
   , (noName,      ".")   -- U+002E
   , (noName,      "/")   -- U+002F
   , (noName,      ":")   -- U+003A
@@ -254,7 +254,7 @@ unicodeSubst =
   , ("*",           "")         -- U+002A ASTERISK
   , ("+",           "")         -- U+002B PLUS SIGN
   , (",",           "")         -- U+002C COMMA
-  -- We do not substitute U+002D HYPHEN-MINUS
+  -- We do not substitute U+002D HYPHEN-MINUS.
   , (".",           "")         -- U+002E FULL STOP
   , ("/",           "")         -- U+002F SOLIDUS
   , (":",           "")         -- U+003A COLON
