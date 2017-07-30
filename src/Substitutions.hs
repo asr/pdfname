@@ -154,6 +154,31 @@ htmlNameSubst =
   , ("&scedil;",  "ş")   -- U+015F
   , ("&Scaron;",  "Š")   -- U+0160
   , ("&scaron;",  "š")   -- U+0161
+  , ("&Alpha;",   "Α")   -- U+0391
+  , ("&Beta;",    "Β")   -- U+0392
+  , ("&Gamma;",   "Γ")   -- U+0393
+  , ("&Delta;",   "Δ")   -- U+0394
+  , ("&Epsilon;", "Ε")   -- U+0395
+  , ("&Zeta;",    "Ζ")   -- U+0396
+  , ("&Eta;",     "Η")   -- U+0397
+  , ("&Theta;",   "θ")   -- U+0398
+  , ("&Iota;",    "Ι")   -- U+0399
+  , ("&Kappa;",   "Κ")   -- U+03AA
+  , ("&Lambda;",  "Λ")   -- U+03AB
+  , ("&Mu;",      "Μ")   -- U+03AC
+  , ("&Nu;",      "Ν")   -- U+03AD
+  , ("&Xi;",      "Ξ")   -- U+03AE
+  , ("&Omicron;", "Ο")   -- U+03AF
+  , ("&Pi;",      "Π")   -- U+03A0
+  , ("&Rho;",     "Ρ")   -- U+03A1
+  -- The code point U+03A2 is not defined.
+  , ("&Sigma;",   "Σ")   -- U+03A3
+  , ("&Tau;",     "Τ")   -- U+03A4
+  , ("&Upsilon;", "Υ")   -- U+03A5
+  , ("&Phi;",     "Φ")   -- U+03A6
+  , ("&Chi;",     "Χ")   -- U+03A7
+  , ("&Psi;",     "Ψ")   -- U+03A8
+  , ("&Omega;",   "Ω")   -- U+03A9
   , ("&alpha;",   "α")   -- U+03B1
   , ("&beta;",    "β")   -- U+03B2
   , ("&gamma;",   "γ")   -- U+03B3
@@ -194,6 +219,8 @@ htmlNameSubst =
   , ("&Dagger;",  "‡")   -- U+2021
   , ("&bull;",    "•")   -- U+2022
   , ("&hellip;",  "…")   -- U+2026
+  , ("&forall;",  "∀")   -- U+2200
+  , ("&exist;",   "∃")   -- U+2203
   , ("&sup;",     "⊃")   -- U+2283
   , (noName,      "⌝")   -- U+231D
   ]
@@ -380,6 +407,30 @@ unicodeSubst =
   , ("Ț",           "T")        -- U+021A LATIN CAPITAL LETTER T WITH COMMA BELOW
   , ("ț",           "t")        -- U+021B LATIN SMALL LETTER T WITH COMMA BELOW
   , ("ə",           "a")        -- U+0259 LATIN SMALL LETTER SCHWA
+  , ("Α",           "Alpha")    -- U+0391 GREEK CAPITAL LETTER ALPHA
+  , ("Β",           "Beta")     -- U+0392 GREEK CAPITAL LETTER BETA
+  , ("Γ",           "Gamma")    -- U+0393 GREEK CAPITAL LETTER GAMMA
+  , ("Δ",           "Delta")    -- U+0394 GREEK CAPITAL LETTER DELTA
+  , ("Ε",           "Epsilon")  -- U+0395 GREEK CAPITAL LETTER EPSILON
+  , ("Ζ",           "Zeta")     -- U+0396 GREEK CAPITAL LETTER ZETA
+  , ("Η",           "Eta")      -- U+0397 GREEK CAPITAL LETTER ETA
+  , ("Θ",           "Theta")    -- U+0398 GREEK CAPITAL LETTER THETA
+  , ("Ι",           "Iota")     -- U+0399 GREEK CAPITAL LETTER IOTA
+  , ("Κ",           "Kappa")    -- U+039A GREEK CAPITAL LETTER KAPPA
+  , ("Λ",           "Lambda")   -- U+039B GREEK CAPITAL LETTER LAMDA
+  , ("Μ",           "Mu")       -- U+039C GREEK CAPITAL LETTER MU
+  , ("Ν",           "Nu")       -- U+039D GREEK CAPITAL LETTER NU
+  , ("Ξ",           "Xi")       -- U+039E GREEK CAPITAL LETTER ZI
+  , ("Ο",           "Omicron")  -- U+039F GREEK CAPITAL LETTER OMICRON
+  , ("Π",           "Pi")       -- U+03A0 GREEK CAPITAL LETTER PI
+  , ("Ρ",           "Rho")      -- U+03A1 GREEK CAPITAL LETTER RHO
+  -- The code point U+03A2 is not defined.
+  , ("Σ",           "Sigma")    -- U+03A3 GREEK CAPITAL LETTER SIGMA
+  , ("Τ",           "Tau")      -- U+03A4 GREEK CAPITAL LETTER TAU
+  , ("Υ",           "Upsilon")  -- U+03A5 GREEK CAPITAL LETTER UPSILON
+  , ("Φ",           "Phi")      -- U+03A6 GREEK CAPITAL LETTER PHI
+  , ("χ",           "Chi")      -- U+03A7 GREEK CAPITAL LETTER CHI
+  , ("Ψ",           "Psi")      -- U+03A8 GREEK CAPITAL LETTER PSI
   , ("Ω",           "Omega")    -- U+03A9 GREEK CAPITAL LETTER OMEGA
   , ("α",           "alpha")    -- U+03B1 GREEK SMALL LETTER ALPHA
   , ("β",           "beta")     -- U+03B2 GREEK SMALL LETTER BETA
@@ -426,6 +477,8 @@ unicodeSubst =
   , ("™",           "")         -- U+2122 TRADE MARK SIGN
   , ("ℵ",           "aleph")    -- U+2135 ALEF SYMBOL
   , ("ℶ",           "beth")     -- U+2136 BET SYMBOL
+  , ("∀",           "for-all")  -- U+2200 FOR ALL
+  , ("∃",           "exists")   -- U+2203 THERE EXISTS
   , ("⊃",           "")         -- U+2283 SUPERSET OF
   , ("⌝",           "")         -- U+231D TOP RIGHT CORNER
   , ("�",          "")         -- U+FFFD REPLACEMENT CHARACTER
