@@ -225,9 +225,25 @@ htmlNameSubst =
   , ("&Dagger;",  "‡")   -- U+2021
   , ("&bull;",    "•")   -- U+2022
   , ("&hellip;",  "…")   -- U+2026
+  , (noName,      "ℂ")   -- U+2102
+  , (noName,      "ℕ")   -- U+2115
+  , (noName,      "ℚ")   -- U+211A
+  , (noName,      "ℝ")   -- U+211D
+  , ("&trade;",   "™")   -- U+2122
+  , (noName,      "ℤ")   -- U+2124
+  , ("&alefsym;", "ℵ")   -- U+2135
   , ("&forall;",  "∀")   -- U+2200
   , ("&exist;",   "∃")   -- U+2203
+  , ("&sub;",     "⊂")   -- U+2282
   , ("&sup;",     "⊃")   -- U+2283
+  , ("&nsub;",    "⊄")   -- U+2284
+  , (noName,      "⊅")   -- U+2285
+  , ("&sube;",    "⊆")   -- U+2286
+  , ("&supe;",    "⊇")   -- U+2287
+  , (noName,      "⊈")   -- U+2288
+  , (noName,      "⊉")   -- U+2289
+  , (noName,      "⊊")   -- U+228A
+  , (noName,      "⊋")   -- U+228B
   , (noName,      "⌝")   -- U+231D
   ]
 
@@ -502,12 +518,26 @@ unicodeSubst =
   , ("₇",           "7")        -- U+2077 SUBSCRIPT SEVEN
   , ("₈",           "8")        -- U+2078 SUBSCRIPT EIGHT
   , ("₉",           "9")        -- U+2079 SUBSCRIPT NINE
+  , ("ℂ",           "C")        -- U+2102 DOUBLE-STRUCK CAPITAL C
+  , ("ℕ",           "N")        -- U+2115 DOUBLE-STRUCK CAPITAL N
+  , ("ℚ",           "Q")        -- U+211A DOUBLE-STRUCK CAPITAL Q
+  , ("ℝ",           "R")        -- U+211D DOUBLE-STRUCK CAPITAL R
   , ("™",           "")         -- U+2122 TRADE MARK SIGN
+  , ("ℤ",           "Z")        -- U+2124 DOUBLE-STRUCK CAPITAL Z
   , ("ℵ",           "aleph")    -- U+2135 ALEF SYMBOL
   , ("ℶ",           "beth")     -- U+2136 BET SYMBOL
   , ("∀",           "for-all")  -- U+2200 FOR ALL
   , ("∃",           "exists")   -- U+2203 THERE EXISTS
+  , ("⊂",           "")         -- U+2282 SUBSET OF
   , ("⊃",           "")         -- U+2283 SUPERSET OF
+  , ("⊄",           "")         -- U+2284 NOT A SUBSET OF
+  , ("⊅",           "")         -- U+2285 NOT A SUPERSET OF
+  , ("⊆",           "")         -- U+2286 SUBSET OF OR EQUAL TO
+  , ("⊇",           "")         -- U+2287 SUPERSET OF OR EQUAL TO
+  , ("⊈",           "")         -- U+2288 NEITHER A SUBSET OF NOR EQUAL TO
+  , ("⊉",           "")         -- U+2289 NEITHER A SUPERSET OF NOR EQUAL TO
+  , ("⊊",           "")         -- U+228A SUBSET OF WITH NOT EQUAL TO
+  , ("⊋",           "")         -- U+228B SUPERSET OF WITH NOT EQUAL TO
   , ("⌝",           "")         -- U+231D TOP RIGHT CORNER
   , ("�",          "")         -- U+FFFD REPLACEMENT CHARACTER
   ]
