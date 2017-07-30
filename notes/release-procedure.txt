@@ -15,7 +15,7 @@ Release procedure:
 
     make haddock
 
-* Remove Cabal tests-suite from pdfname.cabal.
+* Remove Cabal test-suite from pdfname.cabal.
 
 * Build source distributions:
 
