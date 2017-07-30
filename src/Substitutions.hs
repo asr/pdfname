@@ -60,31 +60,31 @@ noName = "N/A"
 -- We use @noName@ when the HTML symbol has not an entity name.
 htmlNameSubst ∷ [(Text, Text)]
 htmlNameSubst =
-  [ (noName,      "!")   -- U+0021 EXCLAMATION MARK
-  , ("&quot;",    "\"")  -- U+0022 QUOTATION MARK
-  , (noName,      "#")   -- U+0023 NUMBER SIGN
-  , (noName,      "$")   -- U+0024 DOLLAR SIGN
-  , (noName,      "%")   -- U+0025 PERCENT SIGN
-  , ("&amp;",     "&")   -- U+0026 AMPERSAND
-  , (noName,      "'")   -- U+0027 APOSTROPHE
-  , (noName,      "(")   -- U+0028 LEFT PARENTHESIS
-  , (noName,      ")")   -- U+0029 RIGHT PARENTHESIS
-  , (noName,      "*")   -- U+002A ASTERISK
-  , (noName,      "+")   -- U+002B PLUS SIGN
-  , (noName,      ",")   -- U+002C COMMA
-  -- We do not substitute U+002D HYPHEN-MINUS
-  , (noName,      ".")   -- U+002E FULL STOP
-  , (noName,      "/")   -- U+002F SOLIDUS
-  , (noName,      ":")   -- U+003A COLON
-  , (noName,      ";")   -- U+003B SEMICOLON
-  , ("&lt;",      "<")   -- U+003C LESS-THAN SIGN
-  , (noName,      "=")   -- U+003D EQUALS SIGN
-  , ("&gt;",      ">")   -- U+003E GREATER-THAN SIGN
-  , (noName,      "?")   -- U+003F QUESTION MARK
-  , (noName,      "@")   -- U+0040 COMMERCIAL AT
-  , ("&sup2;",    "²")   -- U+00B2 SUPERSCRIPT TWO
-  , ("&sup3;",    "³")   -- U+00B3 SUPERSCRIPT THREE
-  , ("&sup1;",    "¹")   -- U+00B9 SUPERSCRIPT ONE
+  [ (noName,      "!")   -- U+0021
+  , ("&quot;",    "\"")  -- U+0022
+  , (noName,      "#")   -- U+0023
+  , (noName,      "$")   -- U+0024
+  , (noName,      "%")   -- U+0025
+  , ("&amp;",     "&")   -- U+0026
+  , (noName,      "'")   -- U+0027
+  , (noName,      "(")   -- U+0028
+  , (noName,      ")")   -- U+0029
+  , (noName,      "*")   -- U+002A
+  , (noName,      "+")   -- U+002B
+  , (noName,      ",")   -- U+002C
+  -- We do not substitute U+002D
+  , (noName,      ".")   -- U+002E
+  , (noName,      "/")   -- U+002F
+  , (noName,      ":")   -- U+003A
+  , (noName,      ";")   -- U+003B
+  , ("&lt;",      "<")   -- U+003C
+  , (noName,      "=")   -- U+003D
+  , ("&gt;",      ">")   -- U+003E
+  , (noName,      "?")   -- U+003F
+  , (noName,      "@")   -- U+0040
+  , ("&sup2;",    "²")   -- U+00B2
+  , ("&sup3;",    "³")   -- U+00B3
+  , ("&sup1;",    "¹")   -- U+00B9
   , ("&Agrave;",  "À")   -- U+00C0
   , ("&Aacute;",  "Á")   -- U+00C1
   , ("&Acirc;",   "Â")   -- U+00C2
