@@ -146,14 +146,17 @@ htmlNameSubst =
   , ("&yacute;",  "ý")   -- U+00FD
   , ("&thorn;",   "þ")   -- U+00FE
   , ("&yuml;",    "ÿ")   -- U+00FF
+  , (noName,      "ĕ")   -- U+0115
   , ("&Imacr;",   "Ī")   -- U+012A
   , ("&imacr;",   "ī")   -- U+012B
+  , (noName,      "ĭ")   -- U+012D
   , ("&Sacute;",  "Ś")   -- U+015A
   , ("&sacute;",  "ś")   -- U+015B
   , ("&Scedil;",  "Ş")   -- U+015E
   , ("&scedil;",  "ş")   -- U+015F
   , ("&Scaron;",  "Š")   -- U+0160
   , ("&scaron;",  "š")   -- U+0161
+  , ("&ubreve;",  "ŭ")   -- U+016D
   , ("&Alpha;",   "Α")   -- U+0391
   , ("&Beta;",    "Β")   -- U+0392
   , ("&Gamma;",   "Γ")   -- U+0393
@@ -351,6 +354,7 @@ unicodeSubst =
   , ("ď",           "d")        -- U+010F LATIN SMALL LETTER D WITH CARON
   , ("Ē",           "E")        -- U+0112 LATIN CAPITAL LETTER E WITH MACRON
   , ("ē",           "e")        -- U+0113 LATIN SMALL LETTER E WITH MACRON
+  , ("ĕ",           "e")        -- U+0115 LATIN SMALL LETTER E WITH BREVE
   , ("Ę",           "e")        -- U+0118 LATIN CAPITAL LETTER E WITH OGONEK
   , ("ę",           "e")        -- U+0119 LATIN SMALL LETTER E WITH OGONEK
   , ("Ě",           "E")        -- U+011A LATIN CAPITAL LETTER E WITH CARON
@@ -361,6 +365,7 @@ unicodeSubst =
   , ("ģ",           "g")        -- U+0123 LATIN SMALL LETTER G WITH CEDILLA
   , ("Ī",           "I")        -- U+012A LATIN CAPITAL LETTER I WITH MACRON
   , ("ī",           "I")        -- U+012B LATIN SMALL LETTER I WITH MACRON
+  , ("ĭ",           "i")        -- U+012D LATIN SMALL LETTER I WITH BREVE
   , ("İ",           "I")        -- U+0130 LATIN CAPITAL LETTER I WITH DOT ABOVE
   , ("Ķ",           "K")        -- U+0136 LATIN CAPITAL LETTER K WITH CEDILLA
   , ("ķ",           "k")        -- U+0137 LATIN SMALL LETTER K WITH CEDILLA
@@ -389,6 +394,7 @@ unicodeSubst =
   , ("Ť",           "T")        -- U+0164 LATIN CAPITAL LETTER T WITH CARON
   , ("ť",           "t")        -- U+0165 LATIN SMALL LETTER T WITH CARON
   , ("Ū",           "U")        -- U+016A LATIN CAPITAL LETTER U WITH MACRON
+  , ("ŭ",           "u")        -- U+016D LATIN SMALL LETTER U WITH BREVE
   , ("ū",           "u")        -- U+016B LATIN SMALL LETTER U WITH MACRON
   , ("Ů",           "U")        -- U+016E LATIN CAPITAL LETTER U WITH RING ABOVE
   , ("ů",           "u")        -- U+016F LATIN SMALL LETTER U WITH RING ABOVE
