@@ -26,13 +26,19 @@ removeFromTitle = replace $ map (\ a → (a, T.empty)) titleErase
 -- These substitutions should be done before the Unicode
 -- substitutions.
 replaceHTMLEscapedText ∷ Text → Text
-replaceHTMLEscapedText = replace (htmlNameSubst ++ htmlDecSubst ++ htmlHexSubst)
+replaceHTMLEscapedText = replace $ htmlNameSubst ++ numericSubst
   where
   htmlDecSubst ∷ [(Text, Text)]
   htmlDecSubst = substHelper "&#%d;"
 
-  htmlHexSubst ∷ [(Text, Text)]
-  htmlHexSubst = substHelper "&#x%04X;"
+  html4HexSubst ∷ [(Text, Text)]
+  html4HexSubst = substHelper "&#x%04X;"
+
+  html5HexSubst ∷ [(Text, Text)]
+  html5HexSubst = substHelper "&#x%05X;"
+
+  numericSubst ∷ [(Text, Text)]
+  numericSubst = htmlDecSubst ++ html4HexSubst ++ html5HexSubst
 
   substHelper ∷ String → [(Text, Text)]
   substHelper format = map (\ (_, b) → (printfHelper format b, b)) htmlNameSubst
@@ -450,8 +456,6 @@ weirdSubst =
   -- We erase `Ã¶` because it follows an `o` in the examples we know.
   , ("Ã¶",      "")     -- U+00C3 and U+00B6 (LATIN SMALL LETTER O WITH DIAERESIS)
   , ("Å›",      "s")    -- U+00C5 and U+203A (LATIN CAPITAL LETTER S WITH ACUTE)
-  -- TODO (2017-07-20): Five hex numbers
-  , ("&#x02010;", "-")  -- U+2010 HYPHEN
   -- TODO (2017-07-17): Missing `;`.
   , ("&#8217",  "")     -- U+2019 RIGHT SINGLE QUOTATION MARK
   ]
