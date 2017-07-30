@@ -82,6 +82,9 @@ htmlNameSubst =
   , ("&gt;",      ">")   -- U+003E GREATER-THAN SIGN
   , (noName,      "?")   -- U+003F QUESTION MARK
   , (noName,      "@")   -- U+0040 COMMERCIAL AT
+  , ("&sup2;",    "²")   -- U+00B2 SUPERSCRIPT TWO
+  , ("&sup3;",    "³")   -- U+00B3 SUPERSCRIPT THREE
+  , ("&sup1;",    "¹")   -- U+00B9 SUPERSCRIPT ONE
   , ("&Agrave;",  "À")   -- U+00C0
   , ("&Aacute;",  "Á")   -- U+00C1
   , ("&Acirc;",   "Â")   -- U+00C2
@@ -174,7 +177,7 @@ htmlNameSubst =
   , ("&Omicron;", "Ο")   -- U+03AF
   , ("&Pi;",      "Π")   -- U+03A0
   , ("&Rho;",     "Ρ")   -- U+03A1
-  -- The code point U+03A2 is not defined.
+  -- The code U+03A2 is reserved.
   , ("&Sigma;",   "Σ")   -- U+03A3
   , ("&Tau;",     "Τ")   -- U+03A4
   , ("&Upsilon;", "Υ")   -- U+03A5
@@ -430,7 +433,7 @@ unicodeSubst =
   , ("Ο",           "Omicron")  -- U+039F GREEK CAPITAL LETTER OMICRON
   , ("Π",           "Pi")       -- U+03A0 GREEK CAPITAL LETTER PI
   , ("Ρ",           "Rho")      -- U+03A1 GREEK CAPITAL LETTER RHO
-  -- The code point U+03A2 is not defined.
+  -- The code U+03A2 is reserved.
   , ("Σ",           "Sigma")    -- U+03A3 GREEK CAPITAL LETTER SIGMA
   , ("Τ",           "Tau")      -- U+03A4 GREEK CAPITAL LETTER TAU
   , ("Υ",           "Upsilon")  -- U+03A5 GREEK CAPITAL LETTER UPSILON
@@ -480,6 +483,25 @@ unicodeSubst =
   , ("‡",           "")         -- U+2021 DOUBLE DAGGER
   , ("•",           "")         -- U+2022 BULLET
   , ("…",           "")         -- U+2026 HORIZONTAL ELLIPSIS
+  , ("⁰",           "0")        -- U+2070 SUPERSCRIPT ZERO
+  , ("ⁱ",           "i")        -- U+2071 SUPERSCRIPT LATIN SMALL LETTER I
+  -- The codes U+2072 and U+2073 are reserved.
+  , ("⁴",           "4")        -- U+2074 SUPERSCRIPT FOUR
+  , ("⁵",           "5")        -- U+2075 SUPERSCRIPT FIVE
+  , ("⁶",           "6")        -- U+2076 SUPERSCRIPT SIX
+  , ("⁷",           "7")        -- U+2077 SUPERSCRIPT SEVEN
+  , ("⁸",           "8")        -- U+2078 SUPERSCRIPT EIGHT
+  , ("⁹",           "9")        -- U+2079 SUPERSCRIPT NINE
+  , ("₀",           "0")        -- U+2080 SUBSCRIPT ZERO
+  , ("₁",           "1")        -- U+2081 SUBSCRIPT ONE
+  , ("₂",           "2")        -- U+2082 SUBSCRIPT TWO
+  , ("₃",           "3")        -- U+2083 SUBSCRIPT THREE
+  , ("₄",           "4")        -- U+2074 SUBSCRIPT FOUR
+  , ("₅",           "5")        -- U+2075 SUBSCRIPT FIVE
+  , ("₆",           "6")        -- U+2076 SUBSCRIPT SIX
+  , ("₇",           "7")        -- U+2077 SUBSCRIPT SEVEN
+  , ("₈",           "8")        -- U+2078 SUBSCRIPT EIGHT
+  , ("₉",           "9")        -- U+2079 SUBSCRIPT NINE
   , ("™",           "")         -- U+2122 TRADE MARK SIGN
   , ("ℵ",           "aleph")    -- U+2135 ALEF SYMBOL
   , ("ℶ",           "beth")     -- U+2136 BET SYMBOL
