@@ -30,8 +30,8 @@ import Substitutions
   ( authorSubst
   , removeFromTitle
   , replace
+  , replaceUnicode
   , replaceHTMLEscapedText
-  , unicodeSubst
   , weirdSubst
   )
 
@@ -50,7 +50,7 @@ getAuthor xs =
   else
     -- NB that the substitutions are not commutative.
     ( T.toLower
-      . replace unicodeSubst
+      . replaceUnicode
       . T.intercalate (T.singleton '-')
       . map (T.reverse . T.takeWhile (' ' /=) . T.reverse)
       . T.split (',' ==)
@@ -69,7 +69,7 @@ getTitle xs =
   else
     -- NB that the substitutions are not commutative.
     ( T.toLower
-      . replace unicodeSubst
+      . replaceUnicode
       . replaceHTMLEscapedText
       . removeFromTitle
       . replace weirdSubst

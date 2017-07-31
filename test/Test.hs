@@ -18,7 +18,7 @@ import Test.Tasty.HUnit              ( testCase )
 ------------------------------------------------------------------------------
 -- Local imports
 
-import Substitutions ( unicodeSubst )
+import Substitutions ( substTable )
 
 ------------------------------------------------------------------------------
 
@@ -64,11 +64,11 @@ clOptionsTests = testGroup "cl-option" [ noOptions, helpOption ]
   helpOption = helper "help" ["--help"]
 
 internalTests ∷ TestTree
-internalTests = testGroup "internal-tests" [ unicodeSubstNub ]
+internalTests = testGroup "internal-tests" [ substTableNub ]
   where
-    unicodeSubstNub ∷ TestTree
-    unicodeSubstNub =
-      testCase "unicodeSubstNub" $ True @=? unicodeSubst == nub unicodeSubst
+    substTableNub ∷ TestTree
+    substTableNub =
+      testCase "substTableNub" $ True @=? substTable == nub substTable
 
 allTests ∷ IO TestTree
 allTests = do
