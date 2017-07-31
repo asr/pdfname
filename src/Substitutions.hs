@@ -217,6 +217,10 @@ htmlNameSubst =
   , ("&chi;",     "χ")   -- U+03C7
   , ("&psi;",     "ψ")   -- U+03C8
   , ("&omega;",   "ω")   -- U+03C9
+  , ("&thetasym;", "ϑ")  -- U+03D1
+  , ("&upsih;",    "ϒ")  -- U+03D2
+  , ("&straightphi;", "ϕ")  -- U+03D5
+  , ("&piv;",         "ϖ")  -- U+03D6
   , (noName,      "‐")   -- U+2010
   , ("&ndash;",   "–")   -- U+2013
   , ("&mdash;",   "—")   -- U+2014
@@ -233,15 +237,38 @@ htmlNameSubst =
   , ("&bull;",    "•")   -- U+2022
   , ("&hellip;",  "…")   -- U+2026
   , (noName,      "ℂ")   -- U+2102
+  , (noName,      "ℊ")   -- U+210A
+  , (noName,      "ℋ")   -- U+210B
+  , (noName,      "ℍ")   -- U+210D
+  , (noName,      "ℐ")   -- U+2110
+  , (noName,      "ℒ")   -- U+2112
+  , (noName,      "ℓ")   -- U+2113
   , (noName,      "ℕ")   -- U+2115
+  , ("&weierp;",  "℘")   -- U+2118
+  , (noName,      "ℙ")   -- U+2119
   , (noName,      "ℚ")   -- U+211A
+  , (noName,      "ℛ")   -- U+211B
   , (noName,      "ℝ")   -- U+211D
   , ("&trade;",   "™")   -- U+2122
   , (noName,      "ℤ")   -- U+2124
+  , (noName,      "ℬ")   -- U+212C
+  , (noName,      "ℯ")   -- U+212F
+  , (noName,      "ℰ")   -- U+2130
+  , (noName,      "ℱ")   -- U+2131
+  , (noName,      "ℳ")   -- U+2133
+  , (noName,      "ℴ")   -- U+2134
   , ("&alefsym;", "ℵ")   -- U+2135
+  , (noName,      "ℶ")   -- U+2136
+  , ("&larr;",    "←")   -- U+2190
+  , ("&uarr;",    "↑")   -- U+2191
+  , ("&rarr;",    "→")   -- U+2192
+  , ("&ldrr;",    "↓")   -- U+2193
+  , ("&harr;",    "↔")   -- U+2194
   , ("&forall;",  "∀")   -- U+2200
   , ("&exist;",   "∃")   -- U+2203
+  , ("&minus;",   "−")   -- U+2212
   , (noName,      "∓")   -- U+2213
+  , ("&radic;",   "√")   -- U+221A
   , ("&sub;",     "⊂")   -- U+2282
   , ("&sup;",     "⊃")   -- U+2283
   , ("&nsub;",    "⊄")   -- U+2284
@@ -252,6 +279,10 @@ htmlNameSubst =
   , (noName,      "⊉")   -- U+2289
   , (noName,      "⊊")   -- U+228A
   , (noName,      "⊋")   -- U+228B
+  , ("&oplus;",   "⊕")   -- U+2295
+  , ("&otimes;",  "⊗")   -- U+2297
+  , (noName,      "⋉")   -- U+22C9
+  , (noName,      "⋊")   -- U+22CA
   , (noName,      "⌝")   -- U+231D
   ]
 
@@ -273,8 +304,8 @@ unicodeSubst =
   , ("%",  "")  -- U+0025 PERCENT SIGN
   , ("&",  "")  -- U+0026 AMPERSAND
   , ("'",  "")  -- U+0027 APOSTROPHE
-  , ("(",  "")  -- U+0028 LEFT PARENTHESIS
-  , (")",  "")  -- U+0029 RIGHT PARENTHESIS
+  , ("(",  "-")  -- U+0028 LEFT PARENTHESIS
+  , (")",  "-")  -- U+0029 RIGHT PARENTHESIS
   , ("*",  "")  -- U+002A ASTERISK
   , ("+",  binaryOp "plus")  -- U+002B PLUS SIGN
   , (",",  "")  -- U+002C COMMA
@@ -491,6 +522,10 @@ unicodeSubst =
   , ("χ",  "chi")      -- U+03C7 GREEK SMALL LETTER CHI
   , ("ψ",  "psi")      -- U+03C8 GREEK SMALL LETTER PSI
   , ("ω",  "omega")    -- U+03C9 GREEK SMALL LETTER OMEGA
+  , ("ϑ",  "theta")    -- U+03D1 GREEK THETA SYMBOL
+  , ("ϒ",  "Upsilon")  -- U+03D2 GREEK UPSILON WITH HOOK SYMBOL
+  , ("ϕ",  "phi")      -- U+03D5 GREEK PHI SYMBOL
+  , ("ϖ",  "pi")       -- U+03D6 GREEK PI SYMBOL
   , ("ẞ",  "SS")  -- U+1E9E LATIN CAPITAL LETTER SHARP S
   , (" ",  "-")  -- U+2009 THIN SPACE
   , ("‐",  "-")  -- U+2010 HYPHEN
@@ -528,26 +563,52 @@ unicodeSubst =
   , ("₈",  "8")  -- U+2078 SUBSCRIPT EIGHT
   , ("₉",  "9")  -- U+2079 SUBSCRIPT NINE
   , ("ℂ",  "C")  -- U+2102 DOUBLE-STRUCK CAPITAL C
+  , ("ℊ",  "g")  -- U+210A SCRIPT SMALL G
+  , ("ℋ",  "H")  -- U+210B SCRIPT CAPITAL H
+  , ("ℍ",  "H")  -- U+210D DOUBLE-STRUCK CAPITAL H
+  , ("ℐ",  "I")  -- U+2110 SCRIPT CAPITAL I
+  , ("ℒ",  "L")  -- U+2112 SCRIPT CAPITAL L
+  , ("ℓ",  "l")  -- U+2113 SCRIPT SMALL L
   , ("ℕ",  "N")  -- U+2115 DOUBLE-STRUCK CAPITAL N
+  , ("℘",  "P")  -- U+2118 SCRIPT CAPITAL P
+  , ("ℙ",  "P")  -- U+2119 DOUBLE-STRUCK CAPITAL P
   , ("ℚ",  "Q")  -- U+211A DOUBLE-STRUCK CAPITAL Q
+  , ("ℛ",  "R")  -- U+211B SCRIPT CAPITAL R
   , ("ℝ",  "R")  -- U+211D DOUBLE-STRUCK CAPITAL R
   , ("™",  "")  -- U+2122 TRADE MARK SIGN
   , ("ℤ",  "Z")  -- U+2124 DOUBLE-STRUCK CAPITAL Z
+  , ("ℬ",  "B")  -- U+212C SCRIPT CAPITAL B
+  , ("ℯ",  "e")  -- U+212F SCRIPT SMALL E
+  , ("ℰ",  "E")  -- U+2130 SCRIPT CAPITAL E
+  , ("ℱ",  "F")  -- U+2131 SCRIPT CAPITAL F
+  , ("ℳ",  "M")  -- U+2133 SCRIPT CAPITAL M
+  , ("ℴ",  "o")  -- U+2134 SCRIPT SMALL O
   , ("ℵ",  "aleph")  -- U+2135 ALEF SYMBOL
   , ("ℶ",  "beth")  -- U+2136 BET SYMBOL
+  , ("←",  binaryOp "arrow")  -- U+2190 LEFTWARDS ARROW
+  , ("↑",  binaryOp "arrow")  -- U+2191 UPWARDS ARROW
+  , ("→",  binaryOp "arrow")  -- U+2192 RIGHTWARDS ARROW
+  , ("↓",  binaryOp "arrow")  -- U+2193 DOWNWARDS ARROW
+  , ("↔",  binaryOp "arrow")  -- U+2194 LEFT RIGHT ARROW
   , ("∀",  unaryOp "for-all")  -- U+2200 FOR ALL
   , ("∃",  unaryOp "exists")  -- U+2203 THERE EXISTS
+  , ("−",  "minus")  -- U+2212 MINUS SIGN
   , ("∓",  binaryOp "minus-or-plus")  -- U+2213 MINUS-OR-PLUS SIGN
-  , ("⊂",  "")  -- U+2282 SUBSET OF
-  , ("⊃",  "")  -- U+2283 SUPERSET OF
+  , ("√",  unaryOp "sqrt")  -- U+221A SQUARE ROOT
+  , ("⊂",  binaryOp "subset-of")  -- U+2282 SUBSET OF
+  , ("⊃",  binaryOp "superset-of-")  -- U+2283 SUPERSET OF
   , ("⊄",  "")  -- U+2284 NOT A SUBSET OF
   , ("⊅",  "")  -- U+2285 NOT A SUPERSET OF
-  , ("⊆",  "")  -- U+2286 SUBSET OF OR EQUAL TO
-  , ("⊇",  "")  -- U+2287 SUPERSET OF OR EQUAL TO
+  , ("⊆",  binaryOp "subset-of-or-equal-to")  -- U+2286 SUBSET OF OR EQUAL TO
+  , ("⊇",  binaryOp "superset-of-or-equal-to")  -- U+2287 SUPERSET OF OR EQUAL TO
   , ("⊈",  "")  -- U+2288 NEITHER A SUBSET OF NOR EQUAL TO
   , ("⊉",  "")  -- U+2289 NEITHER A SUPERSET OF NOR EQUAL TO
   , ("⊊",  "")  -- U+228A SUBSET OF WITH NOT EQUAL TO
   , ("⊋",  "")  -- U+228B SUPERSET OF WITH NOT EQUAL TO
+  , ("⊕",  binaryOp "circled-plus")  -- U+2295 CIRCLED PLUS
+  , ("⊗",  binaryOp "circled-times")  -- U+2297 CIRCLED TIMES
+  , ("⋉",  binaryOp "left-semidirect-product")  -- U+22C9) LEFT NORMAL FACTOR SEMIDIRECT PRODUCT
+  , ("⋊",  binaryOp "right-semidirect-product")  -- U+22CA RIGHT NORMAL FACTOR SEMIDIRECT PRODUCT
   , ("⌝",  "")  -- U+231D TOP RIGHT CORNER
   , ("�", "")  -- U+FFFD REPLACEMENT CHARACTER
   ]
