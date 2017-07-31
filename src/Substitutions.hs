@@ -635,8 +635,7 @@ weirdSubst =
   [ ("Ã¡",      "a")    -- U+00C3 and U+00A1 (LATIN SMALL LETTER A WITH GRAVE)
   , ("Ã©",      "e")    -- U+00C3 and U+00A9 (LATIN SMALL LETTER E WITH ACUTE)
   , ("Ã\x00AD", "i")    -- U+00C3 and U+00AD (LATIN SMALL LETTER I GRAVE)
-  -- We erase `Ã¶` because it follows an `o` in the examples we know.
-  , ("Ã¶",      "")     -- U+00C3 and U+00B6 (LATIN SMALL LETTER O WITH DIAERESIS)
+  , ("Ã¶",      "o")    -- U+00C3 and U+00B6 (LATIN SMALL LETTER O WITH DIAERESIS)
   , ("Å›",      "s")    -- U+00C5 and U+203A (LATIN CAPITAL LETTER S WITH ACUTE)
   -- TODO (2017-07-17): Missing `;`.
   , ("&#8217",  "")     -- U+2019 RIGHT SINGLE QUOTATION MARK
