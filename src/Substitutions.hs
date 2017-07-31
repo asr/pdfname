@@ -82,6 +82,7 @@ htmlNameSubst =
   , ("&gt;",      ">")   -- U+003E
   , (noName,      "?")   -- U+003F
   , (noName,      "@")   -- U+0040
+  , ("&plusmn;",  "±")   -- U+00B1
   , ("&sup2;",    "²")   -- U+00B2
   , ("&sup3;",    "³")   -- U+00B3
   , ("&sup1;",    "¹")   -- U+00B9
@@ -234,6 +235,7 @@ htmlNameSubst =
   , ("&alefsym;", "ℵ")   -- U+2135
   , ("&forall;",  "∀")   -- U+2200
   , ("&exist;",   "∃")   -- U+2203
+  , (noName,      "∓")   -- U+2213
   , ("&sub;",     "⊂")   -- U+2282
   , ("&sup;",     "⊃")   -- U+2283
   , ("&nsub;",    "⊄")   -- U+2284
@@ -268,16 +270,16 @@ unicodeSubst =
   , ("(",           "")         -- U+0028 LEFT PARENTHESIS
   , (")",           "")         -- U+0029 RIGHT PARENTHESIS
   , ("*",           "")         -- U+002A ASTERISK
-  , ("+",           "")         -- U+002B PLUS SIGN
+  , ("+",           "-plus-")         -- U+002B PLUS SIGN
   , (",",           "")         -- U+002C COMMA
   -- We do not substitute U+002D HYPHEN-MINUS.
   , (".",           "")         -- U+002E FULL STOP
   , ("/",           "")         -- U+002F SOLIDUS
   , (":",           "")         -- U+003A COLON
   , (";",           "")         -- U+003B SEMICOLON
-  , ("<",           "")         -- U+003C LESS-THAN SIGN
-  , ("=",           "")         -- U+003D EQUALS SIGN
-  , (">",           "")         -- U+003E GREATER-THAN SIGN
+  , ("<",           "-less-than-")         -- U+003C LESS-THAN SIGN
+  , ("=",           "-equals-")         -- U+003D EQUALS SIGN
+  , (">",           "-greater-than-")         -- U+003E GREATER-THAN SIGN
   , ("?",           "")         -- U+003F QUESTION MARK
   , ("@",           "")         -- U+0040 COMMERCIAL AT
   , ("[",           "")         -- U+005B LEFT SQUARE BRACKET
@@ -292,6 +294,7 @@ unicodeSubst =
   , ("~",           "")         -- U+007E TILDE
   , ("¡",           "")         -- U+00A1 INVERTED EXCLAMATION MARK
   , ("¬",           "")         -- U+00AC NOT SIGN
+  , ("±",           "-plus-minus-")        -- U+00B1 PLUS-MINUS SIGN
   , ("²",           "2")        -- U+00B2 SUPERSCRIPT TWO
   , ("³",           "3")        -- U+00B3 SUPERSCRIPT THREE
   , ("¹",           "1")        -- U+00B9 SUPERSCRIPT ONE
@@ -318,7 +321,7 @@ unicodeSubst =
   , ("Ô",           "O")        -- U+00D4 LATIN CAPITAL LETTER O WITH CIRCUMFLEX
   , ("Õ",           "O")        -- U+00D5 LATIN CAPITAL LETTER O WITH TILDE
   , ("Ö",           "O")        -- U+00D6 LATIN CAPITAL LETTER O WITH DIAERESIS
-  , ("×",           "")         -- U+00D7 MULTIPLICATION SIGN
+  , ("×",           "-times-")         -- U+00D7 MULTIPLICATION SIGN
   , ("Ø",           "O")        -- U+00D8 LATIN CAPITAL LETTER O WITH STROKE
   , ("Ù",           "U")        -- U+00D9 LATIN CAPITAL LETTER U WITH GRAVE
   , ("Ú",           "U")        -- U+00DA LATIN CAPITAL LETTER U WITH ACUTE
@@ -526,8 +529,9 @@ unicodeSubst =
   , ("ℤ",           "Z")        -- U+2124 DOUBLE-STRUCK CAPITAL Z
   , ("ℵ",           "aleph")    -- U+2135 ALEF SYMBOL
   , ("ℶ",           "beth")     -- U+2136 BET SYMBOL
-  , ("∀",           "for-all")  -- U+2200 FOR ALL
-  , ("∃",           "exists")   -- U+2203 THERE EXISTS
+  , ("∀",           "for-all-")  -- U+2200 FOR ALL
+  , ("∃",           "exists-")   -- U+2203 THERE EXISTS
+  , ("∓",           "-minus-or-plus-")   -- U+2213 MINUS-OR-PLUS SIGN
   , ("⊂",           "")         -- U+2282 SUBSET OF
   , ("⊃",           "")         -- U+2283 SUPERSET OF
   , ("⊄",           "")         -- U+2284 NOT A SUBSET OF
