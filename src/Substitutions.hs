@@ -164,11 +164,37 @@ substTable =
   , ("}", "TODO",          "")  -- U+007B RIGHT CURLY BRACKET
   , ("~", "TODO",          "")  -- U+007E TILDE
   , ("¡", "iexcl",         "")  -- U+00A1 INVERTED EXCLAMATION MARK
+  , ("¢", "cent",          "cent")  -- U+00A2 CENT SIGN
+  , ("£", "pound",         "pound")  -- U+00A3 POUND SIGN
+  , ("¤", "curren",        "")  -- U+00A4 CURRENCY SIGN
+  , ("¥", "yen",           "yen")  -- U+00A5 YEN SIGN
+  , ("¦", "brvvar",        "")  -- U+00A6 BROKEN BAR
+  , ("§", "sect",          "")  -- U+00A7 SECTION SIGN
+  , ("¨", "uml",           "")  -- U+00A8 DIAERESIS
+  , ("©", "copy",          "")  -- U+00A9 COPYRIGHT SIGN
+  , ("ª", "ordf",          "")  -- U+00AA FEMININE ORDINAL INDICATOR
+  , ("«", "laquo",         "")  -- U+00AB LEFT-POINTING DOUBLE ANGLE QUOTATION MARK
   , ("¬", "not",           "")  -- U+00AC NOT SIGN
+  -- TODO 2017-07-31
+  -- , ("­", "shy",           "-")  -- U+00AD SOFT HYPHEN
+  , ("®", "reg",           "")  -- U+00AE REGISTERED SIGN
+  , ("¯", "macr",          "")  -- U+00AF MACRON
+  , ("°", "deg",           "degree")  -- U+00B0 DEGREE SIGN
   , ("±", "plusmn",        binaryOp "plus-minus")  -- U+00B1 PLUS-MINUS SIGN
   , ("²", "sup2",          "2")  -- U+00B2 SUPERSCRIPT TWO
   , ("³", "sup3",          "3")  -- U+00B3 SUPERSCRIPT THREE
+  , ("´", "acute",         "")  -- U+00B4 ACUTE ACCENT
+  , ("µ", "micro",         "micro")  -- U+00B5 MICRO SIGN
+  , ("¶", "para",          "")  -- U+00B6 PILCROW SIGN
+  , ("·", "middot",        "")  -- U+00B7 MIDDLE DOT
+  , ("¸", "cedil",         "")  -- U+00B8 CEDILLA
   , ("¹", "sup1",          "1")  -- U+00B9 SUPERSCRIPT ONE
+  , ("º", "ordm",          "")  -- U+00BA MASCULINE ORDINAL INDICATOR
+  , ("»", "raquo",         "")  -- U+00BB RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
+  , ("¼", "frac14",        "")  -- U+00BC VULGAR FRACTION ONE QUARTER
+  , ("½", "frac12",        "")  -- U+00BD VULGAR FRACTION ONE HALF
+  , ("¾", "frac34",        "")  -- U+00BE VULGAR FRACTION THREE QUARTERS
+  , ("¿", "iquest",        "")  -- U+00BF INVERTED QUESTION MARK
   , ("À", "Agrave",        "A")  -- U+00C0 LATIN CAPITAL LETTER A WITH GRAVE
   , ("Á", "Aacute",        "A")  -- U+00C1 LATIN CAPITAL LETTER A WITH ACUTE
   , ("Â", "Acirc",         "A")  -- U+00C2 LATIN CAPITAL LETTER A WITH CIRCUMFLEX
