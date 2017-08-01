@@ -29,8 +29,10 @@ removeFromTitle = replace $ map (\ a → (a, T.empty)) titleErase
 replaceHTMLEscapedText ∷ Text → Text
 replaceHTMLEscapedText = replace allSubst
   where
+
   htmlNameSubst ∷ [(Text, Text)]
-  htmlNameSubst = map (\ (a, b, _) → (T.cons '&' $ T.snoc b ';', a)) substTable
+  htmlNameSubst = map (\ (a, b, _) → (T.cons '&' $ T.snoc b ';', a)) $
+                    filter (\ (_, b,_) → b /= noName && b /= noSupported) substTable
 
   htmlDecSubst ∷ [(Text, Text)]
   htmlDecSubst = substHelper "&#%d;"
@@ -45,7 +47,8 @@ replaceHTMLEscapedText = replace allSubst
   allSubst = htmlNameSubst ++ htmlDecSubst ++ html4HexSubst ++ html5HexSubst
 
   substHelper ∷ String → [(Text, Text)]
-  substHelper format = map (\ (a, _, _) → (printfHelper format a, a)) substTable
+  substHelper format = map (\ (a, _, _) → (printfHelper format a, a)) $
+                         filter (\ (_, b,_) → b /= noSupported) substTable
     where
     printfHelper ∷ String → Text → Text
     printfHelper pFormat t = T.pack $ printf pFormat (ord $ T.head t)
