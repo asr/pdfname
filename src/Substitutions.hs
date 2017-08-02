@@ -270,6 +270,8 @@ substTable =
   , ("ą", "aogon",         "a")  -- U+0105 LATIN SMALL LETTER A WITH OGONEK
   , ("Ć", "Cacute",        "c")  -- U+0106 LATIN CAPITAL LETTER C WITH ACUTE
   , ("ć", "cacute",        "c")  -- U+0107 LATIN SMALL LETTER C WITH ACUTE
+  , ("Ĉ", "Ccirc",         "C")  -- U+0108 LATIN CAPITAL LETTER C CIRCUMFLEX
+  , ("ĉ", "ccirc",         "c")  -- U+0109 LATIN SMALLL LETTER C CIRCUMFLEX
   , ("Č", "Ccaron",        "C")  -- U+010C LATIN CAPITAL LETTER C WITH CARON
   , ("č", "ccaron",        "c")  -- U+010D LATIN SMALL LETTER C WITH CARON
   , ("Ď", "Dcaron",        "D")  -- U+010E LATIN CAPITAL LETTER D WITH CARON
@@ -281,14 +283,20 @@ substTable =
   , ("ę", "eogon",         "e")  -- U+0119 LATIN SMALL LETTER E WITH OGONEK
   , ("Ě", "Ecaron",        "E")  -- U+011A LATIN CAPITAL LETTER E WITH CARON
   , ("ě", "ecaron",        "e")  -- U+011B LATIN SMALL LETTER E WITH CARON
+  , ("Ĝ", "Gcirc",         "G")  -- U+011C LATIN CAPITAL LETTER G CIRCUMFLEX
+  , ("ĝ", "gcirc",         "g")  -- U+011D LATIN SMALLL LETTER G CIRCUMFLEX
   , ("Ğ", "Gbreve",        "G")  -- U+011E LATIN CAPITAL LETTER G WITH BREVE
   , ("ğ", "gbreve",        "g")  -- U+011F LATIN SMALL LETTER G WITH BREVE
   , ("Ģ", "Gcedil",        "G")  -- U+0122 LATIN CAPITAL LETTER G WITH CEDILLA
   , ("ģ", "gcedil",        "g")  -- U+0123 LATIN SMALL LETTER G WITH CEDILLA
+  , ("Ĥ", "Hcirc",         "H")  -- U+0124 LATIN CAPITAL LETTER H CIRCUMFLEX
+  , ("ĥ", "hcirc",         "h")  -- U+0125 LATIN SMALLL LETTER H CIRCUMFLEX
   , ("Ī", "Imacr",         "I")  -- U+012A LATIN CAPITAL LETTER I WITH MACRON
   , ("ī", "imacr",         "I")  -- U+012B LATIN SMALL LETTER I WITH MACRON
   , ("ĭ", noName,          "i")  -- U+012D LATIN SMALL LETTER I WITH BREVE
   , ("İ", "Idot",          "I")  -- U+0130 LATIN CAPITAL LETTER I WITH DOT ABOVE
+  , ("Ĵ", "Jcirc",         "J")  -- U+0134 LATIN CAPITAL LETTER J CIRCUMFLEX
+  , ("ĵ", "jcirc",         "j")  -- U+0135 LATIN SMALLL LETTER J CIRCUMFLEX
   , ("Ķ", "Kcedil",        "K")  -- U+0136 LATIN CAPITAL LETTER K WITH CEDILLA
   , ("ķ", "kcedil",        "k")  -- U+0137 LATIN SMALL LETTER K WITH CEDILLA
   , ("Ļ", "Lcedil",        "L")  -- U+013B LATIN CAPITAL LETTER L WITH CEDILLA
@@ -309,6 +317,8 @@ substTable =
   , ("ř", "rcaron",        "r")  -- U+0159 LATIN SMALL LETTER R WITH CARON
   , ("Ś", "Sacute",        "S")  -- U+015A LATIN CAPITAL LETTER S WITH ACUTE
   , ("ś", "sacute",        "s")  -- U+015B LATIN SMALL LETTER S WITH ACUTE
+  , ("Ŝ", "Scirc",         "S")  -- U+015C LATIN CAPITAL LETTER S CIRCUMFLEX
+  , ("ŝ", "scirc",         "s")  -- U+015D LATIN SMALLL LETTER S CIRCUMFLEX
   , ("Ş", "Scedil",        "S")  -- U+015E LATIN CAPITAL LETTER S WITH CEDILLA
   , ("ş", "scedil",        "s")  -- U+015F LATIN SMALL LETTER S WITH CEDILLA
   , ("Š", "Scaron",        "S")  -- U+0160 LATIN CAPITAL LETTER S WITH CARON
@@ -317,11 +327,12 @@ substTable =
   , ("ť", "tcaron",        "t")  -- U+0165 LATIN SMALL LETTER T WITH CARON
   , ("Ū", "Umacr",         "U")  -- U+016A LATIN CAPITAL LETTER U WITH MACRON
   , ("ū", "Umacr",         "u")  -- U+016B LATIN SMALL LETTER U WITH MACRON
+  , ("Ŭ", "Ubreve",        "U")  -- U+016C LATIN CAPITAL LETTER U WITH BREVE
   , ("ŭ", "ubreve",        "u")  -- U+016D LATIN SMALL LETTER U WITH BREVE
   , ("Ů", "Uring",         "U")  -- U+016E LATIN CAPITAL LETTER U WITH RING ABOVE
   , ("ů", "uring",         "u")  -- U+016F LATIN SMALL LETTER U WITH RING ABOVE
-  , ("Ű", "Udblac",       "U")  -- U+0170 LATIN CAPITAL LETTER U WITH DOUBLE ACUTE
-  , ("ű", "udblac",       "u")  -- U+0171 LATIN SMALL LETTER U WITH DOUBLE ACUTE
+  , ("Ű", "Udblac",        "U")  -- U+0170 LATIN CAPITAL LETTER U WITH DOUBLE ACUTE
+  , ("ű", "udblac",        "u")  -- U+0171 LATIN SMALL LETTER U WITH DOUBLE ACUTE
   , ("Ÿ", "Yuml",          "Y")  -- U+0178 LATIN CAPITAL LETTER Y WITH DIAERESIS
   , ("Ź", "Zacute",        "Z")  -- U+0179 LATIN CAPITAL LETTER Z WITH ACUTE
   , ("ź", "zacute",        "z")  -- U+017A LATIN SMALL LETTER Z WITH ACUTE
