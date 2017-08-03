@@ -134,272 +134,311 @@ substTable =
   , ("\f", noSupported,    "")  -- U+000C FORM FEED (FF)
   , ("\r", noSupported,    "")  -- U+000D CARRIAGE RETURN (CR)
   , (" ", "TODO",          "-") -- U+0020 SPACE
-  , ("!", noName,          "")  -- U+0021 EXCLAMATION MARK
+  , ("!", noName,          "")  -- U+0021
   , ("\"", "quot",         "")  -- U+0022 QUOTATION MARK
-  , ("#", noName,          "")  -- U+0023 NUMBER SIGN
-  , ("$", noName,          "")  -- U+0024 DOLLAR SIGN
-  , ("%", noName,          "")  -- U+0025 PERCENT SIGN
-  , ("&", "amp",           "")  -- U+0026 AMPERSAND
-  , ("'", noName,          "")  -- U+0027 APOSTROPHE
-  , ("(", noName,          "-")  -- U+0028 LEFT PARENTHESIS
-  , (")", noName,          "-")  -- U+0029 RIGHT PARENTHESIS
-  , ("*", noName,          "")  -- U+002A ASTERISK
-  , ("+", noName,          binaryOp "plus")  -- U+002B PLUS SIGN
+  , ("#", noName,          "")  -- U+0023
+  , ("$", noName,          "")  -- U+0024
+  , ("%", noName,          "")  -- U+0025
+  , ("&", "amp",           "")  -- U+0026
+  , ("'", noName,          "")  -- U+0027
+  , ("(", noName,          "-")  -- U+0028
+  , (")", noName,          "-")  -- U+0029
+  , ("*", noName,          "")  -- U+002A
+  , ("+", noName,          binaryOp "plus")  -- U+002B
   , (",", noName,          "")  -- U+002C COMMA
   -- We do not substitute U+002D HYPHEN-MINUS.
   , (".", noName,          "")  -- U+002E FULL STOP
   , ("/", noName,          "")  -- U+002F SOLIDUS
-  , (":", noName,          "")  -- U+003A COLON
-  , (";", noName,          "")  -- U+003B SEMICOLON
-  , ("<", "lt",            binaryOp "less-than")  -- U+003C LESS-THAN SIGN
-  , ("=", noName,          binaryOp "equals")  -- U+003D EQUALS SIGN
-  , (">", "gt",            binaryOp "greater-than")  -- U+003E GREATER-THAN SIGN
-  , ("?", noName,          "")  -- U+003F QUESTION MARK
-  , ("@", noName,          "")  -- U+0040 COMMERCIAL AT
-  , ("[", "TODO",          "")  -- U+005B LEFT SQUARE BRACKET
+  , (":", noName,          "")  -- U+003A
+  , (";", noName,          "")  -- U+003B
+  , ("<", "lt",            binaryOp "less-than")  -- U+003C
+  , ("=", noName,          binaryOp "equals")  -- U+003D
+  , (">", "gt",            binaryOp "greater-than")  -- U+003E
+  , ("?", noName,          "")  -- U+003F
+  , ("@", noName,          "")  -- U+0040
+  , ("[", "TODO",          "")  -- U+005B
   , ("\\", "TODO",         "")  -- U+005C REVERSE SOLIDUS
-  , ("]", "TODO",          "")  -- U+005D RIGHT SQUARE BRACKET
-  , ("^", "TODO",          "")  -- U+005E CIRCUMFLEX ACCENT
+  , ("]", "TODO",          "")  -- U+005D
+  , ("^", "TODO",          "")  -- U+005E
   , ("_", "TODO",          "-")  -- U+005F LOW LINE
-  , ("`", "TODO",          "")  -- U+0060 GRAVE ACCENT
-  , ("{", "TODO",          "")  -- U+007B LEFT CURLY BRACKET
-  , ("|", "TODO",          "")  -- U+007C VERTICAL LINE
-  , ("}", "TODO",          "")  -- U+007B RIGHT CURLY BRACKET
-  , ("~", "TODO",          "")  -- U+007E TILDE
-  , ("¡", "iexcl",         "")  -- U+00A1 INVERTED EXCLAMATION MARK
-  , ("¢", "cent",          "cent")  -- U+00A2 CENT SIGN
-  , ("£", "pound",         "pound")  -- U+00A3 POUND SIGN
-  , ("¤", "curren",        "")  -- U+00A4 CURRENCY SIGN
-  , ("¥", "yen",           "yen")  -- U+00A5 YEN SIGN
+  , ("`", "TODO",          "")  -- U+0060
+  , ("{", "TODO",          "")  -- U+007B
+  , ("|", "TODO",          "")  -- U+007C
+  , ("}", "TODO",          "")  -- U+007B
+  , ("~", "TODO",          "")  -- U+007E
+  , ("¡", "iexcl",         "")  -- U+00A1
+  , ("¢", "cent",          "cent")  -- U+00A2
+  , ("£", "pound",         "pound")  -- U+00A3
+  , ("¤", "curren",        "")  -- U+00A4
+  , ("¥", "yen",           "yen")  -- U+00A5
   , ("¦", "brvvar",        "")  -- U+00A6 BROKEN BAR
-  , ("§", "sect",          "")  -- U+00A7 SECTION SIGN
-  , ("¨", "uml",           "")  -- U+00A8 DIAERESIS
-  , ("©", "copy",          "")  -- U+00A9 COPYRIGHT SIGN
-  , ("ª", "ordf",          "")  -- U+00AA FEMININE ORDINAL INDICATOR
-  , ("«", "laquo",         "")  -- U+00AB LEFT-POINTING DOUBLE ANGLE QUOTATION MARK
-  , ("¬", "not",           "")  -- U+00AC NOT SIGN
+  , ("§", "sect",          "")  -- U+00A7
+  , ("¨", "uml",           "")  -- U+00A8
+  , ("©", "copy",          "")  -- U+00A9
+  , ("ª", "ordf",          "")  -- U+00AA
+  , ("«", "laquo",         "")  -- U+00AB
+  , ("¬", "not",           "")  -- U+00AC
   -- TODO 2017-07-31
   -- , ("­", "shy",           "-")  -- U+00AD SOFT HYPHEN
-  , ("®", "reg",           "")  -- U+00AE REGISTERED SIGN
-  , ("¯", "macr",          "")  -- U+00AF MACRON
-  , ("°", "deg",           "degree")  -- U+00B0 DEGREE SIGN
-  , ("±", "plusmn",        binaryOp "plus-minus")  -- U+00B1 PLUS-MINUS SIGN
-  , ("²", "sup2",          "2")  -- U+00B2 SUPERSCRIPT TWO
-  , ("³", "sup3",          "3")  -- U+00B3 SUPERSCRIPT THREE
-  , ("´", "acute",         "")  -- U+00B4 ACUTE ACCENT
+  , ("®", "reg",           "")  -- U+00AE
+  , ("¯", "macr",          "")  -- U+00AF
+  , ("°", "deg",           "degree")  -- U+00B0
+  , ("±", "plusmn",        binaryOp "plus-minus")  -- U+00B1
+  , ("²", "sup2",          "2")  -- U+00B2
+  , ("³", "sup3",          "3")  -- U+00B3
+  , ("´", "acute",         "")  -- U+00B4
   , ("µ", "micro",         "micro")  -- U+00B5 MICRO SIGN
   , ("¶", "para",          "")  -- U+00B6 PILCROW SIGN
-  , ("·", "middot",        "")  -- U+00B7 MIDDLE DOT
-  , ("¸", "cedil",         "")  -- U+00B8 CEDILLA
-  , ("¹", "sup1",          "1")  -- U+00B9 SUPERSCRIPT ONE
-  , ("º", "ordm",          "")  -- U+00BA MASCULINE ORDINAL INDICATOR
-  , ("»", "raquo",         "")  -- U+00BB RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
-  , ("¼", "frac14",        "")  -- U+00BC VULGAR FRACTION ONE QUARTER
-  , ("½", "frac12",        "")  -- U+00BD VULGAR FRACTION ONE HALF
-  , ("¾", "frac34",        "")  -- U+00BE VULGAR FRACTION THREE QUARTERS
-  , ("¿", "iquest",        "")  -- U+00BF INVERTED QUESTION MARK
-  , ("À", "Agrave",        "A")  -- U+00C0 LATIN CAPITAL LETTER A WITH GRAVE
-  , ("Á", "Aacute",        "A")  -- U+00C1 LATIN CAPITAL LETTER A WITH ACUTE
-  , ("Â", "Acirc",         "A")  -- U+00C2 LATIN CAPITAL LETTER A WITH CIRCUMFLEX
-  , ("Ã", "Atilde",        "A")  -- U+00C3 LATIN CAPITAL LETTER A WITH TILDE
-  , ("Ä", "Auml",          "A")  -- U+00C4 LATIN CAPITAL LETTER A WITH DIAERESIS
-  , ("Å", "Aring",         "A")  -- U+00C5 LATIN CAPITAL LETTER A WITH RING ABOVE
+  , ("·", "middot",        "")  -- U+00B7
+  , ("¸", "cedil",         "")  -- U+00B8
+  , ("¹", "sup1",          "1")  -- U+00B9
+  , ("º", "ordm",          "")  -- U+00BA
+  , ("»", "raquo",         "")  -- U+00BB
+  , ("¼", "frac14",        "")  -- U+00BC
+  , ("½", "frac12",        "")  -- U+00BD
+  , ("¾", "frac34",        "")  -- U+00BE
+  , ("¿", "iquest",        "")  -- U+00B
+  , ("À", "Agrave",        "A")  -- U+00C0
+  , ("Á", "Aacute",        "A")  -- U+00C1
+  , ("Â", "Acirc",         "A")  -- U+00C2
+  , ("Ã", "Atilde",        "A")  -- U+00C3
+  , ("Ä", "Auml",          "A")  -- U+00C4
+  , ("Å", "Aring",         "A")  -- U+00C5
   , ("Æ", "AElig",         "AE")  -- U+00C6 LATIN CAPITAL LETTER AE
-  , ("Ç", "Ccedil",        "C")  -- U+00C7 LATIN CAPITAL LETTER C WITH CEDILLA
-  , ("È", "Egrave",        "E")  -- U+00C8 LATIN CAPITAL LETTER E WITH GRAVE
-  , ("É", "Eacute",        "E")  -- U+00C9 LATIN CAPITAL LETTER E WITH ACUTE
-  , ("Ê", "Ecirc",         "E")  -- U+00CA LATIN CAPITAL LETTER E WITH CIRCUMFLEX
-  , ("Ë", "Euml",          "E")  -- U+00CB LATIN CAPITAL LETTER E WITH DIAERESIS
-  , ("Ì", "Igrave",        "I")  -- U+00CC LATIN CAPITAL LETTER I WITH GRAVE
-  , ("Í", "Iacute",        "I")  -- U+00CD LATIN CAPITAL LETTER I WITH ACUTE
-  , ("Î", "Icirc",         "I")  -- U+00CE LATIN CAPITAL LETTER I WITH CIRCUMFLEX
-  , ("Ï", "Iuml",          "I")  -- U+00CF LATIN CAPITAL LETTER I WITH DIAERESIS
-  , ("Ð", "ETH",           "ETH")  -- U+00D0 LATIN CAPITAL LETTER ETH
-  , ("Ñ", "Ntilde",        "N")  -- U+00D1 LATIN CAPITAL LETTER N WITH TILDE
-  , ("Ò", "Ograve",        "O")  -- U+00D2 LATIN CAPITAL LETTER O WITH GRAVE
-  , ("Ó", "Oacute",        "O")  -- U+00D3 LATIN CAPITAL LETTER O WITH ACUTE
-  , ("Ô", "Ocirc",         "O")  -- U+00D4 LATIN CAPITAL LETTER O WITH CIRCUMFLEX
-  , ("Õ", "Otilde",        "O")  -- U+00D5 LATIN CAPITAL LETTER O WITH TILDE
-  , ("Ö", "Ouml",          "O")  -- U+00D6 LATIN CAPITAL LETTER O WITH DIAERESIS
-  , ("×", "times",         binaryOp "times")  -- U+00D7 MULTIPLICATION SIGN
+  , ("Ç", "Ccedil",        "C")  -- U+00C7
+  , ("È", "Egrave",        "E")  -- U+00C8
+  , ("É", "Eacute",        "E")  -- U+00C9
+  , ("Ê", "Ecirc",         "E")  -- U+00CA
+  , ("Ë", "Euml",          "E")  -- U+00CB
+  , ("Ì", "Igrave",        "I")  -- U+00CC
+  , ("Í", "Iacute",        "I")  -- U+00CD
+  , ("Î", "Icirc",         "I")  -- U+00CE
+  , ("Ï", "Iuml",          "I")  -- U+00CF
+  , ("Ð", "ETH",           "ETH")  -- U+00D0
+  , ("Ñ", "Ntilde",        "N")  -- U+00D1
+  , ("Ò", "Ograve",        "O")  -- U+00D2
+  , ("Ó", "Oacute",        "O")  -- U+00D3
+  , ("Ô", "Ocirc",         "O")  -- U+00D4
+  , ("Õ", "Otilde",        "O")  -- U+00D5
+  , ("Ö", "Ouml",          "O")  -- U+00D6
+  , ("×", "times",         binaryOp "times")  -- U+00D7
   , ("Ø", "Oslash",        "O")  -- U+00D8 LATIN CAPITAL LETTER O WITH STROKE
-  , ("Ù", "Ugrave",        "U")  -- U+00D9 LATIN CAPITAL LETTER U WITH GRAVE
-  , ("Ú", "Uacute",        "U")  -- U+00DA LATIN CAPITAL LETTER U WITH ACUTE
-  , ("Û", "Ucirc",         "U")  -- U+00DB LATIN CAPITAL LETTER U WITH CIRCUMFLEX
-  , ("Ü", "Uuml",          "U")  -- U+00DC LATIN CAPITAL LETTER U WITH DIAERESIS
-  , ("Ý", "Yacute",        "Y")  -- U+00DD LATIN CAPITAL LETTER Y WITH ACUTE
-  , ("Þ", "THORN",         "THORN")  -- U+00DE LATIN CAPITAL LETTER THORN
+  , ("Ù", "Ugrave",        "U")  -- U+00D9
+  , ("Ú", "Uacute",        "U")  -- U+00DA
+  , ("Û", "Ucirc",         "U")  -- U+00DB
+  , ("Ü", "Uuml",          "U")  -- U+00DC
+  , ("Ý", "Yacute",        "Y")  -- U+00DD
+  , ("Þ", "THORN",         "THORN")  -- U+00DE
   , ("ß", "szlig",         "ss")  -- U+00DF LATIN SMALL LETTER SHARP S
-  , ("à", "agrave",        "a")  -- U+00E0 LATIN SMALL LETTER A WITH GRAVE
-  , ("á", "aacute",        "a")  -- U+00E1 LATIN SMALL LETTER A WITH ACUTE
-  , ("â", "acirc",         "a")  -- U+00E2 LATIN SMALL LETTER A CIRCUMFLEX
-  , ("ã", "atilde",        "a")  -- U+00E3 LATIN SMALL LETTER A WITH TILDE
-  , ("ä", "auml",          "a")  -- U+00E4 LATIN SMALL LETTER A WITH DIAERESIS
-  , ("å", "aring",         "a")  -- U+00E5 LATIN SMALL LETTER A WITH RING ABOVE
+  , ("à", "agrave",        "a")  -- U+00E0
+  , ("á", "aacute",        "a")  -- U+00E1
+  , ("â", "acirc",         "a")  -- U+00E2
+  , ("ã", "atilde",        "a")  -- U+00E3
+  , ("ä", "auml",          "a")  -- U+00E4
+  , ("å", "aring",         "a")  -- U+00E5
   , ("æ", "aelig",         "ae")  -- U+00E6 LATIN SMALL LETTER AE
-  , ("ç", "ccedil",        "c")  -- U+00E7 LATIN SMALL LETTER C WITH CEDILLA
-  , ("è", "egrave",        "e")  -- U+00E8 LATIN SMALL LETTER E WITH GRAVE
-  , ("é", "eacute",        "e")  -- U+00E9 LATIN SMALL LETTER E WITH ACUTE
-  , ("ê", "ecirc",         "e")  -- U+00EA LATIN SMALL LETTER E WITH CIRCUMFLEX
-  , ("ë", "euml",          "e")  -- U+00EB LATIN SMALL LETTER E WITH DIAERESIS
-  , ("ì", "igrave",        "i")  -- U+00EC LATIN SMALL LETTER I WITH GRAVE
-  , ("í", "iacute",        "i")  -- U+00ED LATIN SMALL LETTER I WITH ACUTE
-  , ("î", "icirc",         "i")  -- U+00EE LATIN SMALL LETTER I WITH CIRCUMFLEX
-  , ("ï", "iuml",          "i")  -- U+00EF LATIN SMALL LETTER I WITH DIAERESIS
-  , ("ð", "eth",           "eth") -- U+00F0 LATIN SMALL LETTER ETH
-  , ("ñ", "ntilde",        "n")  -- U+00F1 LATIN SMALL LETTER N WITH TILDE
-  , ("ò", "ograve",        "o")  -- U+00F2 LATIN SMALL LETTER O WITH GRAVE
-  , ("ó", "oacute",        "o")  -- U+00F3 LATIN SMALL LETTER O WITH ACUTE
-  , ("ô", "ocirc",         "o")  -- U+00F4 LATIN SMALL LETTER O WITH CIRCUMFLEX
-  , ("õ", "otilde",        "o")  -- U+00F5 LATIN SMALL LETTER O WITH TILDE
-  , ("ö", "ouml",          "o")  -- U+00F6 LATIN SMALL LETTER O WITH DIAERESIS
-  , ("÷", "divide",        "")   -- U+00F7 DIVISION SIGN
+  , ("ç", "ccedil",        "c")  -- U+00E7
+  , ("è", "egrave",        "e")  -- U+00E8
+  , ("é", "eacute",        "e")  -- U+00E9
+  , ("ê", "ecirc",         "e")  -- U+00EA
+  , ("ë", "euml",          "e")  -- U+00EB
+  , ("ì", "igrave",        "i")  -- U+00EC
+  , ("í", "iacute",        "i")  -- U+00ED
+  , ("î", "icirc",         "i")  -- U+00EE
+  , ("ï", "iuml",          "i")  -- U+00EF
+  , ("ð", "eth",           "eth") -- U+00F0
+  , ("ñ", "ntilde",        "n")  -- U+00F1
+  , ("ò", "ograve",        "o")  -- U+00F2
+  , ("ó", "oacute",        "o")  -- U+00F3
+  , ("ô", "ocirc",         "o")  -- U+00F4
+  , ("õ", "otilde",        "o")  -- U+00F5
+  , ("ö", "ouml",          "o")  -- U+00F6
+  , ("÷", "divide",        "")   -- U+00F7
   , ("ø", "oslash",        "o")  -- U+00F8 LATIN SMALL LETTER O WITH STROKE
-  , ("ù", "ugrave",        "u")  -- U+00F9 LATIN SMALL LETTER U WITH GRAVE
-  , ("ú", "uacute",        "u")  -- U+00FA LATIN SMALL LETTER U WITH ACUTE
-  , ("û", "ucirc",         "u")  -- U+00FB LATIN SMALL LETTER U WITH CIRCUMFLEX
-  , ("ü", "uuml",          "u")  -- U+00FC LATIN SMALL LETTER U WITH DIAERESIS
-  , ("ý", "yacute",        "y")  -- U+00FD LATIN SMALL LETTER Y WITH ACUTE
-  , ("þ", "thorn",         "thorn")  -- U+00FE LATIN SMALL LETTER THORN
-  , ("ÿ", "yuml",          "y")  -- U+00FF LATIN SMALL LETTER Y WITH DIAERESIS
-  , ("Ā", "Amacr",         "A")  -- U+0100 LATIN CAPITAL LETTER A WITH MACRON
-  , ("ā", "amacr",         "a")  -- U+0101 LATIN SMALL LETTER A WITH MACRON
-  , ("Ă", "Abreve",        "A")  -- U+0102 LATIN CAPITAL LETTER A WITH BREVE
-  , ("ă", "$abreve",        "a")  -- U+0103 LATIN SMALL LETTER A WITH BREVE
-  , ("Ą", "Aogon",         "A")  -- U+0104 LATIN CAPITAL LETTER A WITH OGONEK
-  , ("ą", "aogon",         "a")  -- U+0105 LATIN SMALL LETTER A WITH OGONEK
-  , ("Ć", "Cacute",        "c")  -- U+0106 LATIN CAPITAL LETTER C WITH ACUTE
-  , ("ć", "cacute",        "c")  -- U+0107 LATIN SMALL LETTER C WITH ACUTE
-  , ("Ĉ", "Ccirc",         "C")  -- U+0108 LATIN CAPITAL LETTER C CIRCUMFLEX
-  , ("ĉ", "ccirc",         "c")  -- U+0109 LATIN SMALLL LETTER C CIRCUMFLEX
-  , ("Č", "Ccaron",        "C")  -- U+010C LATIN CAPITAL LETTER C WITH CARON
-  , ("č", "ccaron",        "c")  -- U+010D LATIN SMALL LETTER C WITH CARON
-  , ("Ď", "Dcaron",        "D")  -- U+010E LATIN CAPITAL LETTER D WITH CARON
-  , ("ď", "dcaron",        "d")  -- U+010F LATIN SMALL LETTER D WITH CARON
-  , ("Ē", "Emacr",         "E")  -- U+0112 LATIN CAPITAL LETTER E WITH MACRON
-  , ("ē", "emacr",         "e")  -- U+0113 LATIN SMALL LETTER E WITH MACRON
-  , ("ĕ", noName,          "e")  -- U+0115 LATIN SMALL LETTER E WITH BREVE
-  , ("Ę", "Eogon",         "e")  -- U+0118 LATIN CAPITAL LETTER E WITH OGONEK
-  , ("ę", "eogon",         "e")  -- U+0119 LATIN SMALL LETTER E WITH OGONEK
-  , ("Ě", "Ecaron",        "E")  -- U+011A LATIN CAPITAL LETTER E WITH CARON
-  , ("ě", "ecaron",        "e")  -- U+011B LATIN SMALL LETTER E WITH CARON
-  , ("Ĝ", "Gcirc",         "G")  -- U+011C LATIN CAPITAL LETTER G CIRCUMFLEX
-  , ("ĝ", "gcirc",         "g")  -- U+011D LATIN SMALLL LETTER G CIRCUMFLEX
-  , ("Ğ", "Gbreve",        "G")  -- U+011E LATIN CAPITAL LETTER G WITH BREVE
-  , ("ğ", "gbreve",        "g")  -- U+011F LATIN SMALL LETTER G WITH BREVE
-  , ("Ģ", "Gcedil",        "G")  -- U+0122 LATIN CAPITAL LETTER G WITH CEDILLA
+  , ("ù", "ugrave",        "u")  -- U+00F9
+  , ("ú", "uacute",        "u")  -- U+00FA
+  , ("û", "ucirc",         "u")  -- U+00FB
+  , ("ü", "uuml",          "u")  -- U+00FC
+  , ("ý", "yacute",        "y")  -- U+00FD
+  , ("þ", "thorn",         "thorn")  -- U+00FE
+  , ("ÿ", "yuml",          "y")  -- U+00FF
+  , ("Ā", "Amacr",         "A")  -- U+0100
+  , ("ā", "amacr",         "a")  -- U+0101
+  , ("Ă", "Abreve",        "A")  -- U+0102
+  , ("ă", "abreve",        "a")  -- U+0103
+  , ("Ą", "Aogon",         "A")  -- U+0104
+  , ("ą", "aogon",         "a")  -- U+0105
+  , ("Ć", "Cacute",        "c")  -- U+0106
+  , ("ć", "cacute",        "c")  -- U+0107
+  , ("Ĉ", "Ccirc",         "C")  -- U+0108
+  , ("ĉ", "ccirc",         "c")  -- U+0109
+  , ("Ċ", "Cdot",          "C")  -- U+010A
+  , ("ċ", "cdot",          "c")  -- U+010B
+  , ("Č", "Ccaron",        "C")  -- U+010C
+  , ("č", "ccaron",        "c")  -- U+010D
+  , ("Ď", "Dcaron",        "D")  -- U+010E
+  , ("ď", "dcaron",        "d")  -- U+010F
+  , ("Đ", "Dstrok",        "D")  -- U+0110
+  , ("đ", "dstrok",        "d")  -- U+0111
+  , ("Ē", "Emacr",         "E")  -- U+0112
+  , ("ē", "emacr",         "e")  -- U+0113
+  -- NB. To add a test case if U+0114 is added.
+  , ("ĕ", noName,          "e")  -- U+0115
+  , ("Ė", "Edot",          "e")  -- U+0116
+  , ("ė", "edot",          "e")  -- U+0117
+  , ("Ę", "Eogon",         "e")  -- U+0118
+  , ("ę", "eogon",         "e")  -- U+0119
+  , ("Ě", "Ecaron",        "E")  -- U+011A
+  , ("ě", "ecaron",        "e")  -- U+011B
+  , ("Ĝ", "Gcirc",         "G")  -- U+011C
+  , ("ĝ", "gcirc",         "g")  -- U+011D
+  , ("Ğ", "Gbreve",        "G")  -- U+011E
+  , ("ğ", "gbreve",        "g")  -- U+011F
+  , ("Ġ", "Gdot",          "G")  -- U+0120
+  , ("ġ", "gdot",          "g")  -- U+0121
+  , ("Ģ", "Gcedil",        "G")  -- U+0122
   , ("ģ", "gcedil",        "g")  -- U+0123 LATIN SMALL LETTER G WITH CEDILLA
-  , ("Ĥ", "Hcirc",         "H")  -- U+0124 LATIN CAPITAL LETTER H CIRCUMFLEX
-  , ("ĥ", "hcirc",         "h")  -- U+0125 LATIN SMALLL LETTER H CIRCUMFLEX
-  , ("Ī", "Imacr",         "I")  -- U+012A LATIN CAPITAL LETTER I WITH MACRON
-  , ("ī", "imacr",         "I")  -- U+012B LATIN SMALL LETTER I WITH MACRON
-  , ("ĭ", noName,          "i")  -- U+012D LATIN SMALL LETTER I WITH BREVE
-  , ("İ", "Idot",          "I")  -- U+0130 LATIN CAPITAL LETTER I WITH DOT ABOVE
-  , ("Ĵ", "Jcirc",         "J")  -- U+0134 LATIN CAPITAL LETTER J CIRCUMFLEX
-  , ("ĵ", "jcirc",         "j")  -- U+0135 LATIN SMALLL LETTER J CIRCUMFLEX
-  , ("Ķ", "Kcedil",        "K")  -- U+0136 LATIN CAPITAL LETTER K WITH CEDILLA
-  , ("ķ", "kcedil",        "k")  -- U+0137 LATIN SMALL LETTER K WITH CEDILLA
-  , ("Ļ", "Lcedil",        "L")  -- U+013B LATIN CAPITAL LETTER L WITH CEDILLA
-  , ("ļ", "lcedil",        "l")  -- U+013C LATIN SMALL LETTER L WITH CEDILLA
-  , ("Ł", "Lstrok",        "L")  -- U+0141 LATIN CAPITAL LETTER L WITH STROKE
-  , ("ł", "lstrok",        "l")  -- U+0142 LATIN SMALL LETTER L WITH STROKE
-  , ("Ń", "Nacute",        "N")  -- U+0143 LATIN CAPITAL LETTER N WITH ACUTE
-  , ("ń", "nacute",        "n")  -- U+0144 LATIN SMALL LETTER N WITH ACUTE
-  , ("Ņ", "Ncedil",        "n")  -- U+0145 LATIN CAPITAL LETTER N WITH CEDILLA
-  , ("ņ", "ncedil",        "n")  -- U+0146 LATIN SMALL LETTER N WITH CEDILLA
-  , ("Ň", "Ncaron",        "N")  -- U+0147 LATIN CAPITAL LETTER N WITH CARON
-  , ("ň", "ncaron",        "n")  -- U+0148 LATIN SMALL LETTER N WITH CARON
-  , ("Ő", "Odblac",        "O")  -- U+0150 LATIN CAPITAL LETTER O WITH DOUBLE ACUTE
-  , ("ő", "odblac",        "o")  -- U+0151 LATIN SMALL LETTER O WITH DOUBLE ACUTE
+  , ("Ĥ", "Hcirc",         "H")  -- U+0124
+  , ("ĥ", "hcirc",         "h")  -- U+0125
+  , ("Ħ", "Hstrok",        "H")  -- U+0126
+  , ("ħ", "Hstrok",        "h")  -- U+0127
+  -- NB. To add a test case if U+0128 or U+0128 are added.
+  , ("Ī", "Imacr",         "I")  -- U+012A
+  , ("ī", "imacr",         "I")  -- U+012B
+  -- NB. To add a test case if U+012C isadded.
+  , ("ĭ", noName,          "i")  -- U+012
+  , ("Į", "Iogon",         "I")  -- U+012E
+  , ("į", "iogon",         "I")  -- U+012F
+  , ("İ", "Idot",          "I")  -- U+0130
+  , ("ı", "inodot",        "i")  -- U+0131
+  , ("Ĳ", "IJlog",         "IJ")  -- U+0132 LATIN CAPITAL LIGATURE IJ
+  , ("ĳ", "ijlig",         "ij")  -- U+0133 LATIN SMALL LIGATURE IJ
+  , ("Ĵ", "Jcirc",         "J")  -- U+0134
+  , ("ĵ", "jcirc",         "j")  -- U+0135
+  , ("Ķ", "Kcedil",        "K")  -- U+0136
+  , ("ķ", "kcedil",        "k")  -- U+0137
+  , ("ĸ", "kgreen",        "k")  -- U+0138 LATIN SMALL LETTER KRA
+  -- NB. To add a test case if U+0139 or U+013A are added.
+  , ("Ļ", "Lcedil",        "L")  -- U+013B
+  , ("ļ", "lcedil",        "l")  -- U+013C
+  -- NB. To add a test case if U+013D, U+013E, U+013F or U+0140 are added.
+  , ("Ł", "Lstrok",        "L")  -- U+0141
+  , ("ł", "lstrok",        "l")  -- U+0142
+  , ("Ń", "Nacute",        "N")  -- U+0143
+  , ("ń", "nacute",        "n")  -- U+0144
+  , ("Ņ", "Ncedil",        "n")  -- U+0145
+  , ("ņ", "ncedil",        "n")  -- U+0146
+  , ("Ň", "Ncaron",        "N")  -- U+0147
+  , ("ň", "ncaron",        "n")  -- U+0148
+  , ("Ő", "Odblac",        "O")  -- U+0150
+  , ("ő", "odblac",        "o")  -- U+0151
   , ("Œ", "OElig",         "OE")  -- U+0152 LATIN CAPITAL LIGATURE OE
   , ("œ", "oelig",         "oe")  -- U+0153 LATIN SMALL LIGATURE OE
-  , ("Ř", "Rcaron",        "R")  -- U+0158 LATIN CAPITAL LETTER R WITH CARON
-  , ("ř", "rcaron",        "r")  -- U+0159 LATIN SMALL LETTER R WITH CARON
-  , ("Ś", "Sacute",        "S")  -- U+015A LATIN CAPITAL LETTER S WITH ACUTE
-  , ("ś", "sacute",        "s")  -- U+015B LATIN SMALL LETTER S WITH ACUTE
-  , ("Ŝ", "Scirc",         "S")  -- U+015C LATIN CAPITAL LETTER S CIRCUMFLEX
-  , ("ŝ", "scirc",         "s")  -- U+015D LATIN SMALLL LETTER S CIRCUMFLEX
-  , ("Ş", "Scedil",        "S")  -- U+015E LATIN CAPITAL LETTER S WITH CEDILLA
-  , ("ş", "scedil",        "s")  -- U+015F LATIN SMALL LETTER S WITH CEDILLA
-  , ("Š", "Scaron",        "S")  -- U+0160 LATIN CAPITAL LETTER S WITH CARON
-  , ("š", "scaron",        "s")  -- U+0161 LATIN SMALL LETTER S WITH CARON
-  , ("Ť", "Tcaron",        "T")  -- U+0164 LATIN CAPITAL LETTER T WITH CARON
-  , ("ť", "tcaron",        "t")  -- U+0165 LATIN SMALL LETTER T WITH CARON
-  , ("Ū", "Umacr",         "U")  -- U+016A LATIN CAPITAL LETTER U WITH MACRON
-  , ("ū", "Umacr",         "u")  -- U+016B LATIN SMALL LETTER U WITH MACRON
-  , ("Ŭ", "Ubreve",        "U")  -- U+016C LATIN CAPITAL LETTER U WITH BREVE
-  , ("ŭ", "ubreve",        "u")  -- U+016D LATIN SMALL LETTER U WITH BREVE
-  , ("Ů", "Uring",         "U")  -- U+016E LATIN CAPITAL LETTER U WITH RING ABOVE
-  , ("ů", "uring",         "u")  -- U+016F LATIN SMALL LETTER U WITH RING ABOVE
-  , ("Ű", "Udblac",        "U")  -- U+0170 LATIN CAPITAL LETTER U WITH DOUBLE ACUTE
-  , ("ű", "udblac",        "u")  -- U+0171 LATIN SMALL LETTER U WITH DOUBLE ACUTE
-  , ("Ÿ", "Yuml",          "Y")  -- U+0178 LATIN CAPITAL LETTER Y WITH DIAERESIS
-  , ("Ź", "Zacute",        "Z")  -- U+0179 LATIN CAPITAL LETTER Z WITH ACUTE
-  , ("ź", "zacute",        "z")  -- U+017A LATIN SMALL LETTER Z WITH ACUTE
-  , ("Ż", "Zdot",          "Z")  -- U+017B LATIN CAPITAL LETTER Z WITH DOT ABOVE
-  , ("ż", "zdot",          "z")  -- U+017C LATIN SMALL LETTER Z WITH DOT ABOVE
-  , ("Ž", "Zcaron",        "z")  -- U+017D LATIN CAPITAL LETTER Z WITH CARON
-  , ("ž", "<caron",        "z")  -- U+017E LATIN SMALL LETTER Z WITH CARON
+  -- NB. To add a test case if U+0154, U+0155, U+0156 or U+0157 are added.
+  , ("Ř", "Rcaron",        "R")  -- U+0158
+  , ("ř", "rcaron",        "r")  -- U+0159
+  , ("Ś", "Sacute",        "S")  -- U+015A
+  , ("ś", "sacute",        "s")  -- U+015B
+  , ("Ŝ", "Scirc",         "S")  -- U+015C
+  , ("ŝ", "scirc",         "s")  -- U+015D
+  , ("Ş", "Scedil",        "S")  -- U+015E
+  , ("ş", "scedil",        "s")  -- U+015F
+  , ("Š", "Scaron",        "S")  -- U+0160
+  , ("š", "scaron",        "s")  -- U+0161
+  -- NB. To add a test case if U+0162 or U+0164 are added.
+  , ("Ť", "Tcaron",        "T")  -- U+0164
+  , ("ť", "tcaron",        "t")  -- U+0165
+  -- NB. To add a test case if U+0166, U+0167, U+0168 or U+0169 are added.
+  , ("Ū", "Umacr",         "U")  -- U+016A
+  , ("ū", "Umacr",         "u")  -- U+016B
+  , ("Ŭ", "Ubreve",        "U")  -- U+016C
+  , ("ŭ", "ubreve",        "u")  -- U+016D
+  , ("Ů", "Uring",         "U")  -- U+016E
+  , ("ů", "uring",         "u")  -- U+016F
+  , ("Ű", "Udblac",        "U")  -- U+0170
+  , ("ű", "udblac",        "u")  -- U+0171
+  , ("Ų", "Uogon",         "U")  -- U+0172
+  , ("ų", "uogon",         "u")  -- U+0173
+  , ("Ŵ", "wcirc",         "W")  -- U+0174
+  , ("ŵ", "wcirc",         "w")  -- U+0175
+  , ("Ŷ", "ycirc",         "Y")  -- U+0176
+  , ("ŷ", "ycirc",         "y")  -- U+0177
+  , ("Ÿ", "Yuml",          "Y")  -- U+0178
+  , ("Ź", "Zacute",        "Z")  -- U+0179
+  , ("ź", "zacute",        "z")  -- U+017A
+  , ("Ż", "Zdot",          "Z")  -- U+017B
+  , ("ż", "zdot",          "z")  -- U+017C
+  , ("Ž", "Zcaron",        "z")  -- U+017D
+  , ("ž", "zcaron",        "z")  -- U+017E
+  -- NB. To add a test case if U+017F is added.
   , ("Ə", noName,          "A")  -- U+018F LATIN CAPITAL LETTER SCHWA
+  , ("Ơ", noName,          "O")  -- U+01A0 LATIN CAPITAL LETTER O WITH HORN
+  , ("ơ", noName,          "o")  -- U+01A1 LATIN SMALL LETTER O WITH HORN
+  , ("Ư", noName,          "U")  -- U+01AF LATIN CAPITAL LETTER U WITH HORN
+  , ("ư", noName,          "u")  -- U+01B0 LATIN SMALL LETTER U WITH HORN
   , ("Ș", noName,          "S")  -- U+0218 LATIN CAPITAL LETTER S WITH COMMA BELOW
   , ("ș", noName,          "s")  -- U+0219 LATIN SMALL LETTER S WITH COMMA BELOW
   , ("Ț", noName,          "T")  -- U+021A LATIN CAPITAL LETTER T WITH COMMA BELOW
   , ("ț", noName,          "t")  -- U+021B LATIN SMALL LETTER T WITH COMMA BELOW
   , ("ə", noSupported,     "a")  -- U+0259 LATIN SMALL LETTER SCHWA
-  , ("Α", "Alpha",         "Alpha")    -- U+0391 GREEK CAPITAL LETTER ALPHA
-  , ("Β", "Beta",          "Beta")     -- U+0392 GREEK CAPITAL LETTER BETA
-  , ("Γ", "Gamma",         "Gamma")    -- U+0393 GREEK CAPITAL LETTER GAMMA
-  , ("Δ", "Delta",         "Delta")    -- U+0394 GREEK CAPITAL LETTER DELTA
-  , ("Ε", "Epsilon",       "Epsilon")  -- U+0395 GREEK CAPITAL LETTER EPSILON
-  , ("Ζ", "Zeta",          "Zeta")     -- U+0396 GREEK CAPITAL LETTER ZETA
-  , ("Η", "Eta",           "Eta")      -- U+0397 GREEK CAPITAL LETTER ETA
-  , ("Θ", "Theta",         "Theta")    -- U+0398 GREEK CAPITAL LETTER THETA
-  , ("Ι", "Iota",          "Iota")     -- U+0399 GREEK CAPITAL LETTER IOTA
-  , ("Κ", "Kappa",         "Kappa")    -- U+039A GREEK CAPITAL LETTER KAPPA
-  , ("Λ", "Lambda",        "Lambda")   -- U+039B GREEK CAPITAL LETTER LAMDA
-  , ("Μ", "Mu",            "Mu")       -- U+039C GREEK CAPITAL LETTER MU
-  , ("Ν", "Nu",            "Nu")       -- U+039D GREEK CAPITAL LETTER NU
-  , ("Ξ", "Xi",            "Xi")       -- U+039E GREEK CAPITAL LETTER ZI
-  , ("Ο", "Omicron",       "Omicron")  -- U+039F GREEK CAPITAL LETTER OMICRON
-  , ("Π", "Pi",            "Pi")       -- U+03A0 GREEK CAPITAL LETTER PI
-  , ("Ρ", "Rho",           "Rho")      -- U+03A1 GREEK CAPITAL LETTER RHO
+  , ("Α", "Alpha",         "Alpha")    -- U+0391
+  , ("Β", "Beta",          "Beta")     -- U+0392
+  , ("Γ", "Gamma",         "Gamma")    -- U+0393
+  , ("Δ", "Delta",         "Delta")    -- U+0394
+  , ("Ε", "Epsilon",       "Epsilon")  -- U+0395
+  , ("Ζ", "Zeta",          "Zeta")     -- U+0396
+  , ("Η", "Eta",           "Eta")      -- U+0397
+  , ("Θ", "Theta",         "Theta")    -- U+0398
+  , ("Ι", "Iota",          "Iota")     -- U+0399
+  , ("Κ", "Kappa",         "Kappa")    -- U+039A
+  , ("Λ", "Lambda",        "Lambda")   -- U+039B
+  , ("Μ", "Mu",            "Mu")       -- U+039C
+  , ("Ν", "Nu",            "Nu")       -- U+039D
+  , ("Ξ", "Xi",            "Xi")       -- U+039E
+  , ("Ο", "Omicron",       "Omicron")  -- U+039F
+  , ("Π", "Pi",            "Pi")       -- U+03A0
+  , ("Ρ", "Rho",           "Rho")      -- U+03A1
   -- The code U+03A2 is reserved.
-  , ("Σ", "Sigma",         "Sigma")    -- U+03A3 GREEK CAPITAL LETTER SIGMA
-  , ("Τ", "Tau",           "Tau")      -- U+03A4 GREEK CAPITAL LETTER TAU
-  , ("Υ", "Upsilon",       "Upsilon")  -- U+03A5 GREEK CAPITAL LETTER UPSILON
-  , ("Φ", "Phi",           "Phi")      -- U+03A6 GREEK CAPITAL LETTER PHI
-  , ("χ", "Chi",           "Chi")      -- U+03A7 GREEK CAPITAL LETTER CHI
-  , ("Ψ", "Psi",           "Psi")      -- U+03A8 GREEK CAPITAL LETTER PSI
-  , ("Ω", "Omega",         "Omega")    -- U+03A9 GREEK CAPITAL LETTER OMEGA
-  , ("α", "alpha",         "alpha")    -- U+03B1 GREEK SMALL LETTER ALPHA
-  , ("β", "beta",          "beta")     -- U+03B2 GREEK SMALL LETTER BETA
-  , ("γ", "gamma",         "gamma")    -- U+03B3 GREEK SMALL LETTER GAMMA
-  , ("δ", "delta",         "delta")    -- U+03B4 GREEK SMALL LETTER DELTA
-  , ("ε", "epsilon",       "epsilon")  -- U+03B5 GREEK SMALL LETTER EPSILON
-  , ("ζ", "zeta",          "zeta")     -- U+03B6 GREEK SMALL LETTER ZETA
-  , ("η", "eta",           "eta")      -- U+03B7 GREEK SMALL LETTER ETA
-  , ("θ", "theta",         "theta")    -- U+03B8 GREEK SMALL LETTER THETA
-  , ("ι", "iota",          "iota")     -- U+03B9 GREEK SMALL LETTER IOTA
-  , ("κ", "kappa",         "kappa")    -- U+03BA GREEK SMALL LETTER KAPPA
-  , ("λ", "lambda",        "lambda")   -- U+03BB GREEK SMALL LETTER LAMDA
-  , ("μ", "mu",            "mu")       -- U+03BC GREEK SMALL LETTER MU
-  , ("ν", "nu",            "nu")       -- U+03BD GREEK SMALL LETTER NU
-  , ("ξ", "xi",            "xi")       -- U+03BE GREEK SMALL LETTER ZI
-  , ("ο", "omicron",       "omicron")  -- U+03BF GREEK SMALL LETTER OMICRON
-  , ("π", "pi",            "pi")       -- U+03C0 GREEK SMALL LETTER PI
-  , ("ρ", "rho",           "rho")      -- U+03C1 GREEK SMALL LETTER RHO
+  , ("Σ", "Sigma",         "Sigma")    -- U+03A3
+  , ("Τ", "Tau",           "Tau")      -- U+03A4
+  , ("Υ", "Upsilon",       "Upsilon")  -- U+03A5
+  , ("Φ", "Phi",           "Phi")      -- U+03A6
+  , ("χ", "Chi",           "Chi")      -- U+03A7
+  , ("Ψ", "Psi",           "Psi")      -- U+03A8
+  , ("Ω", "Omega",         "Omega")    -- U+03A9
+  , ("α", "alpha",         "alpha")    -- U+03B1
+  , ("β", "beta",          "beta")     -- U+03B2
+  , ("γ", "gamma",         "gamma")    -- U+03B3
+  , ("δ", "delta",         "delta")    -- U+03B4
+  , ("ε", "epsilon",       "epsilon")  -- U+03B5
+  , ("ζ", "zeta",          "zeta")     -- U+03B6
+  , ("η", "eta",           "eta")      -- U+03B7
+  , ("θ", "theta",         "theta")    -- U+03B8
+  , ("ι", "iota",          "iota")     -- U+03B9
+  , ("κ", "kappa",         "kappa")    -- U+03BA
+  , ("λ", "lambda",        "lambda")   -- U+03BB
+  , ("μ", "mu",            "mu")       -- U+03BC
+  , ("ν", "nu",            "nu")       -- U+03BD
+  , ("ξ", "xi",            "xi")       -- U+03BE
+  , ("ο", "omicron",       "omicron")  -- U+03BF
+  , ("π", "pi",            "pi")       -- U+03C0
+  , ("ρ", "rho",           "rho")      -- U+03C1
   , ("ς", "sigmaf",        "sigma")    -- U+03C2 GREEK SMALL LETTER FINAL SIGMA
-  , ("σ", "sigma",         "sigma")    -- U+03C3 GREEK SMALL LETTER SIGMA
-  , ("τ", "tau",           "tau")      -- U+03C4 GREEK SMALL LETTER TAU
-  , ("υ", "upsilon",       "upsilon")  -- U+03C5 GREEK SMALL LETTER UPSILON
-  , ("φ", "phi",           "phi")      -- U+03C6 GREEK SMALL LETTER PHI
-  , ("χ", "chi",           "chi")      -- U+03C7 GREEK SMALL LETTER CHI
-  , ("ψ", "psi",           "psi")      -- U+03C8 GREEK SMALL LETTER PSI
-  , ("ω", "omega",         "omega")    -- U+03C9 GREEK SMALL LETTER OMEGA
+  , ("σ", "sigma",         "sigma")    -- U+03C3
+  , ("τ", "tau",           "tau")      -- U+03C4
+  , ("υ", "upsilon",       "upsilon")  -- U+03C5
+  , ("φ", "phi",           "phi")      -- U+03C6
+  , ("χ", "chi",           "chi")      -- U+03C7
+  , ("ψ", "psi",           "psi")      -- U+03C8
+  , ("ω", "omega",         "omega")    -- U+03C9
   , ("ϑ", "thetasym",      "theta")    -- U+03D1 GREEK THETA SYMBOL
   , ("ϒ", "upsih",         "Upsilon")  -- U+03D2 GREEK UPSILON WITH HOOK SYMBOL
   , ("ϕ", "straightphi",   "phi")      -- U+03D5 GREEK PHI SYMBOL
   , ("ϖ", "piv",           "pi")       -- U+03D6 GREEK PI SYMBOL
+  , ("Ẁ", noSupported,     "W")  -- U+1E80 LATIN CAPITAL LETTER W WITH GRAVE
+  , ("ẁ", noSupported,     "w")  -- U+1E81 LATIN SMALL LETTER W WITH GRAVE
+  , ("Ẃ", noSupported,     "W")  -- U+1E82 LATIN CAPITAL LETTER W WITH ACUTE
+  , ("ẃ", noSupported,     "w")  -- U+1E83 LATIN SMALL LETTER W WITH ACUTE
   , ("ẞ", noSupported,     "SS")  -- U+1E9E LATIN CAPITAL LETTER SHARP S
   , (" ", "thinsp",        "-")  -- U+2009 THIN SPACE
   , ("‐", noName,          "-")  -- U+2010 HYPHEN
@@ -413,29 +452,29 @@ substTable =
   , ("”", "rdquo",         "")  -- U+201D RIGHT DOUBLE QUOTATION MARK
   , ("„", "bdquo",         "")  -- U+201E DOUBLE LOW-9 QUOTATION MARK
   , ("‟", noName,          "")  -- U+201F DOUBLE HIGH-REVERSED-9 QUOTATION MARK
-  , ("†", "dagger",        "")  -- U+2020 DAGGER
-  , ("‡", "Dagger",        "")  -- U+2021 DOUBLE DAGGER
-  , ("•", "bull",          "")  -- U+2022 BULLET
+  , ("†", "dagger",        "")  -- U+2020
+  , ("‡", "Dagger",        "")  -- U+2021
+  , ("•", "bull",          "")  -- U+2022
   , ("…", "hellip",        "")  -- U+2026 HORIZONTAL ELLIPSIS
-  , ("⁰", noSupported,     "0")  -- U+2070 SUPERSCRIPT ZERO
-  , ("ⁱ", noSupported,     "i")  -- U+2071 SUPERSCRIPT LATIN SMALL LETTER I
+  , ("⁰", noSupported,     "0")  -- U+2070
+  , ("ⁱ", noSupported,     "i")  -- U+2071
   -- The codes U+2072 and U+2073 are reserved.
-  , ("⁴", noSupported,     "4")  -- U+2074 SUPERSCRIPT FOUR
-  , ("⁵", noSupported,     "5")  -- U+2075 SUPERSCRIPT FIVE
-  , ("⁶", noSupported,     "6")  -- U+2076 SUPERSCRIPT SIX
-  , ("⁷", noSupported,     "7")  -- U+2077 SUPERSCRIPT SEVEN
-  , ("⁸", noSupported,     "8")  -- U+2078 SUPERSCRIPT EIGHT
-  , ("⁹", noSupported,     "9")  -- U+2079 SUPERSCRIPT NINE
-  , ("₀", noSupported,     "0")  -- U+2080 SUBSCRIPT ZERO
-  , ("₁", noSupported,     "1")  -- U+2081 SUBSCRIPT ONE
-  , ("₂", noSupported,     "2")  -- U+2082 SUBSCRIPT TWO
-  , ("₃", noSupported,     "3")  -- U+2083 SUBSCRIPT THREE
-  , ("₄", noSupported,     "4")  -- U+2074 SUBSCRIPT FOUR
-  , ("₅", noSupported,     "5")  -- U+2075 SUBSCRIPT FIVE
-  , ("₆", noSupported,     "6")  -- U+2076 SUBSCRIPT SIX
-  , ("₇", noSupported,     "7")  -- U+2077 SUBSCRIPT SEVEN
-  , ("₈", noSupported,     "8")  -- U+2078 SUBSCRIPT EIGHT
-  , ("₉", noSupported,     "9")  -- U+2079 SUBSCRIPT NINE
+  , ("⁴", noSupported,     "4")  -- U+2074
+  , ("⁵", noSupported,     "5")  -- U+2075
+  , ("⁶", noSupported,     "6")  -- U+2076
+  , ("⁷", noSupported,     "7")  -- U+2077
+  , ("⁸", noSupported,     "8")  -- U+2078
+  , ("⁹", noSupported,     "9")  -- U+2079
+  , ("₀", noSupported,     "0")  -- U+2080
+  , ("₁", noSupported,     "1")  -- U+2081
+  , ("₂", noSupported,     "2")  -- U+2082
+  , ("₃", noSupported,     "3")  -- U+2083
+  , ("₄", noSupported,     "4")  -- U+2074
+  , ("₅", noSupported,     "5")  -- U+2075
+  , ("₆", noSupported,     "6")  -- U+2076
+  , ("₇", noSupported,     "7")  -- U+2077
+  , ("₈", noSupported,     "8")  -- U+2078
+  , ("₉", noSupported,     "9")  -- U+2079
   , ("ℂ", noName,          "C")  -- U+2102 DOUBLE-STRUCK CAPITAL C
   , ("ℊ", noName,          "g")  -- U+210A SCRIPT SMALL G
   , ("ℋ", noName,          "H")  -- U+210B SCRIPT CAPITAL H
@@ -449,7 +488,7 @@ substTable =
   , ("ℚ", noName,          "Q")  -- U+211A DOUBLE-STRUCK CAPITAL Q
   , ("ℛ", noName,          "R")  -- U+211B SCRIPT CAPITAL R
   , ("ℝ", noName,          "R")  -- U+211D DOUBLE-STRUCK CAPITAL R
-  , ("™", "trade",         "")  -- U+2122 TRADE MARK SIGN
+  , ("™", "trade",         "")  -- U+2122
   , ("ℤ", noName,          "Z")  -- U+2124 DOUBLE-STRUCK CAPITAL Z
   , ("ℬ", noName,          "B")  -- U+212C SCRIPT CAPITAL B
   , ("ℯ", noName,          "e")  -- U+212F SCRIPT SMALL E
@@ -457,30 +496,30 @@ substTable =
   , ("ℱ", noName,          "F")  -- U+2131 SCRIPT CAPITAL F
   , ("ℳ", noName,          "M")  -- U+2133 SCRIPT CAPITAL M
   , ("ℴ", noName,          "o")  -- U+2134 SCRIPT SMALL O
-  , ("ℵ", "alefsym",       "aleph")  -- U+2135 ALEF SYMBOL
-  , ("ℶ", noName,          "beth")  -- U+2136 BET SYMBOL
+  , ("ℵ", "alefsym",       "aleph")  -- U+2135
+  , ("ℶ", noName,          "beth")  -- U+2136
   , ("←", "larr",          binaryOp "arrow")  -- U+2190 LEFTWARDS ARROW
   , ("↑", "uarr",          binaryOp "arrow")  -- U+2191 UPWARDS ARROW
   , ("→", "rarr",          binaryOp "arrow")  -- U+2192 RIGHTWARDS ARROW
   , ("↓", "ldrr",          binaryOp "arrow")  -- U+2193 DOWNWARDS ARROW
   , ("↔", "harr",          binaryOp "arrow")  -- U+2194 LEFT RIGHT ARROW
-  , ("∀", "forall",        unaryOp "for-all")  -- U+2200 FOR ALL
-  , ("∃", "exist",         unaryOp "exists")  -- U+2203 THERE EXISTS
-  , ("−", "minus",         "minus")  -- U+2212 MINUS SIGN
-  , ("∓", noName,          binaryOp "minus-or-plus")  -- U+2213 MINUS-OR-PLUS SIGN
-  , ("√", "radic",         unaryOp "sqrt")  -- U+221A SQUARE ROOT
-  , ("⊂", "sub",           binaryOp "subset-of")  -- U+2282 SUBSET OF
-  , ("⊃", "sup",           binaryOp "superset-of-")  -- U+2283 SUPERSET OF
-  , ("⊄", "nsub",          "")  -- U+2284 NOT A SUBSET OF
-  , ("⊅", noName,          "")  -- U+2285 NOT A SUPERSET OF
-  , ("⊆", "sube",          binaryOp "subset-of-or-equal-to")  -- U+2286 SUBSET OF OR EQUAL TO
-  , ("⊇", "supe",          binaryOp "superset-of-or-equal-to")  -- U+2287 SUPERSET OF OR EQUAL TO
-  , ("⊈", noName,          "")  -- U+2288 NEITHER A SUBSET OF NOR EQUAL TO
-  , ("⊉", noName,          "")  -- U+2289 NEITHER A SUPERSET OF NOR EQUAL TO
-  , ("⊊", noName,          "")  -- U+228A SUBSET OF WITH NOT EQUAL TO
-  , ("⊋", noName,          "")  -- U+228B SUPERSET OF WITH NOT EQUAL TO
-  , ("⊕", "oplus",         binaryOp "circled-plus")  -- U+2295 CIRCLED PLUS
-  , ("⊗", "otimes",        binaryOp "circled-times")  -- U+2297 CIRCLED TIMES
+  , ("∀", "forall",        unaryOp "for-all")  -- U+2200
+  , ("∃", "exist",         unaryOp "exists")  -- U+2203
+  , ("−", "minus",         "minus")  -- U+2212
+  , ("∓", noName,          binaryOp "minus-or-plus")  -- U+2213
+  , ("√", "radic",         unaryOp "sqrt")  -- U+221A
+  , ("⊂", "sub",           binaryOp "subset-of")  -- U+2282
+  , ("⊃", "sup",           binaryOp "superset-of-")  -- U+2283
+  , ("⊄", "nsub",          "")  -- U+2284
+  , ("⊅", noName,          "")  -- U+2285
+  , ("⊆", "sube",          binaryOp "subset-of-or-equal-to")  -- U+2286
+  , ("⊇", "supe",          binaryOp "superset-of-or-equal-to")  -- U+2287
+  , ("⊈", noName,          "")  -- U+2288
+  , ("⊉", noName,          "")  -- U+2289
+  , ("⊊", noName,          "")  -- U+228A
+  , ("⊋", noName,          "")  -- U+228B
+  , ("⊕", "oplus",         binaryOp "circled-plus")  -- U+2295
+  , ("⊗", "otimes",        binaryOp "circled-times")  -- U+2297
   , ("⋉", noName,          binaryOp "left-semidirect-product")  -- U+22C9) LEFT NORMAL FACTOR SEMIDIRECT PRODUCT
   , ("⋊", noName,          binaryOp "right-semidirect-product")  -- U+22CA RIGHT NORMAL FACTOR SEMIDIRECT PRODUCT
   , ("⌝", noSupported,     "")  -- U+231D TOP RIGHT CORNER
