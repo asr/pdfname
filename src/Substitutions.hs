@@ -197,7 +197,7 @@ substTable =
   , ("¼", "frac14",        "")  -- U+00BC
   , ("½", "frac12",        "")  -- U+00BD
   , ("¾", "frac34",        "")  -- U+00BE
-  , ("¿", "iquest",        "")  -- U+00B
+  , ("¿", "iquest",        "")  -- U+00BF
   , ("À", "Agrave",        "A")  -- U+00C0
   , ("Á", "Aacute",        "A")  -- U+00C1
   , ("Â", "Acirc",         "A")  -- U+00C2
