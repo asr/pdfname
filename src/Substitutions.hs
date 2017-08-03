@@ -330,11 +330,18 @@ substTable =
   , ("ņ", "ncedil",        "n")  -- U+0146
   , ("Ň", "Ncaron",        "N")  -- U+0147
   , ("ň", "ncaron",        "n")  -- U+0148
+  -- NB. To add a test case if U+0149 is added.
+  , ("Ŋ", "ENG",           "ENG")  -- U+014A
+  , ("ŋ", "eng",           "eng")  -- U+014B
+  , ("Ō", "Omacr",         "O")  -- U+014C
+  , ("ō", "omacr",         "o")  -- U+014D
   , ("Ő", "Odblac",        "O")  -- U+0150
   , ("ő", "odblac",        "o")  -- U+0151
   , ("Œ", "OElig",         "OE")  -- U+0152 LATIN CAPITAL LIGATURE OE
   , ("œ", "oelig",         "oe")  -- U+0153 LATIN SMALL LIGATURE OE
-  -- NB. To add a test case if U+0154, U+0155, U+0156 or U+0157 are added.
+  -- NB. To add a test case if U+0154 or U+0155 are added.
+  , ("Ŗ", "Rcedil",        "R")  -- U+0156
+  , ("ŗ", "rcedil",        "r")  -- U+0157
   , ("Ř", "Rcaron",        "R")  -- U+0158
   , ("ř", "rcaron",        "r")  -- U+0159
   , ("Ś", "Sacute",        "S")  -- U+015A
@@ -348,7 +355,9 @@ substTable =
   -- NB. To add a test case if U+0162 or U+0164 are added.
   , ("Ť", "Tcaron",        "T")  -- U+0164
   , ("ť", "tcaron",        "t")  -- U+0165
-  -- NB. To add a test case if U+0166, U+0167, U+0168 or U+0169 are added.
+  , ("Ŧ", "Tstrok",        "T")  -- U+0166
+  , ("ŧ", "tstrok",        "t")  -- U+0167
+  -- NB. To add a test case if U+0168 or U+0169 are added.
   , ("Ū", "Umacr",         "U")  -- U+016A
   , ("ū", "Umacr",         "u")  -- U+016B
   , ("Ŭ", "Ubreve",        "U")  -- U+016C
@@ -376,11 +385,23 @@ substTable =
   , ("ơ", noName,          "o")  -- U+01A1 LATIN SMALL LETTER O WITH HORN
   , ("Ư", noName,          "U")  -- U+01AF LATIN CAPITAL LETTER U WITH HORN
   , ("ư", noName,          "u")  -- U+01B0 LATIN SMALL LETTER U WITH HORN
+  , ("Ǟ", noName,          "A")  -- U+01DE LATIN CAPITAL LETTER A WITH DIAERESIS AND MACRON
+  , ("ǟ", noName,          "a")  -- U+01DF LATIN SMALL LETTER A WITH DIAERESIS AND MACRON
   , ("Ș", noName,          "S")  -- U+0218 LATIN CAPITAL LETTER S WITH COMMA BELOW
   , ("ș", noName,          "s")  -- U+0219 LATIN SMALL LETTER S WITH COMMA BELOW
   , ("Ț", noName,          "T")  -- U+021A LATIN CAPITAL LETTER T WITH COMMA BELOW
   , ("ț", noName,          "t")  -- U+021B LATIN SMALL LETTER T WITH COMMA BELOW
-  , ("ə", noSupported,     "a")  -- U+0259 LATIN SMALL LETTER SCHWA
+  , ("Ȫ", noName,          "O")  -- U+022A LATIN CAPITAL LETTER O WITH DIAERESIS AND MACRON
+  , ("ȫ", noName,          "o")  -- U+022B LATIN SMALL LETTER O WITH DIAERESIS AND MACRON
+  , ("Ȭ", noName,          "O")  -- U+022C LATIN CAPITAL LETTER O WITH TILDE AND MACRON
+  , ("ȭ", noName,          "o")  -- U+022D LATIN SMALL LETTER O WITH TILDE AND MACRON
+  , ("Ȯ", noName,          "O")  -- U+022E LATIN CAPITAL LETTER O WITH DOT ABOVE
+  , ("ȯ", noName,          "o")  -- U+022F LATIN SMALL LETTER O WITH DOT ABOVE
+  , ("Ȱ", noName,          "O")  -- U+0230 LATIN CAPITAL LETTER O WITH DOT ABOVE AND MACRON
+  , ("ȱ", noName,          "o")  -- U+0231 LATIN SMALL LETTER O WITH DOT ABOVE AND MACRON
+  , ("Ȳ", noName,          "Y")  -- U+0232 LATIN CAPITAL LETTER Y WITH MACRON
+  , ("ȳ", noName,          "y")  -- U+0233 LATIN SMALL LETTER Y WITH MACRON
+  , ("ə", noSupported,     "a")  -- U+0253 LATIN SMALL LETTER SCHWA
   , ("Α", "Alpha",         "Alpha")    -- U+0391
   , ("Β", "Beta",          "Beta")     -- U+0392
   , ("Γ", "Gamma",         "Gamma")    -- U+0393
@@ -435,6 +456,8 @@ substTable =
   , ("ϒ", "upsih",         "Upsilon")  -- U+03D2 GREEK UPSILON WITH HOOK SYMBOL
   , ("ϕ", "straightphi",   "phi")      -- U+03D5 GREEK PHI SYMBOL
   , ("ϖ", "piv",           "pi")       -- U+03D6 GREEK PI SYMBOL
+  , ("Ḑ", noSupported,     "D")  -- U+1E10 LATIN CAPITAL LETTER D WITH CEDILLA
+  , ("ḑ", noSupported,     "d")  -- U+1E11 LATIN SMALL LETTER D WITH CEDILLA
   , ("Ẁ", noSupported,     "W")  -- U+1E80 LATIN CAPITAL LETTER W WITH GRAVE
   , ("ẁ", noSupported,     "w")  -- U+1E81 LATIN SMALL LETTER W WITH GRAVE
   , ("Ẃ", noSupported,     "W")  -- U+1E82 LATIN CAPITAL LETTER W WITH ACUTE
