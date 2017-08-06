@@ -8,31 +8,31 @@ install-bin :
 ##############################################################################
 # Test suite
 
-PDFNAME_BIN = ../dist/build/pdfname-tests/pdfname-tests
+PDFNAME_TEST_BIN = ../dist/build/pdfname-tests/pdfname-tests
 TESTS_OPTIONS =-i
 
 .PHONY : succeed
 succeed :
 	cd test && \
-	$(PDFNAME_BIN) $(TESTS_OPTIONS) --regex-include succeed
+	$(PDFNAME_TEST_BIN) $(TESTS_OPTIONS) --regex-include succeed
 	@echo "$@ succeeded!"
 
 .PHONY : fail
 fail :
 	cd test && \
-	$(PDFNAME_BIN) $(TESTS_OPTIONS) --regex-include fail
+	$(PDFNAME_TEST_BIN) $(TESTS_OPTIONS) --regex-include fail
 	@echo "$@ succeeded"
 
 .PHONY : cl-option
 cl-option :
 	cd test && \
-	$(PDFNAME_BIN) $(TESTS_OPTIONS) --regex-include cl-option
+	$(PDFNAME_TEST_BIN) $(TESTS_OPTIONS) --regex-include cl-option
 	@echo "$@ succeeded"
 
 .PHONY : test
 test :
 	cd test && \
-	$(PDFNAME_BIN) $(TESTS_OPTIONS)
+	$(PDFNAME_TEST_BIN) $(TESTS_OPTIONS)
 	@echo "$@ succeeded"
 
 ##############################################################################
