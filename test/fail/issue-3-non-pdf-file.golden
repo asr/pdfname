@@ -1,7 +1,7 @@
 ret > ExitFailure 1
-err > Error: May not be a PDF file (continuing anyway)
-err > Error: PDF file is damaged - attempting to reconstruct xref table...
-err > Error: Couldn't find trailer dictionary
-err > Error: Couldn't read xref table
+err > Syntax Warning: May not be a PDF file (continuing anyway)
+err > Syntax Error: Couldn't find trailer dictionary
+err > Syntax Error: Couldn't find trailer dictionary
+err > Syntax Error: Couldn't read xref table
 err > pdfname: PDF file or its metadata information is damaged
 err >
