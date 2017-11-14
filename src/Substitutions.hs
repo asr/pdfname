@@ -129,6 +129,8 @@ noSupported = "N/A"
 -- | Substitutions table.
 substTable ∷ [(Text, Text, Text)]
 substTable =
+  -- TODO (2017-11-14). Added U+0000 NULL. Test case: Jan von Plato
+  -- (2001). Natural deduction with general elimination rules.
   [ ("\t", noSupported,    "")  -- U+0009 CHARACTER TABULATION
   , ("\n", noSupported,    "")  -- U+000A LINE FEED (LF)
   , ("\f", noSupported,    "")  -- U+000C FORM FEED (FF)
