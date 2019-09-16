@@ -5,6 +5,7 @@ Changelog for pdfname
 -----
 
 * Supported GHC 8.8.1.
+* Added substitutions.
 
 0.3
 ---
