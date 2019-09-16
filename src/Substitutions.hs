@@ -135,7 +135,7 @@ substTable =
   , ("\n", noSupported,    "")  -- U+000A LINE FEED (LF)
   , ("\f", noSupported,    "")  -- U+000C FORM FEED (FF)
   , ("\r", noSupported,    "")  -- U+000D CARRIAGE RETURN (CR)
-  , (" ", "TODO",          "-") -- U+0020 SPACE
+  , (" ", noSupported,     "-")  -- U+0020 SPACE
   , ("!", noName,          "")  -- U+0021
   , ("\"", "quot",         "")  -- U+0022 QUOTATION MARK
   , ("#", noName,          "")  -- U+0023
@@ -404,6 +404,8 @@ substTable =
   , ("Ȳ", noName,          "Y")  -- U+0232 LATIN CAPITAL LETTER Y WITH MACRON
   , ("ȳ", noName,          "y")  -- U+0233 LATIN SMALL LETTER Y WITH MACRON
   , ("ə", noSupported,     "a")  -- U+0253 LATIN SMALL LETTER SCHWA
+  , ("ˆ", "circ",          "")  -- U+02C6
+  , ("˜", "tilde",         "")  -- U+02DC
   , ("Α", "Alpha",         "Alpha")    -- U+0391
   , ("Β", "Beta",          "Beta")     -- U+0392
   , ("Γ", "Gamma",         "Gamma")    -- U+0393
@@ -529,9 +531,15 @@ substTable =
   , ("↓", "ldrr",          binaryOp "arrow")  -- U+2193 DOWNWARDS ARROW
   , ("↔", "harr",          binaryOp "arrow")  -- U+2194 LEFT RIGHT ARROW
   , ("∀", "forall",        unaryOp "for-all")  -- U+2200
+  , ("∂", "part",          "")  -- U+2202
   , ("∃", "exist",         unaryOp "exists")  -- U+2203
+  , ("∅", "empty",         "empty-set")  -- U+2205
+  , ("∇", "nabla",         "nabla")  -- U+2207
+  , ("∈", "isin",          "belong")  -- U+2208
+  , ("∉", "not-in",        "")  -- U+2209
   , ("−", "minus",         "minus")  -- U+2212
   , ("∓", noName,          binaryOp "minus-or-plus")  -- U+2213
+  , ("∗", "lowast",        "")  -- U+2217
   , ("√", "radic",         unaryOp "sqrt")  -- U+221A
   , ("⊂", "sub",           binaryOp "subset-of")  -- U+2282
   , ("⊃", "sup",           binaryOp "superset-of-")  -- U+2283
