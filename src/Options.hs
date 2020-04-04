@@ -9,8 +9,6 @@ module Options
   , outputDir
   ) where
 
-import Data.Monoid ( (<>) )
-
 import Options.Applicative
   ( argument
   , info

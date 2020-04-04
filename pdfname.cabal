@@ -15,7 +15,7 @@ description:
   The @pdfname@ command-line program names a PDF file using the
   author, year of creation and title information extracted from the
   @pdfinfo@ program.
-tested-with:   GHC == 8.8.2
+tested-with:   GHC == 8.8.3
 
 extra-source-files: CHANGELOG.md
                     README.md
@@ -87,6 +87,8 @@ test-suite pdfname-tests
   hs-source-dirs:  src, test
   main-is:         Test.hs
 
+  other-modules:  Substitutions
+
   build-depends:  base         >= 4.9.1.0  && < 4.14
                 , filepath     >= 1.4.1.1  && < 1.5
                 , HUnit        >= 1.6.0.0  && < 1.7
@@ -114,7 +116,7 @@ test-suite pdfname-tests
                   -Wmissing-pattern-synonym-signatures
                   -Wmonomorphism-restriction
                   -Wnoncanonical-monad-instances
-                  -Wnoncanonical-monadfail-instances
+                  -- -Wnoncanonical-monadfail-instances
                   -Wnoncanonical-monoid-instances
                   -Wredundant-constraints
                   -Wsemigroup
