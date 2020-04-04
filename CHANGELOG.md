@@ -4,7 +4,7 @@ Changelog for pdfname
 0.3.1
 -----
 
-* Tested with GHC 8.8.3.
+* Tested with GHC 8.10.1.
 * Added substitutions.
 
 0.3

@@ -15,7 +15,7 @@ description:
   The @pdfname@ command-line program names a PDF file using the
   author, year of creation and title information extracted from the
   @pdfinfo@ program.
-tested-with:   GHC == 8.8.3
+tested-with:   GHC == 8.10.1
 
 extra-source-files: CHANGELOG.md
                     README.md
@@ -28,7 +28,7 @@ executable pdfname
   main-is:        Main.hs
   hs-source-dirs: src
 
-  build-depends:  base                 >= 4.9.1.0 && < 4.14
+  build-depends:  base                 >= 4.9.1.0 && < 4.15
                 , directory            >= 1.3.0.0 && < 1.4
                 , filepath             >= 1.4.1.1 && < 1.5
                 , optparse-applicative >= 0.14.0  && < 0.16
@@ -89,7 +89,7 @@ test-suite pdfname-tests
 
   other-modules:  Substitutions
 
-  build-depends:  base         >= 4.9.1.0  && < 4.14
+  build-depends:  base         >= 4.9.1.0  && < 4.15
                 , filepath     >= 1.4.1.1  && < 1.5
                 , HUnit        >= 1.6.0.0  && < 1.7
                 , process      >= 1.4.0.3  && < 1.7
