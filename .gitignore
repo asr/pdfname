@@ -1,6 +1,9 @@
+.stack-work/
 *.aux
 *.log
 *.out
 auto/
 dist/
 dist-newstyle/
+stack.yaml
+stack.yaml.lock
