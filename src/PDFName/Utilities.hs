@@ -1,6 +1,8 @@
+{-# LANGUAGE OverloadedStrings #-}
+
 -- | Utilities.
 
-module Utilities
+module PDFName.Utilities
  ( (+++)
  , die
  , ifM
@@ -29,39 +31,39 @@ import System.IO          ( stderr )
 ------------------------------------------------------------------------------
 -- Utilities from the Agda library
 
-ifM ∷ Monad m ⇒ m Bool → m a → m a → m a
+ifM :: Monad m => m Bool -> m a -> m a -> m a
 ifM c m m' = do
-  b ← c
+  b <- c
   if b then m else m'
 
 -- | @unless_@ is just @Control.Monad.unless@ with a more general type.
-unless_ ∷ Monad m ⇒ Bool → m a → m ()
+unless_ :: Monad m => Bool -> m a -> m ()
 unless_ b m = unless b $ void m
 
-unlessM ∷ Monad m ⇒ m Bool → m a → m ()
+unlessM :: Monad m => m Bool -> m a -> m ()
 unlessM c m = c >>= (`unless_` m)
 
 ------------------------------------------------------------------------------
 -- Utilities
 
-die ∷ Text → IO a
+die :: Text -> IO a
 die err = do
-  progName ← getProgName
+  progName <- getProgName
   T.hPutStrLn stderr (T.pack progName +++ ": " +++ err)
   exitFailure
 
 -- | Uppercase the first character of a text.
-upperFirst ∷ Text → Text
+upperFirst :: Text -> Text
 upperFirst xs =
   case T.uncons xs of
-    Nothing        → T.empty
-    Just (x', xs') → T.cons (toUpper x') (T.toLower xs')
+    Nothing        -> T.empty
+    Just (x', xs') -> T.cons (toUpper x') (T.toLower xs')
 
 -- | Append synonymous.
-(+++) ∷ Text → Text → Text
+(+++) :: Text -> Text -> Text
 (+++) = T.append
 
 -- | Return version information.
 -- TODO (2017-07-06): To use `getProgName`.
-progNameVersion ∷ String
+progNameVersion :: String
 progNameVersion = "pdfname" ++ " version " ++ showVersion version

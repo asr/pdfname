@@ -1,4 +1,3 @@
-{-# LANGUAGE UnicodeSyntax #-}
 
 module Main ( main ) where
 
@@ -18,68 +17,69 @@ import Test.Tasty.HUnit              ( testCase )
 ------------------------------------------------------------------------------
 -- Local imports
 
-import Substitutions ( substTable )
+import PDFName.Substitutions ( substTable )
 
 ------------------------------------------------------------------------------
 
-pdfnameBIN ∷ String
-pdfnameBIN = "../dist/build/pdfname/pdfname"
+-- TODO (2023-01-22): Fix the path.
+pdfnameBIN :: String
+pdfnameBIN = "pdfname"
 
-tastyTest ∷ FilePath → TestTree
-tastyTest testFile =
-  let goldenFile ∷ FilePath
+goldenTest :: FilePath -> TestTree
+goldenTest testFile =
+  let goldenFile :: FilePath
       goldenFile = replaceExtension testFile ".golden"
 
-      args ∷ [String]
+      args :: [String]
       args = [ "--dry-run", testFile ]
 
   in goldenVsProg testFile goldenFile pdfnameBIN args T.empty
 
-succeedTests ∷ IO TestTree
+succeedTests :: IO TestTree
 succeedTests = do
-  files ← findByExtension [".pdf"] "succeed"
-  return $ testGroup "succeed" $ map tastyTest files
+  files <- findByExtension [".pdf"] "test/succeed"
+  return $ testGroup "succeed" $ map goldenTest files
 
-failTests ∷ IO TestTree
+failTests :: IO TestTree
 failTests = do
-  files ← findByExtension [ ".pdf", ".txt" ] "fail"
-  return $ testGroup "fail" $ map tastyTest files
+  files <- findByExtension [ ".pdf", ".txt" ] "test/fail"
+  return $ testGroup "fail" $ map goldenTest files
 
-clOptionsTests ∷ TestTree
-clOptionsTests = testGroup "cl-option" [ noOptions, helpOption ]
+cliOptionsTests :: TestTree
+cliOptionsTests = testGroup "cli-option" [ noOptions, helpOption ]
   where
-  helper ∷ String → [String] → TestTree
+  helper :: String -> [String] -> TestTree
   helper file arg = goldenVsProg testFile goldenFile pdfnameBIN arg T.empty
     where
-      testFile ∷ String
-      testFile = "cl-option/" ++ file
+      testFile :: String
+      testFile = "test/cli-option/" ++ file
 
-      goldenFile ∷ String
+      goldenFile :: String
       goldenFile = testFile ++ ".golden"
 
-  noOptions ∷ TestTree
+  noOptions :: TestTree
   noOptions = helper "no-options" []
 
-  helpOption ∷ TestTree
+  helpOption :: TestTree
   helpOption = helper "help" ["--help"]
 
-internalTests ∷ TestTree
+internalTests :: TestTree
 internalTests = testGroup "internal-tests" [ substTableNub ]
   where
-    substTableNub ∷ TestTree
+    substTableNub :: TestTree
     substTableNub =
       testCase "substTableNub" $ True @=? substTable == nub substTable
 
-allTests ∷ IO TestTree
+allTests :: IO TestTree
 allTests = do
-  allSucceedTests ← succeedTests
-  allFailTests    ← failTests
+  allSucceedTests <- succeedTests
+  allFailTests    <- failTests
   return $ testGroup "tests"
     [ allSucceedTests
     , allFailTests
-    , clOptionsTests
+    , cliOptionsTests
     , internalTests
     ]
 
-main ∷ IO ()
+main :: IO ()
 main = defaultMain =<< allTests

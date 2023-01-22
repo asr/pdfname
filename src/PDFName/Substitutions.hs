@@ -1,6 +1,8 @@
+{-# LANGUAGE OverloadedStrings #-}
+
 -- | Substitutions.
 
-module Substitutions
+module PDFName.Substitutions
   ( authorSubst
   , removeFromTitle
   , replace
@@ -21,58 +23,58 @@ import Text.Printf ( printf )
 -- Replacements, pre-processing and post-processing
 
 -- | Remove text from the title.
-removeFromTitle ∷ Text → Text
-removeFromTitle = replace $ map (\ a → (a, T.empty)) titleErase
+removeFromTitle :: Text -> Text
+removeFromTitle = replace $ map (\ a -> (a, T.empty)) titleErase
 
 -- These substitutions should be done before the Unicode
 -- substitutions.
-replaceHTMLEscapedText ∷ Text → Text
+replaceHTMLEscapedText :: Text -> Text
 replaceHTMLEscapedText = replace allSubst
   where
 
-  htmlNameSubst ∷ [(Text, Text)]
-  htmlNameSubst = map (\ (a, b, _) → (T.cons '&' $ T.snoc b ';', a)) $
-                    filter (\ (_, b,_) → b /= noName && b /= noSupported) substTable
+  htmlNameSubst :: [(Text, Text)]
+  htmlNameSubst = map (\ (a, b, _) -> (T.cons '&' $ T.snoc b ';', a)) $
+                    filter (\ (_, b,_) -> b /= noName && b /= noSupported) substTable
 
-  htmlDecSubst ∷ [(Text, Text)]
+  htmlDecSubst :: [(Text, Text)]
   htmlDecSubst = substHelper "&#%d;"
 
-  html4HexSubst ∷ [(Text, Text)]
+  html4HexSubst :: [(Text, Text)]
   html4HexSubst = substHelper "&#x%04X;"
 
-  html5HexSubst ∷ [(Text, Text)]
+  html5HexSubst :: [(Text, Text)]
   html5HexSubst = substHelper "&#x%05X;"
 
-  allSubst ∷ [(Text, Text)]
+  allSubst :: [(Text, Text)]
   allSubst = htmlNameSubst ++ htmlDecSubst ++ html4HexSubst ++ html5HexSubst
 
-  substHelper ∷ String → [(Text, Text)]
-  substHelper format = map (\ (a, _, _) → (printfHelper format a, a)) $
-                         filter (\ (_, b,_) → b /= noSupported) substTable
+  substHelper :: String -> [(Text, Text)]
+  substHelper format = map (\ (a, _, _) -> (printfHelper format a, a)) $
+                         filter (\ (_, b,_) -> b /= noSupported) substTable
     where
-    printfHelper ∷ String → Text → Text
+    printfHelper :: String -> Text -> Text
     printfHelper pFormat t = T.pack $ printf pFormat (ord $ T.head t)
 
-replaceUnicode ∷ Text → Text
+replaceUnicode :: Text -> Text
 replaceUnicode = replace unicodeSubst
   where
-  unicodeSubst ∷ [(Text, Text)]
-  unicodeSubst = map (\ (a, _, c) → (a, c)) substTable
+  unicodeSubst :: [(Text, Text)]
+  unicodeSubst = map (\ (a, _, c) -> (a, c)) substTable
 
-replace ∷ [(Text,Text)] → Text → Text
+replace :: [(Text,Text)] -> Text -> Text
 replace xs ys = foldl (flip (uncurry T.replace)) ys xs
 
-unaryOp ∷ Text → Text
+unaryOp :: Text -> Text
 unaryOp t = T.snoc t '-'
 
-binaryOp ∷ Text → Text
+binaryOp :: Text -> Text
 binaryOp t = T.cons '-' $ T.snoc t '-'
 
 ------------------------------------------------------------------------------
 -- Author substitutions
 
 -- | Author substitutions.
-authorSubst ∷ [(Text, Text)]
+authorSubst :: [(Text, Text)]
 authorSubst =
   [ (", ",   ",")
   , (" and", ",")
@@ -85,7 +87,7 @@ authorSubst =
 -- HTML entities and symbols and converting to lower case.
 
 -- | Weird author and title substitutions.
-weirdSubst ∷ [(Text, Text)]
+weirdSubst :: [(Text, Text)]
 weirdSubst =
   [ ("Ã¡",      "a")    -- U+00C3 and U+00A1 (LATIN SMALL LETTER A WITH GRAVE)
   , ("Ã©",      "e")    -- U+00C3 and U+00A9 (LATIN SMALL LETTER E WITH ACUTE)
@@ -99,7 +101,7 @@ weirdSubst =
 ------------------------------------------------------------------------------
 -- Title pre-processing
 
-titleErase ∷ [Text]
+titleErase :: [Text]
 titleErase =
   [ "<Emphasis Type=\"BoldItalic\">"  -- opening
   , "<Emphasis Type=\"Italic\">"      -- opening
@@ -119,15 +121,15 @@ titleErase =
 -- Unicode and HTML entities and symbols substitutions
 
 -- HTML escaped text without entity name.
-noName ∷ Text
+noName :: Text
 noName = "N/A"
 
 -- Unicode character does not supported by HTML.
-noSupported ∷ Text
+noSupported :: Text
 noSupported = "N/A"
 
 -- | Substitutions table.
-substTable ∷ [(Text, Text, Text)]
+substTable :: [(Text, Text, Text)]
 substTable =
   -- TODO (2017-11-14). Added U+0000 NULL. Test case: Jan von Plato
   -- (2001). Natural deduction with general elimination rules.

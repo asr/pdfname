@@ -1,6 +1,6 @@
 -- | Process the command-line arguments.
 
-module Options
+module PDFName.Options
   ( options
   , Options( Options -- Improve Haddock information.
            , optDryRun
@@ -27,16 +27,16 @@ import Options.Applicative
 ------------------------------------------------------------------------------
 -- Local imports
 
-import Utilities ( progNameVersion )
+import PDFName.Utilities ( progNameVersion )
 
 ------------------------------------------------------------------------------
 -- | Program command-line options.
 data Options = Options
-  { optDryRun    ∷ Bool
-  , optInputFile ∷ FilePath
+  { optDryRun    :: Bool
+  , optInputFile :: FilePath
   }
 
-pOptDryRun ∷ Parser Bool
+pOptDryRun :: Parser Bool
 pOptDryRun =
   switch ( long "dry-run"
            <> help ("Do not create the PDF file only print which would be "
@@ -44,20 +44,20 @@ pOptDryRun =
          )
 
 -- | Parse a version flag.
-pOptVersion ∷ Parser (a → a)
+pOptVersion :: Parser (a -> a)
 pOptVersion = infoOption progNameVersion $
   long "version"
   <> short 'V'
   <> help "Show version number"
 
-pOptInputFile ∷ Parser FilePath
+pOptInputFile :: Parser FilePath
 pOptInputFile = argument str (metavar "FILE")
 
 pOptions :: Parser Options
 pOptions = Options <$> pOptDryRun <*> pOptInputFile
 
-options ∷ ParserInfo Options
+options :: ParserInfo Options
 options = info (helper <*> pOptVersion <*> pOptions) mempty
 
-outputDir ∷ FilePath
+outputDir :: FilePath
 outputDir = "/tmp/"
