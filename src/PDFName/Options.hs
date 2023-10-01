@@ -1,3 +1,5 @@
+{-# LANGUAGE StandaloneKindSignatures #-}
+
 -- | Process the command-line arguments.
 
 module PDFName.Options
@@ -8,6 +10,8 @@ module PDFName.Options
            )
   , outputDir
   ) where
+
+import Data.Kind ( Type )
 
 import Options.Applicative
   ( argument
@@ -31,6 +35,8 @@ import PDFName.Utilities ( progNameVersion )
 
 ------------------------------------------------------------------------------
 -- | Program command-line options.
+
+type Options :: Type
 data Options = Options
   { optDryRun    :: Bool
   , optInputFile :: FilePath
