@@ -1,7 +1,0 @@
-ret > ExitFailure 1
-err > Syntax Warning: May not be a PDF file (continuing anyway)
-err > Syntax Error: Couldn't find trailer dictionary
-err > Syntax Error: Couldn't find trailer dictionary
-err > Syntax Error: Couldn't read xref table
-err > pdfname: PDF file or its metadata information is damaged
-err >

@@ -5,21 +5,12 @@
 
 module Main ( main ) where
 
-import qualified Data.Text.IO as T
-
 import Options.Applicative ( execParser )
 
+import Pdf.Document.Pdf      ( document, withPdfFile )
+import Pdf.Document.Document ( documentInfo )
+
 import System.FilePath ( (</>) )
-
-import System.IO
-  ( hPrint
-  , stderr
-  )
-
-import Text.PDF.Info
-  ( pdfInfo
-  , PDFInfoError(ProcessError, ProcessFailure)
-  )
 
 ------------------------------------------------------------------------------
 -- Local imports
@@ -48,17 +39,14 @@ main = do
   let file :: FilePath
       file = optInputFile opts
 
-  info <- pdfInfo file
-  case info of
-    Right i -> do
-      newFile <- generateFileName i
-      if optDryRun opts
+  withPdfFile file $ \pdf -> do
+    doc <- document pdf
+    info <- documentInfo doc
+    case info of
+      Just i -> do
+        newFile <- generateFileName i
+        if optDryRun opts
         then putStrLn $ "The full path name will be " ++ outputDir </> newFile
         else createFile file newFile
 
-    Left pdfinfoErr -> do
-      case pdfinfoErr of
-        ProcessFailure err -> T.hPutStr stderr err
-        ProcessError err   -> hPrint stderr err
-        _                  -> T.hPutStr stderr "TODO: Missing error message"
-      die "PDF file or its metadata information is damaged"
+      Nothing -> die "PDF file or its metadata information is damaged"

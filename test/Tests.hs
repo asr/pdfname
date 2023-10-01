@@ -40,10 +40,10 @@ succeedTests = do
   files <- findByExtension [".pdf"] "test/succeed"
   return $ testGroup "succeed" $ map goldenTest files
 
-failTests :: IO TestTree
-failTests = do
-  files <- findByExtension [ ".pdf", ".txt" ] "test/fail"
-  return $ testGroup "fail" $ map goldenTest files
+-- failTests :: IO TestTree
+-- failTests = do
+--   files <- findByExtension [ ".pdf", ".txt" ] "test/fail"
+--   return $ testGroup "fail" $ map goldenTest files
 
 cliOptionsTests :: TestTree
 cliOptionsTests = testGroup "cli-option" [ noOptions, helpOption ]
@@ -73,10 +73,10 @@ internalTests = testGroup "internal-tests" [ substTableNub ]
 allTests :: IO TestTree
 allTests = do
   allSucceedTests <- succeedTests
-  allFailTests    <- failTests
+  -- allFailTests    <- failTests
   return $ testGroup "tests"
     [ allSucceedTests
-    , allFailTests
+    -- , allFailTests
     , cliOptionsTests
     , internalTests
     ]

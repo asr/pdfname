@@ -8,20 +8,14 @@ module PDFName.CreateFile
   ) where
 
 import Data.Char  ( isAsciiLower, isDigit )
-import Data.Maybe ( fromMaybe )
 
 import Data.Text ( Text )
 import qualified Data.Text as T
 
+import Pdf.Document.Info ( Info, infoAuthor, infoTitle )
+
 import System.Directory ( copyFile )
 import System.FilePath  ( (</>) )
-
-import Text.PDF.Info
-  ( PDFInfo
-  , pdfInfoAuthor
-  , pdfInfoCreationDate
-  , pdfInfoTitle
-  )
 
 ------------------------------------------------------------------------------
 -- Local imports
@@ -37,9 +31,10 @@ import PDFName.Substitutions
   , weirdSubst
   )
 
-import PDFName.Utilities ( (+++), die )
+import PDFName.Utilities ( die )
 
 ------------------------------------------------------------------------------
+
 defaultAuthor, defaultTitle, defaultYear :: Text
 defaultAuthor = "no-author"
 defaultTitle  = "no-title"
@@ -61,8 +56,8 @@ getAuthor xs =
       . replace weirdSubst
     ) xs
 
-getYear :: Text -> Text
-getYear xs = if T.null xs then defaultYear else T.take 4 xs
+-- getYear :: Text -> Text
+-- getYear xs = if T.null xs then defaultYear else T.take 4 xs
 
 getTitle :: Text -> Text
 getTitle xs =
@@ -77,31 +72,24 @@ getTitle xs =
       . replace weirdSubst
     ) xs
 
-generateFileName :: PDFInfo -> IO FilePath
+generateFileName :: Info -> IO FilePath
 generateFileName info = do
 
-  let authorHelper :: Text
-      authorHelper = maybe defaultAuthor getAuthor $ pdfInfoAuthor info
+  authorHelper <- maybe defaultAuthor getAuthor <$> infoAuthor info
 
   author <- if isValidName authorHelper
            then return authorHelper
-           else die $ "could not generate the author from "
-                       +++ "`"
-                       +++ fromMaybe "missing author field" (pdfInfoAuthor info)
-                       +++ "`"
+           else die "missing author field"
 
+  -- TODO (2023-09-29): Missing `infoCreationDate` in `Pdf.Document.Info`
   let year :: Text
-      year = maybe defaultYear (getYear . T.pack . show) $ pdfInfoCreationDate info
+      year = defaultYear
 
-  let titleHelper :: Text
-      titleHelper = maybe defaultTitle getTitle $ pdfInfoTitle info
+  titleHelper <- maybe defaultTitle getTitle <$> infoTitle info
 
   title <- if isValidName titleHelper
             then return titleHelper
-            else die $ "could not generate the title from "
-                       +++ "`"
-                       +++ fromMaybe "missing title field" (pdfInfoTitle info)
-                       +++ "`"
+            else die "missing title field"
 
   let fileName :: FilePath
       fileName = T.unpack $ foldl1 T.append

@@ -1,3 +1,8 @@
 resolver: lts-18.28
 compiler: ghc-8.10.7
 compiler-check: match-exact
+
+extra-deps:
+  - pdf-toolbox-document-0.1.2
+  - pdf-toolbox-content-0.1.1
+  - pdf-toolbox-core-0.1.1
