@@ -1,0 +1,3 @@
+ret > ExitFailure 1
+err > pdfname: The file is not a PDF file or it is empty
+err >

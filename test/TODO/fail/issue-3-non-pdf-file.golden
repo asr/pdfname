@@ -1,3 +1,0 @@
-ret > ExitFailure 1
-err > Corrupted "lastXRef" ["Failed reading: Trailer not found"]
-

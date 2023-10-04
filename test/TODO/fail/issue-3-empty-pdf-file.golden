@@ -1,4 +1,0 @@
-ret > ExitFailure 1
-err > Syntax Error: Document stream is empty
-err > pdfname: PDF file or its metadata information is damaged
-err >
