@@ -15,7 +15,7 @@ copyright:      Andrés Sicard-Ramírez
 license:        MIT
 license-file:   LICENSE
 build-type:     Simple
-tested-with:    GHC == 9.8.2
+tested-with:    GHC == 9.10.1
 extra-source-files:
   README.md
   CHANGELOG.md
