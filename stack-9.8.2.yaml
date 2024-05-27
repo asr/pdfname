@@ -1,0 +1,9 @@
+resolver: nightly-2024-05-27
+compiler: ghc-9.8.2
+compiler-check: match-exact
+
+extra-deps:
+  - git: https://github.com/asr/pdf-toolbox
+    commit: 'db06006856728469afe302a97ef1454fdb7b089d'
+    subdirs:
+      - document
