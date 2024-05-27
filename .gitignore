@@ -5,7 +5,6 @@
 auto/
 dist/
 dist-newstyle/
-pdfname.cabal
 stack.yaml
 stack.yaml.lock
 stack-*.yaml.lock
