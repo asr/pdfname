@@ -1,9 +1,4 @@
-cabal-version: 3.0
-
--- This file has been generated from package.yaml by hpack version 0.36.0.
---
--- see: https://github.com/sol/hpack
-
+cabal-version:  3.0
 name:           pdfname
 version:        0.3.1
 description:    Please see the README on GitHub at <https://github.com/asr/pdfname#readme>
@@ -15,7 +10,10 @@ copyright:      Andrés Sicard-Ramírez
 license:        MIT
 license-file:   LICENSE
 build-type:     Simple
-tested-with:    GHC == 9.10.1
+tested-with:
+    GHC == 9.6.4
+  , GHC == 9.8.2
+
 extra-source-files:
   README.md
   CHANGELOG.md
@@ -27,7 +25,7 @@ source-repository head
 common deps
   build-depends:
       base     >= 4.9.1.0 && < 5
-    , filepath >= 1.4.1.1 && < 1.5
+    , filepath >= 1.4.1.1 && < 1.6
 
 common warnings
   ghc-options:
