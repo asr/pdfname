@@ -66,4 +66,4 @@ options :: ParserInfo Options
 options = info (helper <*> pOptVersion <*> pOptions) mempty
 
 outputDir :: FilePath
-outputDir = "/tmp/"
+outputDir = "./"

@@ -6,6 +6,7 @@ Changelog for pdfname
 
 * Tested with GHC 9.10.1
 * Added substitutions.
+* The output directory is not `\tmp` but the current directory.
 
 0.3
 ---
