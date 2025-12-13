@@ -60,5 +60,6 @@ main = do
     \(ex :: Corrupted) -> case ex of
       Corrupted "lastXRef" ["Failed reading: Trailer not found"] ->
         die "The file is not a PDF file or it is empty"
+      Corrupted "trailer" ["Failed reading: empty"] ->
+        die "The PDF file is corrupted"
       Corrupted _ _ -> die "Unhandle exception"
-
