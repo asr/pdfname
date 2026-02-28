@@ -16,7 +16,6 @@ import Pdf.Document.Document ( documentInfo )
 
 import System.FilePath ( (</>) )
 
-
 ------------------------------------------------------------------------------
 -- Local imports
 
@@ -62,4 +61,5 @@ main = do
         die "The file is not a PDF file or it is empty"
       Corrupted "trailer" ["Failed reading: empty"] ->
         die "The PDF file is corrupted"
+      Corrupted "Unknow symbol" [] -> die "Unknow symbol"
       Corrupted _ _ -> die "Unhandle exception"

@@ -17,7 +17,7 @@ import Test.Tasty.HUnit              ( testCase )
 ------------------------------------------------------------------------------
 -- Local imports
 
-import PDFName.Substitutions ( substTable )
+import PDFName.Substitutions ( unicodeSubstTable )
 
 ------------------------------------------------------------------------------
 
@@ -68,7 +68,7 @@ internalTests = testGroup "internal-tests" [ substTableNub ]
   where
     substTableNub :: TestTree
     substTableNub =
-      testCase "substTableNub" $ True @=? substTable == nub substTable
+      testCase "substTableNub" $ True @=? unicodeSubstTable == nub unicodeSubstTable
 
 allTests :: IO TestTree
 allTests = do

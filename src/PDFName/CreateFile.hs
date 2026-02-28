@@ -22,15 +22,7 @@ import System.FilePath  ( (</>) )
 
 import PDFName.Options ( outputDir )
 
-import PDFName.Substitutions
-  ( authorSubst
-  , removeFromTitle
-  , replace
-  , replaceUnicode
-  , replaceHTMLEscapedText
-  , weirdSubst
-  )
-
+import PDFName.Substitutions ( replaceUnicode )
 import PDFName.Utilities ( die )
 
 ------------------------------------------------------------------------------
@@ -40,37 +32,24 @@ defaultAuthor = "no-author"
 defaultTitle  = "no-title"
 defaultYear   = "no-year"
 
-getAuthor :: Text -> Text
-getAuthor xs =
-  if T.null xs
-  then defaultAuthor
-  else
-    -- NB that the substitutions are not commutative.
-    ( T.toLower
-      . replaceUnicode
-      . T.intercalate (T.singleton '-')
-      . map (T.reverse . T.takeWhile (' ' /=) . T.reverse)
-      . T.split (',' ==)
-      . replaceHTMLEscapedText
-      . replace authorSubst
-      . replace weirdSubst
-    ) xs
-
 -- getYear :: Text -> Text
 -- getYear xs = if T.null xs then defaultYear else T.take 4 xs
 
-getTitle :: Text -> Text
-getTitle xs =
+getMetadata :: Text -> Text -> Text
+getMetadata defaultValue xs =
   if T.null xs
-  then defaultTitle
+  then defaultValue
   else
     -- NB that the substitutions are not commutative.
     ( T.toLower
       . replaceUnicode
-      . replaceHTMLEscapedText
-      . removeFromTitle
-      . replace weirdSubst
     ) xs
+
+getAuthor :: Text -> Text
+getAuthor = getMetadata defaultAuthor
+
+getTitle :: Text -> Text
+getTitle = getMetadata defaultTitle
 
 generateFileName :: Info -> IO FilePath
 generateFileName info = do
@@ -79,7 +58,7 @@ generateFileName info = do
 
   author <- if isValidName authorHelper
            then return authorHelper
-           else die "missing author field"
+           else die "Invalid character in author field"
 
   -- TODO (2023-09-29): Missing `infoCreationDate` in `Pdf.Document.Info`
   let year :: Text
@@ -89,7 +68,7 @@ generateFileName info = do
 
   title <- if isValidName titleHelper
             then return titleHelper
-            else die "missing title field"
+            else die "Invalid character in author field"
 
   let fileName :: FilePath
       fileName = T.unpack $ foldl1 T.append

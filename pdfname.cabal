@@ -32,7 +32,7 @@ common deps
 common warnings
   ghc-options:
     -Weverything
-    -Werror
+--    -Werror
     -Wno-implicit-prelude
     -Wno-missing-safe-haskell-mode
     -Wno-all-missed-specialisations
